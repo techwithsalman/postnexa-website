@@ -37,7 +37,11 @@
   }
 
   .sc-mega-solutions {
-    grid-template-columns: 200px 1fr 1fr 240px;
+    grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr) 240px;
+  }
+
+  .sc-mega-features {
+    grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr) 240px;
   }
 }
 

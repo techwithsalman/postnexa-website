@@ -280,6 +280,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  position: static;
 }
 
 .sc-logo-link {
@@ -298,6 +299,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   height: 100%;
+  position: static;
 }
 
 .sc-nav-list {
@@ -305,13 +307,14 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   height: 100%;
   gap: 6px;
+  position: static;
 }
 
 .sc-nav-item {
   height: 100%;
   display: flex;
   align-items: center;
-  position: relative;
+  position: static;
 }
 
 .sc-nav-head,
@@ -349,20 +352,22 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(180deg);
 }
 
-/* Mega Dropdown Menu Container */
+/* Mega Dropdown Menu Container (Full-Width Solid Panel) */
 .sc-mega-menu {
   position: absolute;
-  top: var(--header-height);
+  top: 100%;
   left: 0;
+  right: 0;
   width: 100%;
-  background-color: var(--color-bg-white);
+  background: #FFFFFF;
+  background-color: #FFFFFF;
   border-top: 1px solid var(--color-border-light);
   border-bottom: 2px solid var(--color-border);
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  transform: translateY(-6px);
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s ease;
   pointer-events: none;
   z-index: 1000;
 }
@@ -380,18 +385,19 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   padding: 36px 0;
   gap: 0;
+  width: 100%;
 }
 
 .sc-mega-solutions {
-  grid-template-columns: 240px 1fr 1fr 300px;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) minmax(0, 1fr) minmax(260px, 300px);
 }
 
 .sc-mega-features {
-  grid-template-columns: 240px 260px 1fr 280px;
+  grid-template-columns: minmax(220px, 250px) minmax(0, 1fr) minmax(0, 1fr) minmax(260px, 300px);
 }
 
 .sc-mega-resources {
-  grid-template-columns: 220px 1fr 1fr 1fr;
+  grid-template-columns: minmax(200px, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(240px, 1.2fr);
 }
 
 .sc-mega-col {
