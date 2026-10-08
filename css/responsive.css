@@ -42,22 +42,38 @@
 }
 
 /* --------------------------------------------------------------------------
+   Desktop Guarantee (>= 1025px): Completely hide mobile drawer & toggle
+   -------------------------------------------------------------------------- */
+@media (min-width: 1025px) {
+  .sc-mobile-menu,
+  .sc-mobile-drawer,
+  .sc-hamburger-btn,
+  .sc-mobile-toggle,
+  .sc-mobile-backdrop {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Tablets & Landscape Mobile (<= 1024px)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   :root {
-    --header-height: 76px;
+    --header-height: 72px;
   }
 
   /* Switch Desktop Nav to Mobile Hamburger */
   .sc-nav-desktop,
   .sc-header-actions .sc-login-link,
-  .sc-header-actions .sc-header-cta {
-    display: none;
+  .sc-header-actions .sc-header-cta,
+  .sc-header-actions .sc-btn-signin,
+  .sc-header-actions .sc-btn-primary {
+    display: none !important;
   }
 
-  .sc-hamburger-btn {
-    display: flex;
+  .sc-hamburger-btn,
+  .sc-mobile-toggle {
+    display: flex !important;
   }
 
   .sc-hero-title {

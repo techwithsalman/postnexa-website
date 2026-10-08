@@ -93,7 +93,7 @@
                     <div class="sc-mega-demo-card">
                       <div>
                         <h4>Developed by Tech With Salman</h4>
-                        <p>Designed as a modern Social Media OS for creators and digital teams.</p>
+                        <p>Designed as a modern social media management platform for creators and digital teams.</p>
                       </div>
                       <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-yellow sc-btn-pill" target="_blank" rel="noopener">Launch App ➔</a>
                     </div>
@@ -196,7 +196,7 @@
         </a>
 
         <!-- Mobile Hamburger Toggle Button -->
-        <button type="button" class="sc-hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <button type="button" class="sc-hamburger-btn" id="scMobileToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="scMobileDrawer">
           <span></span>
           <span></span>
           <span></span>
@@ -204,72 +204,84 @@
       </div>
 
     </div>
-
-    <!-- Mobile Slideout Navigation Menu -->
-    <div class="sc-mobile-menu" aria-label="Mobile Navigation">
-      <ul class="sc-mobile-nav-list">
-        
-        <li class="sc-mobile-item">
-          <a href="#" class="sc-mobile-link-head" aria-expanded="false">
-            <span>Solutions</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
-          <div class="sc-mobile-submenu">
-            <a href="solutions/index.html" class="sc-mobile-sublink">Solutions Overview</a>
-            <a href="solutions/creators/index.html" class="sc-mobile-sublink">For Content Creators</a>
-            <a href="solutions/small-businesses/index.html" class="sc-mobile-sublink">For Small Businesses</a>
-            <a href="solutions/agencies/index.html" class="sc-mobile-sublink">For Marketing Agencies</a>
-            <a href="solutions/social-media-managers/index.html" class="sc-mobile-sublink">For Social Media Managers</a>
-            <a href="solutions/teams/index.html" class="sc-mobile-sublink">For Growing Teams</a>
-          </div>
-        </li>
-
-        <li class="sc-mobile-item">
-          <a href="#" class="sc-mobile-link-head" aria-expanded="false">
-            <span>Features</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
-          <div class="sc-mobile-submenu">
-            <a href="features/index.html" class="sc-mobile-sublink">All Features</a>
-            <a href="features/social-media-scheduling/index.html" class="sc-mobile-sublink">Social Media Scheduling</a>
-            <a href="features/content-calendar/index.html" class="sc-mobile-sublink">Content Calendar</a>
-            <a href="features/social-publishing/index.html" class="sc-mobile-sublink">Social Publishing</a>
-            <a href="features/ai-caption-writer/index.html" class="sc-mobile-sublink">AI Caption Writer</a>
-            <a href="features/automation/index.html" class="sc-mobile-sublink">Automation Workflows</a>
-            <a href="features/analytics/index.html" class="sc-mobile-sublink">Analytics &amp; Reporting</a>
-          </div>
-        </li>
-
-        <li class="sc-mobile-item">
-          <a href="integrations/index.html" class="sc-mobile-link-head"><span>Integrations</span></a>
-        </li>
-        <li class="sc-mobile-item">
-          <a href="pricing/index.html" class="sc-mobile-link-head"><span>Pricing</span></a>
-        </li>
-        <li class="sc-mobile-item">
-          <a href="about/index.html" class="sc-mobile-link-head"><span>About PostNexa</span></a>
-        </li>
-        <li class="sc-mobile-item">
-          <a href="blog/index.html" class="sc-mobile-link-head"><span>Blog</span></a>
-        </li>
-        <li class="sc-mobile-item">
-          <a href="changelog/index.html" class="sc-mobile-link-head"><span>Changelog</span></a>
-        </li>
-        <li class="sc-mobile-item">
-          <a href="roadmap/index.html" class="sc-mobile-link-head"><span>Product Roadmap</span></a>
-        </li>
-        <li class="sc-mobile-item">
-          <a href="contact/index.html" class="sc-mobile-link-head"><span>Contact</span></a>
-        </li>
-
-      </ul>
-
-      <div class="sc-mobile-actions">
-        <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-secondary" style="width: 100%;" target="_blank" rel="noopener">Log In</a>
-        <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary" style="width: 100%;" target="_blank" rel="noopener">Get Started ➔</a>
-      </div>
-    </div>
   </header>
+
+  <!-- Mobile Slideout Navigation Menu -->
+  <div class="sc-mobile-drawer" id="scMobileDrawer" aria-label="Mobile Navigation">
+    <div class="sc-mobile-drawer-header">
+      <a href="index.html" class="sc-logo-link" aria-label="PostNexa Home">
+        <img src="assets/logos/postnexa-logo.svg" alt="PostNexa by Tech With Salman" class="sc-logo-img">
+      </a>
+      <button type="button" class="sc-mobile-close-btn" id="scMobileClose" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <ul class="sc-mobile-list">
+      
+      <li class="sc-mobile-item">
+        <button type="button" class="sc-mobile-link-head" aria-expanded="false">
+          <span>Solutions</span>
+          <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sc-mobile-submenu">
+          <a href="solutions/index.html" class="sc-mobile-sublink">Solutions Overview</a>
+          <a href="solutions/creators/index.html" class="sc-mobile-sublink">For Content Creators</a>
+          <a href="solutions/small-businesses/index.html" class="sc-mobile-sublink">For Small Businesses</a>
+          <a href="solutions/agencies/index.html" class="sc-mobile-sublink">For Marketing Agencies</a>
+          <a href="solutions/social-media-managers/index.html" class="sc-mobile-sublink">For Social Media Managers</a>
+          <a href="solutions/teams/index.html" class="sc-mobile-sublink">For Growing Teams</a>
+        </div>
+      </li>
+
+      <li class="sc-mobile-item">
+        <button type="button" class="sc-mobile-link-head" aria-expanded="false">
+          <span>Features</span>
+          <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sc-mobile-submenu">
+          <a href="features/index.html" class="sc-mobile-sublink">All Features</a>
+          <a href="features/social-media-scheduling/index.html" class="sc-mobile-sublink">Social Media Scheduling</a>
+          <a href="features/content-calendar/index.html" class="sc-mobile-sublink">Content Calendar</a>
+          <a href="features/social-publishing/index.html" class="sc-mobile-sublink">Social Publishing</a>
+          <a href="features/bulk-scheduling/index.html" class="sc-mobile-sublink">Bulk CSV Scheduling</a>
+          <a href="features/ai-caption-writer/index.html" class="sc-mobile-sublink">AI Caption Writer</a>
+          <a href="features/ai-content-generator/index.html" class="sc-mobile-sublink">AI Content Generator</a>
+          <a href="features/ai-image-generator/index.html" class="sc-mobile-sublink">AI Image Creator</a>
+          <a href="features/design-studio/index.html" class="sc-mobile-sublink">Design Studio</a>
+          <a href="features/analytics/index.html" class="sc-mobile-sublink">Analytics &amp; Reports</a>
+          <a href="features/social-inbox/index.html" class="sc-mobile-sublink">Social Inbox</a>
+          <a href="features/automation/index.html" class="sc-mobile-sublink">Automation Workflows</a>
+          <a href="features/team-collaboration/index.html" class="sc-mobile-sublink">Team Collaboration</a>
+        </div>
+      </li>
+
+      <li class="sc-mobile-item">
+        <a href="integrations/index.html" class="sc-mobile-direct-link">Integrations</a>
+      </li>
+      <li class="sc-mobile-item">
+        <a href="pricing/index.html" class="sc-mobile-direct-link">Pricing</a>
+      </li>
+      <li class="sc-mobile-item">
+        <a href="about/index.html" class="sc-mobile-direct-link">About PostNexa</a>
+      </li>
+      <li class="sc-mobile-item">
+        <a href="blog/index.html" class="sc-mobile-direct-link">Blog &amp; Guides</a>
+      </li>
+      <li class="sc-mobile-item">
+        <a href="changelog/index.html" class="sc-mobile-direct-link">Changelog</a>
+      </li>
+      <li class="sc-mobile-item">
+        <a href="roadmap/index.html" class="sc-mobile-direct-link">Product Roadmap</a>
+      </li>
+      <li class="sc-mobile-item">
+        <a href="contact/index.html" class="sc-mobile-direct-link">Contact Support</a>
+      </li>
+
+    </ul>
+
+    <div class="sc-mobile-actions">
+      <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-secondary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Log In</a>
+      <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
+    </div>
+  </div>
 
   <!-- Main Landmark -->
   <main id="mainContent">

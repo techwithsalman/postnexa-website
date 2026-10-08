@@ -1,13 +1,14 @@
 /**
  * PostNexa - Core Frontend JavaScript
- * Interactions, Mega Menus, Sliders, Accordions, Modal & Grid Canvas Effects
+ * Unified Navigation, Accessible Mega Menus, Mobile Drawer, Sliders, Accordions & Filter Studios
+ * Parent Brand: Tech With Salman
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   // -------------------------------------------------------------------------
-  // 1. Sticky Header Scroll Indicator
+  // 1. Sticky Header Scroll Indicator & Back To Top
   // -------------------------------------------------------------------------
   const header = document.querySelector('.sc-header');
   const backToTopBtn = document.querySelector('.sc-back-to-top');
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollY = window.scrollY || window.pageYOffset;
     
     if (header) {
-      if (scrollY > 30) {
+      if (scrollY > 20) {
         header.classList.add('sc-header-scrolled');
       } else {
         header.classList.remove('sc-header-scrolled');
@@ -42,9 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------------------
-  // 2. Desktop Mega Menus & Keyboard Navigation
+  // 2. Desktop Mega Menus & Keyboard Accessibility
   // -------------------------------------------------------------------------
   const navItems = document.querySelectorAll('.sc-nav-item');
+
+  function closeAllMegaMenus() {
+    navItems.forEach(item => {
+      item.classList.remove('is-open');
+      const headBtn = item.querySelector('.sc-nav-head');
+      if (headBtn && headBtn.hasAttribute('aria-expanded')) {
+        headBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
   navItems.forEach(item => {
     const headBtn = item.querySelector('.sc-nav-head');
@@ -52,92 +63,140 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!headBtn || !menu) return;
 
-    // Hover in / out
+    let hoverTimeout = null;
+
+    // Hover Enter
     item.addEventListener('mouseenter', () => {
-      closeAllMegaMenus();
+      clearTimeout(hoverTimeout);
+      navItems.forEach(other => {
+        if (other !== item) {
+          other.classList.remove('is-open');
+          const otherBtn = other.querySelector('.sc-nav-head');
+          if (otherBtn && otherBtn.hasAttribute('aria-expanded')) {
+            otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
       item.classList.add('is-open');
       headBtn.setAttribute('aria-expanded', 'true');
     });
 
+    // Hover Leave with slight debounce for natural cursor motion
     item.addEventListener('mouseleave', () => {
-      item.classList.remove('is-open');
-      headBtn.setAttribute('aria-expanded', 'false');
+      hoverTimeout = setTimeout(() => {
+        item.classList.remove('is-open');
+        headBtn.setAttribute('aria-expanded', 'false');
+      }, 120);
     });
 
-    // Click toggle (for touch/keyboard)
+    // Click toggle (for touch / keyboard)
     headBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = item.classList.contains('is-open');
+      const isCurrentlyOpen = item.classList.contains('is-open');
       closeAllMegaMenus();
-      if (!isOpen) {
+      if (!isCurrentlyOpen) {
         item.classList.add('is-open');
         headBtn.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
-  function closeAllMegaMenus() {
-    navItems.forEach(item => {
-      item.classList.remove('is-open');
-      const headBtn = item.querySelector('.sc-nav-head');
-      if (headBtn) headBtn.setAttribute('aria-expanded', 'false');
-    });
-  }
-
-  // Close menus when clicking outside
+  // Global Outside Click to Dismiss Mega Menus
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.sc-nav-item')) {
       closeAllMegaMenus();
     }
   });
 
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeAllMegaMenus();
-      closeModal();
+  // -------------------------------------------------------------------------
+  // 3. Consolidated Mobile Navigation Drawer & Backdrop
+  // -------------------------------------------------------------------------
+  const mobileToggles = document.querySelectorAll('.sc-hamburger-btn, .sc-mobile-toggle, #scMobileToggle');
+  const mobileDrawers = document.querySelectorAll('.sc-mobile-menu, .sc-mobile-drawer, #scMobileDrawer');
+  const mobileCloses = document.querySelectorAll('.sc-mobile-close-btn, .sc-mobile-close, #scMobileClose');
+  
+  // Ensure a mobile backdrop exists in the DOM
+  let backdrop = document.querySelector('.sc-mobile-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'sc-mobile-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
+  function openMobileDrawer() {
+    mobileDrawers.forEach(d => d.classList.add('is-open'));
+    mobileToggles.forEach(t => {
+      t.classList.add('is-active');
+      t.setAttribute('aria-expanded', 'true');
+    });
+    if (backdrop) backdrop.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileDrawer() {
+    mobileDrawers.forEach(d => d.classList.remove('is-open'));
+    mobileToggles.forEach(t => {
+      t.classList.remove('is-active');
+      t.setAttribute('aria-expanded', 'false');
+    });
+    if (backdrop) backdrop.classList.remove('is-active');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggles.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isAnyOpen = Array.from(mobileDrawers).some(d => d.classList.contains('is-open'));
+      if (isAnyOpen) {
+        closeMobileDrawer();
+      } else {
+        openMobileDrawer();
+      }
+    });
+  });
+
+  mobileCloses.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMobileDrawer();
+    });
+  });
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeMobileDrawer);
+  }
+
+  // Mobile Submenu Accordions
+  const mobileItems = document.querySelectorAll('.sc-mobile-item');
+  mobileItems.forEach(item => {
+    const trigger = item.querySelector('.sc-mobile-link-head');
+    const submenu = item.querySelector('.sc-mobile-submenu');
+
+    if (trigger && submenu) {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isExpanded = item.classList.toggle('is-expanded');
+        trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      });
     }
   });
 
-  // -------------------------------------------------------------------------
-  // 3. Mobile Navigation Drawer & Accordion Submenus
-  // -------------------------------------------------------------------------
-  const hamburgerBtn = document.querySelector('.sc-hamburger-btn');
-  const mobileMenu = document.querySelector('.sc-mobile-menu');
-  const mobileItems = document.querySelectorAll('.sc-mobile-item');
-
-  if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      const isActive = hamburgerBtn.classList.toggle('is-active');
-      mobileMenu.classList.toggle('is-open', isActive);
-      hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-      document.body.style.overflow = isActive ? 'hidden' : '';
+  // Close mobile nav when clicking any direct link inside drawer
+  const mobileNavLinks = document.querySelectorAll('.sc-mobile-menu a:not(.sc-mobile-link-head), .sc-mobile-drawer a:not(.sc-mobile-link-head)');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileDrawer();
     });
+  });
 
-    // Mobile submenu accordions
-    mobileItems.forEach(item => {
-      const trigger = item.querySelector('.sc-mobile-link-head');
-      const submenu = item.querySelector('.sc-mobile-submenu');
-
-      if (trigger && submenu) {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isExpanded = item.classList.toggle('is-expanded');
-          trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-        });
-      }
-    });
-
-    // Close mobile nav when clicking any regular link
-    const mobileLinks = mobileMenu.querySelectorAll('a:not(.sc-mobile-link-head)');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburgerBtn.classList.remove('is-active');
-        mobileMenu.classList.remove('is-open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
+  // Global Escape key handler for all overlays
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllMegaMenus();
+      closeMobileDrawer();
+      closeModal();
+    }
+  });
 
   // -------------------------------------------------------------------------
   // 4. Hero Section Interactive Grid Canvas
@@ -169,13 +228,13 @@ document.addEventListener('DOMContentLoaded', () => {
             cells[nIdx].classList.add('is-lit');
             setTimeout(() => {
               cells[nIdx].classList.remove('is-lit');
-            }, 600);
+            }, 500);
           }
         });
 
         setTimeout(() => {
           cell.classList.remove('is-lit');
-        }, 800);
+        }, 700);
       });
     });
   }
@@ -193,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const ny = ((e.clientY - rect.top) - rect.height / 2) / (rect.height / 2);
 
       floatingIcons.forEach((icon, idx) => {
-        const factor = (idx % 3 + 1) * 8;
+        const factor = (idx % 3 + 1) * 7;
         icon.style.transform = `translate(${nx * factor}px, ${ny * factor}px)`;
       });
     });
@@ -210,15 +269,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------------------
   const testimonials = [
     {
-      quote: "Social Champ helped us grow our reach by 30% while making content planning, publishing, and client collaboration effortless.",
+      quote: "PostNexa helped us grow our reach by 30% while making content planning, publishing, and client collaboration effortless.",
       highlight: "grow our reach by 30%",
       author: "Ashley Law-Smith",
       title: "CEO & Co-founder, The Startup Nerds",
       avatar: "assets/images/avatar-ashley.svg"
     },
     {
-      quote: "Social Champ is the cleanest and most efficient tool that I've found for multi-account publishing and client visibility.",
-      highlight: "cleanest and most efficient tool",
+      quote: "PostNexa is the cleanest and most efficient platform that I've found for multi-account publishing and cross-network visibility.",
+      highlight: "cleanest and most efficient platform",
       author: "Guy Kawasaki",
       title: "Author, Chief Evangelist, Speaker",
       avatar: "assets/images/avatar-guy.svg"
@@ -244,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!quoteEl || !authorNameEl) return;
     const t = testimonials[index];
     
-    // Smooth fade
     quoteEl.style.opacity = '0';
     quoteEl.style.transform = 'translateY(6px)';
     
@@ -271,7 +329,6 @@ document.addEventListener('DOMContentLoaded', () => {
       renderTestimonial(currentTestimonialIndex);
     });
 
-    // Auto-advance testimonial every 7 seconds
     setInterval(() => {
       currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
       renderTestimonial(currentTestimonialIndex);
@@ -313,7 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
 
-      // Close all other accordion items for clean single-view accordion
       faqItems.forEach(otherItem => {
         if (otherItem !== item) {
           otherItem.classList.remove('is-open');
@@ -335,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Keyboard support for accessibility
     trigger.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -427,39 +482,16 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Subscribed! ✓';
       btn.style.backgroundColor = '#10B981';
 
-  // -------------------------------------------------------------------------
-  // 12. Mobile Drawer Navigation Toggle & Dismissal
-  // -------------------------------------------------------------------------
-  const mobileToggleBtn = document.getElementById('scMobileToggle');
-  const mobileDrawer = document.getElementById('scMobileDrawer');
-  const mobileCloseBtn = document.getElementById('scMobileClose');
-
-  if (mobileToggleBtn && mobileDrawer) {
-    mobileToggleBtn.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.toggle('is-open');
-      mobileToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    if (mobileCloseBtn) {
-      mobileCloseBtn.addEventListener('click', () => {
-        mobileDrawer.classList.remove('is-open');
-        mobileToggleBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    }
-
-    mobileDrawer.addEventListener('click', (e) => {
-      if (e.target === mobileDrawer) {
-        mobileDrawer.classList.remove('is-open');
-        mobileToggleBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
+      setTimeout(() => {
+        btn.textContent = origText;
+        btn.style.backgroundColor = '';
+        input.value = '';
+      }, 1500);
     });
   }
 
   // -------------------------------------------------------------------------
-  // 13. Pricing Billing Switcher (Monthly / Annual)
+  // 12. Pricing Billing Switcher (Monthly / Annual)
   // -------------------------------------------------------------------------
   const monthlyBtn = document.getElementById('billingMonthly');
   const annualBtn = document.getElementById('billingAnnual');
@@ -484,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------------------
-  // 14. Interactive Category Filter Tabs
+  // 13. Interactive Category Filter Tabs
   // -------------------------------------------------------------------------
   const filterButtons = document.querySelectorAll('.sc-filter-tab-btn');
   const filterCards = document.querySelectorAll('[data-category]');
@@ -508,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------------------
-  // 15. Live Search Filter for Blog & Help Center
+  // 14. Live Search Filter for Blog & Help Center
   // -------------------------------------------------------------------------
   const searchInput = document.querySelector('.sc-blog-search-input');
   const searchableCards = document.querySelectorAll('.sc-blog-card, .sc-search-item');
@@ -527,6 +559,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  console.log('PostNexa (Social Champ Inspired) initialized successfully.');
+  console.log('PostNexa (Tech With Salman) initialized successfully.');
 });
-

@@ -70,7 +70,7 @@ function header_html(rel, active = "") {
                     <div class="sc-mega-demo-card">
                       <div>
                         <h4>Developed by Tech With Salman</h4>
-                        <p>Designed as a modern Social Media OS for creators and digital teams.</p>
+                        <p>Designed as a modern social media management platform for creators and digital teams.</p>
                       </div>
                       <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-yellow sc-btn-pill" target="_blank" rel="noopener">Launch App ➔</a>
                     </div>
@@ -139,123 +139,112 @@ function header_html(rel, active = "") {
 
           <!-- Direct Link: Integrations -->
           <li class="sc-nav-item">
-            <a href="${rel}integrations/index.html" class="sc-nav-link${active === 'integrations' ? ' is-active' : ''}">Integrations</a>
+            <a href="${rel}integrations/index.html" class="sc-nav-head${active === 'integrations' ? ' is-active' : ''}">Integrations</a>
           </li>
 
           <!-- Direct Link: Pricing -->
           <li class="sc-nav-item">
-            <a href="${rel}pricing/index.html" class="sc-nav-link${active === 'pricing' ? ' is-active' : ''}">Pricing</a>
+            <a href="${rel}pricing/index.html" class="sc-nav-head${active === 'pricing' ? ' is-active' : ''}">Pricing</a>
           </li>
 
-          <!-- Menu Item: Resources -->
+          <!-- Direct Link: About -->
           <li class="sc-nav-item">
-            <button type="button" class="sc-nav-head${active === 'resources' ? ' is-active' : ''}" aria-expanded="false" aria-haspopup="true">
-              Resources
-              <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div class="sc-mega-menu">
-              <div class="sc-container-wide">
-                <div class="sc-mega-grid" style="grid-template-columns: 1fr 1fr 1fr 1.2fr;">
-                  
-                  <div class="sc-mega-col">
-                    <h4 class="sc-mega-col-title">Learning &amp; Guides</h4>
-                    <ul class="sc-mega-list">
-                      <li><a href="${rel}blog/index.html" class="sc-mega-link"><img src="${rel}assets/icons/publish.svg" class="sc-mega-link-icon" alt="">Marketing Blog</a></li>
-                      <li><a href="${rel}blog/social-media-scheduling-guide/index.html" class="sc-mega-link"><img src="${rel}assets/icons/calendar.svg" class="sc-mega-link-icon" alt="">Scheduling Masterclass</a></li>
-                      <li><a href="${rel}help/index.html" class="sc-mega-link"><img src="${rel}assets/icons/support.svg" class="sc-mega-link-icon" alt="">Help &amp; Knowledge Base</a></li>
-                      <li><a href="${rel}faq/index.html" class="sc-mega-link"><img src="${rel}assets/icons/chatgpt.svg" class="sc-mega-link-icon" alt="">Frequently Asked Questions</a></li>
-                    </ul>
-                  </div>
+            <a href="${rel}about/index.html" class="sc-nav-head${active === 'about' ? ' is-active' : ''}">About</a>
+          </li>
 
-                  <div class="sc-mega-col">
-                    <h4 class="sc-mega-col-title">Product Pulse</h4>
-                    <ul class="sc-mega-list">
-                      <li><a href="${rel}changelog/index.html" class="sc-mega-link"><img src="${rel}assets/icons/publish.svg" class="sc-mega-link-icon" alt="">Release Changelog</a></li>
-                      <li><a href="${rel}roadmap/index.html" class="sc-mega-link"><img src="${rel}assets/icons/star.svg" class="sc-mega-link-icon" alt="">Public Roadmap</a></li>
-                      <li><a href="${rel}about/index.html" class="sc-mega-link"><img src="${rel}assets/icons/heart.svg" class="sc-mega-link-icon" alt="">About PostNexa</a></li>
-                      <li><a href="${rel}contact/index.html" class="sc-mega-link"><img src="${rel}assets/icons/support.svg" class="sc-mega-link-icon" alt="">Contact Support</a></li>
-                    </ul>
-                  </div>
+          <!-- Direct Link: Blog -->
+          <li class="sc-nav-item">
+            <a href="${rel}blog/index.html" class="sc-nav-head${active === 'blog' ? ' is-active' : ''}">Blog</a>
+          </li>
 
-                  <div class="sc-mega-col">
-                    <h4 class="sc-mega-col-title">Legal &amp; Trust</h4>
-                    <ul class="sc-mega-list">
-                      <li><a href="${rel}privacy-policy/index.html" class="sc-mega-link">Privacy Policy</a></li>
-                      <li><a href="${rel}terms/index.html" class="sc-mega-link">Terms of Service</a></li>
-                      <li><a href="${rel}cookie-policy/index.html" class="sc-mega-link">Cookie Policy</a></li>
-                      <li><a href="${rel}data-deletion/index.html" class="sc-mega-link">Data Deletion Instructions</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="sc-mega-col">
-                    <div class="sc-mega-demo-card">
-                      <div>
-                        <h4>Need Integration Help?</h4>
-                        <p>Learn how our OAuth flows and API integrations keep your credentials secure.</p>
-                      </div>
-                      <a href="${rel}contact/index.html" class="sc-btn sc-btn-primary sc-btn-pill">Get in Touch ➔</a>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
+          <!-- Direct Link: Contact -->
+          <li class="sc-nav-item">
+            <a href="${rel}contact/index.html" class="sc-nav-head${active === 'contact' ? ' is-active' : ''}">Contact</a>
           </li>
 
         </ul>
       </nav>
 
-      <!-- Header Action Buttons -->
+      <!-- Right Header Actions (Login + CTA) -->
       <div class="sc-header-actions">
-        <a href="https://app.techwithsalman.online/" class="sc-btn-signin" target="_blank" rel="noopener">Sign In</a>
-        <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">
-          Get Started
-          <svg class="arrow-right-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://app.techwithsalman.online/" class="sc-login-link" target="_blank" rel="noopener">Login</a>
+        <a href="https://app.techwithsalman.online/" class="sc-header-cta" target="_blank" rel="noopener">
+          <span>Get Started</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
-      </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button type="button" class="sc-mobile-toggle" id="scMobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span class="sc-hamburger-line"></span>
-        <span class="sc-hamburger-line"></span>
-        <span class="sc-hamburger-line"></span>
-      </button>
+        <!-- Mobile Hamburger Toggle Button -->
+        <button type="button" class="sc-hamburger-btn" id="scMobileToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="scMobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div class="sc-mobile-drawer" id="scMobileDrawer">
-    <div class="sc-mobile-drawer-inner">
-      <div class="sc-mobile-drawer-header">
-        <img src="${rel}assets/logos/postnexa-logo.svg" alt="PostNexa" class="sc-logo-img">
-        <button type="button" class="sc-mobile-close" id="scMobileClose" aria-label="Close menu">&times;</button>
-      </div>
-      <nav class="sc-mobile-nav">
-        <ul class="sc-mobile-list">
-          <li><a href="${rel}index.html" class="sc-mobile-link">Home</a></li>
-          <li><a href="${rel}features/index.html" class="sc-mobile-link">Features Directory</a></li>
-          <li><a href="${rel}solutions/index.html" class="sc-mobile-link">Solutions</a></li>
-          <li><a href="${rel}integrations/index.html" class="sc-mobile-link">Integrations</a></li>
-          <li><a href="${rel}pricing/index.html" class="sc-mobile-link">Pricing</a></li>
-          <li><a href="${rel}blog/index.html" class="sc-mobile-link">Blog &amp; Guides</a></li>
-          <li><a href="${rel}roadmap/index.html" class="sc-mobile-link">Roadmap</a></li>
-          <li><a href="${rel}changelog/index.html" class="sc-mobile-link">Changelog</a></li>
-          <li><a href="${rel}about/index.html" class="sc-mobile-link">About PostNexa</a></li>
-          <li><a href="${rel}contact/index.html" class="sc-mobile-link">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="sc-mobile-actions">
-        <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Open Application ➔</a>
-      </div>
+  <!-- Mobile Slideout Navigation Menu -->
+  <div class="sc-mobile-drawer" id="scMobileDrawer" aria-label="Mobile Navigation">
+    <div class="sc-mobile-drawer-header">
+      <a href="${rel}index.html" class="sc-logo-link" aria-label="PostNexa Home">
+        <img src="${rel}assets/logos/postnexa-logo.svg" alt="PostNexa by Tech With Salman" class="sc-logo-img">
+      </a>
+      <button type="button" class="sc-mobile-close-btn" id="scMobileClose" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <ul class="sc-mobile-list">
+      <li class="sc-mobile-item">
+        <button type="button" class="sc-mobile-link-head" aria-expanded="false">
+          <span>Solutions</span>
+          <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sc-mobile-submenu">
+          <a href="${rel}solutions/index.html" class="sc-mobile-sublink">Solutions Overview</a>
+          <a href="${rel}solutions/creators/index.html" class="sc-mobile-sublink">For Content Creators</a>
+          <a href="${rel}solutions/small-businesses/index.html" class="sc-mobile-sublink">For Small Businesses</a>
+          <a href="${rel}solutions/agencies/index.html" class="sc-mobile-sublink">For Marketing Agencies</a>
+          <a href="${rel}solutions/social-media-managers/index.html" class="sc-mobile-sublink">For Social Media Managers</a>
+          <a href="${rel}solutions/teams/index.html" class="sc-mobile-sublink">For Growing Teams</a>
+        </div>
+      </li>
+      <li class="sc-mobile-item">
+        <button type="button" class="sc-mobile-link-head" aria-expanded="false">
+          <span>Features</span>
+          <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sc-mobile-submenu">
+          <a href="${rel}features/index.html" class="sc-mobile-sublink">All Features Directory</a>
+          <a href="${rel}features/social-media-scheduling/index.html" class="sc-mobile-sublink">Post Scheduling</a>
+          <a href="${rel}features/content-calendar/index.html" class="sc-mobile-sublink">Content Calendar</a>
+          <a href="${rel}features/social-publishing/index.html" class="sc-mobile-sublink">Social Publishing</a>
+          <a href="${rel}features/bulk-scheduling/index.html" class="sc-mobile-sublink">Bulk CSV Scheduling</a>
+          <a href="${rel}features/ai-caption-writer/index.html" class="sc-mobile-sublink">AI Caption Writer</a>
+          <a href="${rel}features/ai-content-generator/index.html" class="sc-mobile-sublink">AI Content Generator</a>
+          <a href="${rel}features/ai-image-generator/index.html" class="sc-mobile-sublink">AI Image Creator</a>
+          <a href="${rel}features/design-studio/index.html" class="sc-mobile-sublink">Design Studio</a>
+          <a href="${rel}features/analytics/index.html" class="sc-mobile-sublink">Analytics &amp; Reports</a>
+          <a href="${rel}features/social-inbox/index.html" class="sc-mobile-sublink">Social Inbox</a>
+          <a href="${rel}features/automation/index.html" class="sc-mobile-sublink">Automation Workflows</a>
+          <a href="${rel}features/team-collaboration/index.html" class="sc-mobile-sublink">Team Collaboration</a>
+        </div>
+      </li>
+      <li class="sc-mobile-item"><a href="${rel}integrations/index.html" class="sc-mobile-direct-link">Integrations</a></li>
+      <li class="sc-mobile-item"><a href="${rel}pricing/index.html" class="sc-mobile-direct-link">Pricing</a></li>
+      <li class="sc-mobile-item"><a href="${rel}blog/index.html" class="sc-mobile-direct-link">Blog &amp; Guides</a></li>
+      <li class="sc-mobile-item"><a href="${rel}roadmap/index.html" class="sc-mobile-direct-link">Roadmap</a></li>
+      <li class="sc-mobile-item"><a href="${rel}changelog/index.html" class="sc-mobile-direct-link">Changelog</a></li>
+      <li class="sc-mobile-item"><a href="${rel}about/index.html" class="sc-mobile-direct-link">About PostNexa</a></li>
+      <li class="sc-mobile-item"><a href="${rel}contact/index.html" class="sc-mobile-direct-link">Contact Support</a></li>
+    </ul>
+    <div class="sc-mobile-actions">
+      <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-secondary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Log In</a>
+      <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
     </div>
   </div>
-`;
+  `;
 }
 
 function footer_html(rel) {
@@ -1846,8 +1835,8 @@ const about_html = `
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
         <div>
           <span class="sc-feat-row-eyebrow">Our Origin</span>
-          <h2 style="font-size: 32px; font-weight: 900; margin: 12px 0 20px 0;">From Internal Tool to Full-Scale SaaS</h2>
-          <p style="font-size: 16px; color: var(--color-text-body); line-height: 1.7; margin-bottom: 16px;">What began as internal automation scripts and an engineering project called <em>Social Media OS</em> by Tech With Salman has evolved into PostNexa — a comprehensive, customer-centric SaaS platform.</p>
+          <h2 style="font-size: 32px; font-weight: 900; margin: 12px 0 20px 0;">From Advanced Automation Architecture to Full-Scale SaaS</h2>
+          <p style="font-size: 16px; color: var(--color-text-body); line-height: 1.7; margin-bottom: 16px;">What began as an advanced social automation architecture engineered by Tech With Salman has evolved into PostNexa — a comprehensive, customer-centric AI-powered SaaS platform.</p>
           <p style="font-size: 16px; color: var(--color-text-body); line-height: 1.7;">Our mission is simple: eliminate repetitive manual posting, maintain strict adherence to official platform developer guidelines, and provide creators and agencies with an intuitive cockpit for multi-account management.</p>
         </div>
         <div style="background-color: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: var(--border-radius-xl); padding: 40px;">
@@ -2294,7 +2283,7 @@ const article_html = `
       
       <div class="sc-article-callout">
         <h4 style="font-weight: 800; margin-bottom: 6px; color: var(--color-primary);">Key Takeaway:</h4>
-        <p style="margin: 0; font-size: 14.5px;">Consolidating your workflow into a unified Social Media OS like PostNexa saves an average of 8+ hours per week per manager while drastically reducing accidental publishing errors.</p>
+        <p style="margin: 0; font-size: 14.5px;">Consolidating your workflow into a unified social media management platform like PostNexa saves an average of 8+ hours per week per manager while drastically reducing accidental publishing errors.</p>
       </div>
 
       <h2>2. Adhering to Official Developer APIs</h2>
@@ -2350,9 +2339,9 @@ const changelog_html = `
           <span class="sc-badge-status sc-badge-live">Version 1.4.0 — March 2026</span>
           <span style="font-size: 13px; color: var(--color-text-muted);">Current Release</span>
         </div>
-        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px;">Brand Rebrand to PostNexa &amp; AI Caption Integration</h3>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px;">Commercial Platform Launch &amp; AI Caption Integration</h3>
         <ul style="padding-left: 20px; font-size: 14.5px; color: var(--color-text-body); line-height: 1.7;">
-          <li>Rebranded platform identity from Social Media OS to PostNexa by Tech With Salman.</li>
+          <li>Official commercial release of PostNexa by Tech With Salman.</li>
           <li>Integrated Context-Aware AI Caption Generator (Beta) with tone tuning and hashtag clustering.</li>
           <li>Upgraded Next.js application core and enhanced database token refresh resilience.</li>
         </ul>
