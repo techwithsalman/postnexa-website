@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <defs>
+    <filter id="inbox-shadow" x="-10" y="0" width="620" height="520" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#inbox-shadow)">
+    <rect x="20" y="20" width="560" height="450" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+
+    <!-- Header bar -->
+    <rect x="20" y="20" width="560" height="55" rx="16" fill="#FFF9F5"/>
+    <text x="45" y="52" font-family="system-ui, sans-serif" font-size="16" font-weight="800" fill="#1F2937">Unified Engage Inbox</text>
+    
+    <!-- Collision prevention badge -->
+    <rect x="360" y="32" width="200" height="30" rx="15" fill="#DEF7EC" stroke="#31C48D"/>
+    <circle cx="376" cy="47" r="4" fill="#0E9F6E"/>
+    <text x="388" y="51" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#03543F">Collision Lock: 0 Double Replies</text>
+
+    <!-- Layout: Left Conversations List + Right Active Thread -->
+    <g transform="translate(45, 90)">
+      <!-- Left Message List -->
+      <rect width="200" height="360" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+      
+      <!-- List item 1 (Active) -->
+      <rect x="8" y="8" width="184" height="65" rx="6" fill="#FFF" stroke="#F16A21" stroke-width="1.2"/>
+      <circle cx="24" cy="26" r="10" fill="#1877F2"/>
+      <text x="40" y="24" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">Jessica Miller</text>
+      <text x="40" y="38" font-family="system-ui, sans-serif" font-size="8.5" fill="#6B7280">"How does pricing scale..."</text>
+      <rect x="40" y="46" width="60" height="14" rx="3" fill="#FEE2E2"/>
+      <text x="44" y="56" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#991B1B">Assigned to You</text>
+
+      <!-- List item 2 -->
+      <rect x="8" y="80" width="184" height="65" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+      <circle cx="24" cy="98" r="10" fill="#E1306C"/>
+      <text x="40" y="96" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">David Clark</text>
+      <text x="40" y="110" font-family="system-ui, sans-serif" font-size="8.5" fill="#6B7280">"Loving the new feature update!"</text>
+      <rect x="40" y="118" width="55" height="14" rx="3" fill="#DEF7EC"/>
+      <text x="44" y="128" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#03543F">Sentiment: +</text>
+
+      <!-- List item 3 -->
+      <rect x="8" y="152" width="184" height="65" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+      <circle cx="24" cy="170" r="10" fill="#000000"/>
+      <text x="40" y="168" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">@tech_insider</text>
+      <text x="40" y="182" font-family="system-ui, sans-serif" font-size="8.5" fill="#6B7280">"Can we do a podcast collab?"</text>
+      <rect x="40" y="190" width="50" height="14" rx="3" fill="#E0F2FE"/>
+      <text x="44" y="200" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#0369A1">Inquiry</text>
+
+      <!-- List item 4 -->
+      <rect x="8" y="224" width="184" height="65" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+      <circle cx="24" cy="242" r="10" fill="#25D366"/>
+      <text x="40" y="240" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">Global Retail Ltd</text>
+      <text x="40" y="254" font-family="system-ui, sans-serif" font-size="8.5" fill="#6B7280">"Order confirmation request"</text>
+
+      <!-- Right Active Chat Thread -->
+      <g transform="translate(210, 0)">
+        <rect width="295" height="360" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+        
+        <!-- User bubble -->
+        <rect x="14" y="18" width="220" height="50" rx="10" fill="#F3F4F6"/>
+        <text x="24" y="36" font-family="system-ui, sans-serif" font-size="9.5" fill="#1F2937">"Hi! We run a 15-person agency. Do you</text>
+        <text x="24" y="52" font-family="system-ui, sans-serif" font-size="9.5" fill="#1F2937">offer unlimited client workspaces?"</text>
+
+        <!-- AI Assistant Suggestion Box -->
+        <rect x="14" y="80" width="265" height="135" rx="10" fill="#FFF9F5" stroke="#F16A21" stroke-width="1.2"/>
+        <circle cx="30" cy="98" r="8" fill="#F16A21"/>
+        <text x="44" y="102" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#F16A21">Champ AI Smart Reply</text>
+        <text x="24" y="125" font-family="system-ui, sans-serif" font-size="9" fill="#374151">"Hello Jessica! Yes, our Agency Plan includes</text>
+        <text x="24" y="140" font-family="system-ui, sans-serif" font-size="9" fill="#374151">unlimited client workspaces, custom approval</text>
+        <text x="24" y="155" font-family="system-ui, sans-serif" font-size="9" fill="#374151">roles, and white-label reports."</text>
+
+        <rect x="24" y="172" width="115" height="26" rx="6" fill="#F16A21"/>
+        <text x="36" y="189" font-family="system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#FFF">Send This Reply ➔</text>
+
+        <rect x="148" y="172" width="80" height="26" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+        <text x="160" y="189" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#4B5563">Edit Text</text>
+
+        <!-- Typing area -->
+        <rect x="14" y="235" width="265" height="110" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+        <text x="24" y="260" font-family="system-ui, sans-serif" font-size="9.5" fill="#9CA3AF">Write custom reply or type '/' for templates...</text>
+        <rect x="200" y="305" width="70" height="26" rx="6" fill="#212121"/>
+        <text x="218" y="322" font-family="system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#FFF">Reply</text>
+      </g>
+    </g>
+  </g>
+</svg>

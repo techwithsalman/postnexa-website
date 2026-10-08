@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <defs>
+    <filter id="dist-shadow" x="-10" y="0" width="620" height="520" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#dist-shadow)">
+    <rect x="20" y="20" width="560" height="450" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+
+    <!-- Header bar -->
+    <rect x="20" y="20" width="560" height="55" rx="16" fill="#FFF9F5"/>
+    <text x="45" y="52" font-family="system-ui, sans-serif" font-size="16" font-weight="800" fill="#1F2937">Multi-Channel Post Composer</text>
+    <rect x="440" y="32" width="120" height="30" rx="6" fill="#F16A21"/>
+    <text x="460" y="51" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFF">Publish All (12)</text>
+
+    <!-- Platform Selector Strip -->
+    <g transform="translate(45, 90)">
+      <rect x="0" y="0" width="36" height="36" rx="8" fill="#1877F2"/>
+      <circle cx="18" cy="18" r="8" fill="#FFF" opacity="0.2"/>
+      <circle cx="30" cy="6" r="5" fill="#10B981"/>
+
+      <rect x="46" y="0" width="36" height="36" rx="8" fill="#E1306C"/>
+      <circle cx="76" cy="6" r="5" fill="#10B981"/>
+
+      <rect x="92" y="0" width="36" height="36" rx="8" fill="#0A66C2"/>
+      <circle cx="122" cy="6" r="5" fill="#10B981"/>
+
+      <rect x="138" y="0" width="36" height="36" rx="8" fill="#000000"/>
+      <circle cx="168" cy="6" r="5" fill="#10B981"/>
+
+      <rect x="184" y="0" width="36" height="36" rx="8" fill="#E60023"/>
+      <circle cx="214" cy="6" r="5" fill="#10B981"/>
+
+      <rect x="230" y="0" width="36" height="36" rx="8" fill="#25D366"/>
+      <circle cx="260" cy="6" r="5" fill="#10B981"/>
+
+      <rect x="276" y="0" width="36" height="36" rx="8" fill="#0285FF"/>
+      <circle cx="306" cy="6" r="5" fill="#10B981"/>
+
+      <text x="330" y="24" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#F16A21">+ 5 more connected</text>
+    </g>
+
+    <!-- Main Composer Body: Left Input + Right Live Previews -->
+    <g transform="translate(45, 140)">
+      <!-- Left Input Area -->
+      <rect width="240" height="290" rx="10" fill="#F9FAFB" stroke="#E5E7EB"/>
+      <text x="14" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#374151">Master Content:</text>
+      <text x="14" y="52" font-family="system-ui, sans-serif" font-size="10.5" fill="#1F2937">Excited to announce our new</text>
+      <text x="14" y="70" font-family="system-ui, sans-serif" font-size="10.5" fill="#1F2937">spring product updates! 🚀</text>
+      <text x="14" y="90" font-family="system-ui, sans-serif" font-size="9.5" fill="#F16A21">#Growth #SocialMedia #Agency</text>
+
+      <!-- Media Attachment box -->
+      <rect x="14" y="110" width="212" height="100" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+      <rect x="24" y="120" width="80" height="80" rx="4" fill="#FCEFE6"/>
+      <circle cx="64" cy="160" r="14" fill="#F16A21"/>
+      <text x="115" y="145" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">hero_banner.png</text>
+      <text x="115" y="162" font-family="system-ui, sans-serif" font-size="9" fill="#6B7280">1920x1080 • 1.4 MB</text>
+      <rect x="115" y="172" width="75" height="18" rx="4" fill="#FAE048"/>
+      <text x="122" y="184" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#212121">✨ AI Resize</text>
+
+      <!-- Custom time zone pill -->
+      <rect x="14" y="225" width="212" height="26" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+      <text x="24" y="242" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#4B5563">🕒 Custom Client Time Zone: EST</text>
+      <rect x="14" y="256" width="212" height="24" rx="6" fill="#DEF7EC"/>
+      <text x="28" y="272" font-family="system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#03543F">Evergreen Queue: Active (Weekly)</text>
+
+      <!-- Right Tailored Previews -->
+      <g transform="translate(255, 0)">
+        <!-- Preview 1: Instagram Card -->
+        <rect width="245" height="135" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+        <rect x="10" y="10" width="16" height="16" rx="4" fill="#E1306C"/>
+        <text x="32" y="22" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">Instagram Feed Preview</text>
+        <rect x="10" y="32" width="65" height="65" rx="4" fill="#FCEFE6"/>
+        <text x="85" y="46" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#374151">Auto First Comment:</text>
+        <rect x="85" y="54" width="150" height="36" rx="4" fill="#F3F4F6"/>
+        <text x="90" y="70" font-family="system-ui, sans-serif" font-size="8" fill="#6B7280">#agency #socials #saas</text>
+        <rect x="10" y="105" width="110" height="20" rx="4" fill="#FFF4EE"/>
+        <text x="16" y="118" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#F16A21">Carousel Optimized ✓</text>
+
+        <!-- Preview 2: LinkedIn & X Card -->
+        <g transform="translate(0, 145)">
+          <rect width="245" height="145" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+          <rect x="10" y="10" width="16" height="16" rx="3" fill="#0A66C2"/>
+          <text x="32" y="22" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">LinkedIn Article Preview</text>
+          <text x="10" y="44" font-family="system-ui, sans-serif" font-size="9" fill="#4B5563">Excited to announce our new updates...</text>
+          <rect x="10" y="55" width="225" height="50" rx="4" fill="#EFF6FF" stroke="#BFDBFE"/>
+          <text x="20" y="76" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#1E40AF">Read Full Press Release</text>
+          <text x="20" y="92" font-family="system-ui, sans-serif" font-size="8" fill="#60A5FA">company.com/news/q4-launch</text>
+          <rect x="10" y="115" width="90" height="20" rx="4" fill="#DEF7EC"/>
+          <text x="16" y="128" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#03543F">UTM Tracking Added</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

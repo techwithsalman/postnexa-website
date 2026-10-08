@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 42" fill="none">
+  <rect width="150" height="42" rx="8" fill="#000000"/>
+  <circle cx="22" cy="21" r="11" fill="#FFF"/>
+  <circle cx="22" cy="21" r="5" fill="#4285F4"/>
+  <path d="M22 10a11 11 0 0 1 9.5 5.5h-9.5z" fill="#EA4335"/>
+  <path d="M31.5 15.5A11 11 0 0 1 22 32l4.8-8.2z" fill="#FBBC05"/>
+  <path d="M22 32A11 11 0 0 1 12.5 15.5l9.5 5.5z" fill="#34A853"/>
+  <text x="38" y="15" font-family="system-ui, sans-serif" font-size="7.5" font-weight="500" fill="#FFF">Available in the</text>
+  <text x="38" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFF">Chrome Web Store</text>
+</svg>

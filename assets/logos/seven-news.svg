@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 40" fill="none">
+  <rect x="4" y="7" width="26" height="26" rx="5" fill="#D81920"/>
+  <text x="12" y="27" font-family="system-ui, sans-serif" font-size="19" font-weight="900" fill="#FFF">7</text>
+  <text x="36" y="25" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#212121">NEWS</text>
+</svg>

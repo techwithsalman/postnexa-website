@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" fill="none">
+  <circle cx="16" cy="20" r="11" fill="#004D9C"/>
+  <path d="M11 20l5-7 5 7-5 7-5-7z" fill="#FFF"/>
+  <text x="34" y="25" font-family="system-ui, sans-serif" font-size="15" font-weight="800" fill="#004D9C" letter-spacing="0.5">ADB</text>
+</svg>

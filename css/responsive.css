@@ -1,0 +1,341 @@
+/* ==========================================================================
+   POSTNEXA (SOCIAL CHAMP INSPIRED) - RESPONSIVE STYLESHEET
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Large Desktops & Ultra-wide Screens (>= 1440px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .sc-hero-title {
+    font-size: 64px;
+  }
+  
+  .sc-section-title {
+    font-size: 42px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Laptops & Medium Desktops (<= 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .sc-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sc-spotlight-slider-card {
+    grid-column: span 2;
+  }
+
+  .sc-integrations-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .sc-footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 24px;
+  }
+
+  .sc-mega-solutions {
+    grid-template-columns: 200px 1fr 1fr 240px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablets & Landscape Mobile (<= 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 76px;
+  }
+
+  /* Switch Desktop Nav to Mobile Hamburger */
+  .sc-nav-desktop,
+  .sc-header-actions .sc-login-link,
+  .sc-header-actions .sc-header-cta {
+    display: none;
+  }
+
+  .sc-hamburger-btn {
+    display: flex;
+  }
+
+  .sc-hero-title {
+    font-size: 44px;
+  }
+
+  .sc-hero-subtitle {
+    font-size: 18px;
+  }
+
+  .sc-section-title {
+    font-size: 32px;
+  }
+
+  .sc-deepdive-item {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .sc-deepdive-item.is-reversed {
+    direction: ltr;
+  }
+
+  .sc-deepdive-content {
+    max-width: 100%;
+  }
+
+  .sc-bento-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sc-bento-card-large {
+    grid-column: span 2;
+  }
+
+  .sc-bento-card-full {
+    grid-column: span 2;
+  }
+
+  .sc-bento-platforms-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .sc-audience-pane.is-active {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .sc-midcta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 44px 32px;
+  }
+
+  .sc-midcta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sc-midcta-buttons .sc-btn {
+    width: 100%;
+  }
+
+  .sc-whylove-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-newsletter-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 36px 24px;
+  }
+
+  .sc-newsletter-form {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .sc-newsletter-input, .sc-newsletter-form .sc-btn {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Small Tablets & Mobile Devices (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .sc-section-padding {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .sc-hero-section {
+    padding-top: 50px;
+    padding-bottom: 64px;
+  }
+
+  .sc-hero-title {
+    font-size: 34px;
+    letter-spacing: -0.5px;
+  }
+
+  .sc-hero-subtitle {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .sc-hero-form {
+    flex-direction: column;
+    border-radius: var(--border-radius-lg);
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .sc-hero-input {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sc-hero-submit {
+    width: 100%;
+    justify-content: center;
+    border-radius: var(--border-radius-md);
+  }
+
+  .sc-showcase-play-badge {
+    bottom: 16px;
+    padding: 10px 18px;
+    font-size: 13.5px;
+  }
+
+  .sc-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-spotlight-slider-card {
+    grid-column: span 1;
+    padding: 24px;
+  }
+
+  .sc-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-bento-card-large,
+  .sc-bento-card-full {
+    grid-column: span 1;
+  }
+
+  .sc-bento-platforms-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sc-integrations-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .sc-partners-badge-strip {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sc-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+  }
+
+  .sc-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sc-footer-legal-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .sc-appbadges-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .sc-store-badges-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sc-audience-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sc-audience-tab-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sc-audience-card-box {
+    padding: 24px;
+  }
+
+  .sc-faq-trigger {
+    padding: 18px 20px;
+    font-size: 15.5px;
+  }
+
+  .sc-faq-content {
+    padding: 0 20px;
+  }
+
+  .sc-faq-item.is-open .sc-faq-content {
+    padding: 0 20px 20px 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Small Mobile Viewports (<= 430px - 320px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 430px) {
+  .sc-hero-title {
+    font-size: 28px;
+  }
+
+  .sc-section-title {
+    font-size: 26px;
+  }
+
+  .sc-stat-number {
+    font-size: 34px;
+  }
+
+  .sc-deepdive-title {
+    font-size: 26px;
+  }
+
+  .sc-bento-platforms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sc-integrations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sc-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-cookie-notice {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+  }
+
+  .sc-floating-icons-container {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .sc-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

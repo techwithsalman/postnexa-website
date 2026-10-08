@@ -1,0 +1,20 @@
+# Node / Dev
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Operating System & Editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment & Secrets (Never commit secrets)
+.env
+.env.*
+*.pem
+*.key
+
+# Local Backups & Scratch Files
+_backup_v1/
+*.log

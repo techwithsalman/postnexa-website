@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <defs>
+    <filter id="rep-shadow" x="-10" y="0" width="620" height="520" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#rep-shadow)">
+    <rect x="20" y="20" width="560" height="450" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+
+    <!-- Header bar -->
+    <rect x="20" y="20" width="560" height="55" rx="16" fill="#FFF9F5"/>
+    <text x="45" y="52" font-family="system-ui, sans-serif" font-size="16" font-weight="800" fill="#1F2937">Social Listening &amp; Sentiment Radar</text>
+
+    <!-- Sentiment Meter Header Badge -->
+    <rect x="380" y="32" width="180" height="30" rx="15" fill="#DEF7EC" stroke="#31C48D"/>
+    <text x="398" y="51" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#03543F">🟢 94% Positive Sentiment</text>
+
+    <!-- Main Listening Grid -->
+    <g transform="translate(45, 90)">
+      <!-- Left Tracked Keywords -->
+      <rect width="210" height="360" rx="10" fill="#F9FAFB" stroke="#E5E7EB"/>
+      <text x="14" y="26" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#374151">TRACKED TOPICS &amp; ALERTS</text>
+
+      <!-- Topic 1 -->
+      <g transform="translate(10, 38)">
+        <rect width="190" height="65" rx="6" fill="#FFF" stroke="#F16A21" stroke-width="1.2"/>
+        <text x="12" y="20" font-family="system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#111827">#PostNexa / Brand Mentions</text>
+        <text x="12" y="36" font-family="system-ui, sans-serif" font-size="9" fill="#6B7280">14.2k mentions this week</text>
+        <rect x="12" y="44" width="70" height="14" rx="3" fill="#DEF7EC"/>
+        <text x="16" y="54" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#03543F">Trending 🔥</text>
+      </g>
+
+      <!-- Topic 2 -->
+      <g transform="translate(10, 112)">
+        <rect width="190" height="65" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+        <text x="12" y="20" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#111827">"Competitor Alternatives"</text>
+        <text x="12" y="36" font-family="system-ui, sans-serif" font-size="9" fill="#6B7280">6.8k discussions discovered</text>
+        <rect x="12" y="44" width="85" height="14" rx="3" fill="#E0F2FE"/>
+        <text x="16" y="54" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#0369A1">Lead Opportunity</text>
+      </g>
+
+      <!-- Topic 3 -->
+      <g transform="translate(10, 186)">
+        <rect width="190" height="65" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+        <text x="12" y="20" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#111827">Industry Crisis Radar</text>
+        <text x="12" y="36" font-family="system-ui, sans-serif" font-size="9" fill="#6B7280">0 negative spikes detected</text>
+        <rect x="12" y="44" width="75" height="14" rx="3" fill="#DEF7EC"/>
+        <text x="16" y="54" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#03543F">All Clear ✓</text>
+      </g>
+
+      <!-- Right Live Feed Stream -->
+      <g transform="translate(225, 0)">
+        <rect width="280" height="360" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+        
+        <!-- Mention Card 1 -->
+        <rect x="12" y="14" width="256" height="95" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+        <circle cx="28" cy="30" r="10" fill="#1877F2"/>
+        <text x="44" y="28" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">MarketingPro_HQ</text>
+        <text x="44" y="40" font-family="system-ui, sans-serif" font-size="8.5" fill="#6B7280">20 mins ago via X</text>
+        <text x="14" y="60" font-family="system-ui, sans-serif" font-size="9.5" fill="#374151">"Switched our 40 client accounts over</text>
+        <text x="14" y="74" font-family="system-ui, sans-serif" font-size="9.5" fill="#374151">and saved 15+ hours weekly. Game changer!"</text>
+        <rect x="14" y="82" width="60" height="18" rx="4" fill="#DEF7EC"/>
+        <text x="18" y="94" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#03543F">Sentiment: +100</text>
+
+        <!-- Mention Card 2 -->
+        <g transform="translate(0, 110)">
+          <rect x="12" y="14" width="256" height="110" rx="8" fill="#FFF9F5" stroke="#FBD5B5"/>
+          <circle cx="28" cy="30" r="10" fill="#E1306C"/>
+          <text x="44" y="28" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#111827">GrowthAgencyUK</text>
+          <text x="44" y="40" font-family="system-ui, sans-serif" font-size="8.5" fill="#6B7280">1 hour ago via Instagram</text>
+          <text x="14" y="60" font-family="system-ui, sans-serif" font-size="9.5" fill="#374151">"Looking for a tool with white-label PDF</text>
+          <text x="14" y="74" font-family="system-ui, sans-serif" font-size="9.5" fill="#374151">reports for client meetings. Any suggestions?"</text>
+          <rect x="14" y="86" width="130" height="24" rx="6" fill="#F16A21"/>
+          <text x="24" y="102" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#FFF">⚡ Fast Auto-Engage</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
