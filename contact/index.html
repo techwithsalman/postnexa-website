@@ -334,25 +334,30 @@
           </div>
         </div>
 
-        <!-- Contact Form -->
+        <!-- Contact Form (Netlify Forms Enabled) -->
         <div class="sc-contact-card">
           <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Send a Direct Inquiry</h3>
           <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: 24px;">Fill out the form below and we will get back to you within 24–48 hours.</p>
           
-          <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your inquiry has been submitted to the PostNexa support team.'); this.reset();">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm" action="../contact/?submitted=true">
+            <input type="hidden" name="form-name" value="contact">
+            <p style="display: none;">
+              <label>Don't fill this out if you're human: <input name="bot-field"></label>
+            </p>
+
             <div class="sc-form-group">
               <label class="sc-form-label" for="contactName">Full Name *</label>
-              <input type="text" id="contactName" class="sc-form-input" placeholder="e.g. Alex Morgan" required>
+              <input type="text" id="contactName" name="name" class="sc-form-input" placeholder="e.g. Alex Morgan" required>
             </div>
 
             <div class="sc-form-group">
               <label class="sc-form-label" for="contactEmail">Work Email Address *</label>
-              <input type="email" id="contactEmail" class="sc-form-input" placeholder="alex@company.com" required>
+              <input type="email" id="contactEmail" name="email" class="sc-form-input" placeholder="alex@company.com" required>
             </div>
 
             <div class="sc-form-group">
               <label class="sc-form-label" for="contactTopic">Inquiry Topic</label>
-              <select id="contactTopic" class="sc-form-select">
+              <select id="contactTopic" name="topic" class="sc-form-select">
                 <option value="general">General Platform Inquiry</option>
                 <option value="integration">OAuth &amp; API Integration Question</option>
                 <option value="agency">Agency / Enterprise Plan</option>
@@ -362,10 +367,12 @@
 
             <div class="sc-form-group">
               <label class="sc-form-label" for="contactMessage">Message *</label>
-              <textarea id="contactMessage" class="sc-form-textarea" placeholder="Tell us about your requirements or question..." required></textarea>
+              <textarea id="contactMessage" name="message" class="sc-form-textarea" placeholder="Tell us about your requirements or question..." required></textarea>
             </div>
 
-            <button type="submit" class="sc-btn sc-btn-primary" style="width: 100%; justify-content: center;">Send Inquiry ➔</button>
+            <button type="submit" class="sc-btn sc-btn-primary" id="contactSubmitBtn" style="width: 100%; justify-content: center;">Send Inquiry ➔</button>
+
+            <div id="contactFormStatus" style="display: none; margin-top: 16px; padding: 12px 16px; border-radius: 8px; font-size: 14px; text-align: center;"></div>
           </form>
         </div>
 

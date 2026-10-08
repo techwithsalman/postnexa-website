@@ -490,6 +490,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Contact Form Netlify AJAX Submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const statusDiv = document.getElementById('contactFormStatus');
+      const submitBtn = document.getElementById('contactSubmitBtn') || contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Send Inquiry ➔';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending Inquiry...';
+      }
+
+      const formData = new FormData(contactForm);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then((response) => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+        if (statusDiv) {
+          statusDiv.style.display = 'block';
+          statusDiv.style.backgroundColor = '#ecfdf5';
+          statusDiv.style.color = '#065f46';
+          statusDiv.style.border = '1px solid #a7f3d0';
+          statusDiv.innerHTML = '<strong>Inquiry Sent!</strong> Thank you for reaching out. The PostNexa support team will get back to you within 24–48 hours.';
+        }
+        contactForm.reset();
+      })
+      .catch((err) => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+        if (statusDiv) {
+          statusDiv.style.display = 'block';
+          statusDiv.style.backgroundColor = '#fef2f2';
+          statusDiv.style.color = '#991b1b';
+          statusDiv.style.border = '1px solid #fecaca';
+          statusDiv.innerHTML = '<strong>Submission Notice:</strong> Unable to process automatically right now. Please email our team directly at <strong>support@techwithsalman.online</strong>.';
+        }
+      });
+    });
+  }
+
   // -------------------------------------------------------------------------
   // 12. Pricing Billing Switcher (Monthly / Annual)
   // -------------------------------------------------------------------------

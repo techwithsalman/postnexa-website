@@ -978,7 +978,7 @@ features_data.forEach(feat => {
           <div class="sc-hero-trust-list">
             <span class="sc-hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 100% Official APIs</span>
             <span class="sc-hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero Shadow-Ban Risk</span>
-            <span class="sc-hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 14-Day Free Trial</span>
+            <span class="sc-hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Free Starter Available</span>
           </div>
         </div>
 
@@ -1252,7 +1252,7 @@ const solutions_data = [
       eyebrow: "Cost Efficiency",
       title: "Enterprise Social Power at a Small Business Price",
       desc: "Get the scheduling and multi-account capabilities of high-end social suites without paying hundreds of dollars a month.",
-      bullets: ["Generous free tier to start", "Transparent low monthly pricing", "No credit card required for 14-day trial"],
+      bullets: ["Generous free tier to start", "Transparent low monthly pricing", "Fast onboarding with zero credit card needed"],
       visual: "dashboard-hero.svg"
     }
   },
@@ -1538,7 +1538,7 @@ const integrations_data = [
   { name: "Canva Integration", category: "design", icon: "canva.svg", status: "dev", status_txt: "In Development", desc: "Import graphics and templates directly from your Canva account without manual downloads." },
   { name: "Cloud Storage (Google Drive / Dropbox)", category: "cloud", icon: "google-drive.svg", status: "dev", status_txt: "In Development", desc: "Import bulk video and photo assets directly from connected cloud storage drives." },
   { name: "Bitly Link Shortening", category: "automation", icon: "bitly.svg", status: "soon", status_txt: "Planned", desc: "Automatically shorten and track click performance for all outbound links." },
-  { name: "Zapier & Webhooks", category: "automation", icon: "automation", icon: "zapier.svg", status: "soon", status_txt: "Planned", desc: "Trigger scheduled posts automatically from 5,000+ business applications." }
+  { name: "Zapier & Webhooks", category: "automation", icon: "zapier.svg", status: "soon", status_txt: "Planned", desc: "Trigger scheduled posts automatically from 5,000+ business applications." }
 ];
 
 const integrations_cards = integrations_data.map(item => `
@@ -1625,10 +1625,10 @@ const pricing_html = `
       
       <div class="sc-pricing-header">
         <div style="margin-bottom: 14px;">
-          <span class="sc-badge-status sc-badge-live">14-Day Free Trial • No Credit Card Required</span>
+          <span class="sc-badge-status sc-badge-live">Preview Pricing • Subject to Owner Finalization</span>
         </div>
         <h1 class="sc-inner-hero-title">Simple, Transparent Pricing for Every Growth Stage</h1>
-        <p class="sc-inner-hero-desc">Choose the plan that fits your publishing volume. Start with our generous free tier and upgrade as your social channels expand.</p>
+        <p class="sc-inner-hero-desc">Explore our planned pricing tiers and feature allocations. All plan tiers represent preview models subject to final commercial confirmation.</p>
         
         <div class="sc-pricing-toggle-wrap">
           <button type="button" class="sc-pricing-toggle-btn is-active" id="billingMonthly">Monthly Billing</button>
@@ -1678,7 +1678,7 @@ const pricing_html = `
               <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Bulk CSV Uploader</div>
             </div>
           </div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Start 14-Day Trial</a>
+          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
         </div>
 
         <!-- Creator / Pro Tier (Popular) -->
@@ -1699,7 +1699,7 @@ const pricing_html = `
               <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Support</div>
             </div>
           </div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Start Free Trial ➔</a>
+          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
         </div>
 
         <!-- Agency Tier -->
@@ -1721,6 +1721,10 @@ const pricing_html = `
           <a href="../contact/index.html" class="sc-btn sc-btn-outline" style="width: 100%; justify-content: center;">Contact Sales</a>
         </div>
 
+      </div>
+
+      <div class="sc-legal-notice-box" style="margin-top: 40px; text-align: center;">
+        <p style="margin: 0; color: var(--color-text-muted); font-size: 13.5px;"><strong>Preview Pricing Disclaimer:</strong> Displayed pricing tiers and plan quotas represent proposed launch configurations. Final pricing and commercial payment gateways will be confirmed upon formal general availability by Tech With Salman.</p>
       </div>
 
       <!-- Comparison Matrix -->
@@ -1943,25 +1947,30 @@ const contact_html = `
           </div>
         </div>
 
-        <!-- Contact Form -->
+        <!-- Contact Form (Netlify Forms Enabled) -->
         <div class="sc-contact-card">
           <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Send a Direct Inquiry</h3>
           <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: 24px;">Fill out the form below and we will get back to you within 24–48 hours.</p>
           
-          <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your inquiry has been submitted to the PostNexa support team.'); this.reset();">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm" action="../contact/?submitted=true">
+            <input type="hidden" name="form-name" value="contact">
+            <p style="display: none;">
+              <label>Don't fill this out if you're human: <input name="bot-field"></label>
+            </p>
+
             <div class="sc-form-group">
               <label class="sc-form-label" for="contactName">Full Name *</label>
-              <input type="text" id="contactName" class="sc-form-input" placeholder="e.g. Alex Morgan" required>
+              <input type="text" id="contactName" name="name" class="sc-form-input" placeholder="e.g. Alex Morgan" required>
             </div>
 
             <div class="sc-form-group">
               <label class="sc-form-label" for="contactEmail">Work Email Address *</label>
-              <input type="email" id="contactEmail" class="sc-form-input" placeholder="alex@company.com" required>
+              <input type="email" id="contactEmail" name="email" class="sc-form-input" placeholder="alex@company.com" required>
             </div>
 
             <div class="sc-form-group">
               <label class="sc-form-label" for="contactTopic">Inquiry Topic</label>
-              <select id="contactTopic" class="sc-form-select">
+              <select id="contactTopic" name="topic" class="sc-form-select">
                 <option value="general">General Platform Inquiry</option>
                 <option value="integration">OAuth &amp; API Integration Question</option>
                 <option value="agency">Agency / Enterprise Plan</option>
@@ -1971,10 +1980,12 @@ const contact_html = `
 
             <div class="sc-form-group">
               <label class="sc-form-label" for="contactMessage">Message *</label>
-              <textarea id="contactMessage" class="sc-form-textarea" placeholder="Tell us about your requirements or question..." required></textarea>
+              <textarea id="contactMessage" name="message" class="sc-form-textarea" placeholder="Tell us about your requirements or question..." required></textarea>
             </div>
 
-            <button type="submit" class="sc-btn sc-btn-primary" style="width: 100%; justify-content: center;">Send Inquiry ➔</button>
+            <button type="submit" class="sc-btn sc-btn-primary" id="contactSubmitBtn" style="width: 100%; justify-content: center;">Send Inquiry ➔</button>
+
+            <div id="contactFormStatus" style="display: none; margin-top: 16px; padding: 12px 16px; border-radius: 8px; font-size: 14px; text-align: center;"></div>
           </form>
         </div>
 
