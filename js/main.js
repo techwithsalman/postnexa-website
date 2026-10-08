@@ -427,13 +427,106 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Subscribed! ✓';
       btn.style.backgroundColor = '#10B981';
 
-      setTimeout(() => {
-        btn.textContent = origText;
-        btn.style.backgroundColor = '';
-        input.value = '';
-      }, 2500);
+  // -------------------------------------------------------------------------
+  // 12. Mobile Drawer Navigation Toggle & Dismissal
+  // -------------------------------------------------------------------------
+  const mobileToggleBtn = document.getElementById('scMobileToggle');
+  const mobileDrawer = document.getElementById('scMobileDrawer');
+  const mobileCloseBtn = document.getElementById('scMobileClose');
+
+  if (mobileToggleBtn && mobileDrawer) {
+    mobileToggleBtn.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.toggle('is-open');
+      mobileToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    if (mobileCloseBtn) {
+      mobileCloseBtn.addEventListener('click', () => {
+        mobileDrawer.classList.remove('is-open');
+        mobileToggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    }
+
+    mobileDrawer.addEventListener('click', (e) => {
+      if (e.target === mobileDrawer) {
+        mobileDrawer.classList.remove('is-open');
+        mobileToggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // 13. Pricing Billing Switcher (Monthly / Annual)
+  // -------------------------------------------------------------------------
+  const monthlyBtn = document.getElementById('billingMonthly');
+  const annualBtn = document.getElementById('billingAnnual');
+  const priceElements = document.querySelectorAll('.sc-plan-price[data-monthly]');
+
+  if (monthlyBtn && annualBtn) {
+    monthlyBtn.addEventListener('click', () => {
+      monthlyBtn.classList.add('is-active');
+      annualBtn.classList.remove('is-active');
+      priceElements.forEach(el => {
+        el.textContent = el.getAttribute('data-monthly');
+      });
+    });
+
+    annualBtn.addEventListener('click', () => {
+      annualBtn.classList.add('is-active');
+      monthlyBtn.classList.remove('is-active');
+      priceElements.forEach(el => {
+        el.textContent = el.getAttribute('data-annual');
+      });
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // 14. Interactive Category Filter Tabs
+  // -------------------------------------------------------------------------
+  const filterButtons = document.querySelectorAll('.sc-filter-tab-btn');
+  const filterCards = document.querySelectorAll('[data-category]');
+
+  if (filterButtons.length > 0 && filterCards.length > 0) {
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        const category = btn.getAttribute('data-filter');
+        filterCards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category').includes(category)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // 15. Live Search Filter for Blog & Help Center
+  // -------------------------------------------------------------------------
+  const searchInput = document.querySelector('.sc-blog-search-input');
+  const searchableCards = document.querySelectorAll('.sc-blog-card, .sc-search-item');
+
+  if (searchInput && searchableCards.length > 0) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase().trim();
+      searchableCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(query)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
   }
 
   console.log('PostNexa (Social Champ Inspired) initialized successfully.');
 });
+

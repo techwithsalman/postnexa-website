@@ -286,15 +286,21 @@
         <span>Features Directory</span>
       </nav>
       
-      <div class="sc-inner-hero-content">
-        <div style="margin-bottom: 16px;">
-          <span class="sc-badge-status sc-badge-live">Feature Directory</span>
+      <div class="sc-inner-hero-split">
+        <div class="sc-inner-hero-content">
+          <div style="margin-bottom: 14px;">
+            <span class="sc-badge-status sc-badge-live">All 12 Platform Capabilities</span>
+          </div>
+          <h1 class="sc-inner-hero-title">Powerful Social Media Architecture, Built into One Unified Workspace</h1>
+          <p class="sc-inner-hero-desc">Explore PostNexa's complete suite of publishing, AI writing, visual planning, and team collaboration tools — built with complete transparency regarding development status.</p>
+          <div class="sc-inner-hero-actions">
+            <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">Launch Application ➔</a>
+            <a href="../roadmap/index.html" class="sc-btn sc-btn-outline sc-btn-pill">View Roadmap</a>
+          </div>
         </div>
-        <h1 class="sc-inner-hero-title">Powerful Social Media Tools, Built into One Unified Workspace</h1>
-        <p class="sc-inner-hero-desc">Explore PostNexa's suite of 12 core publishing, AI writing, visual design, and team collaboration tools — built with complete transparency regarding development status.</p>
-        <div class="sc-inner-hero-actions">
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">Launch Application ➔</a>
-          <a href="../roadmap/index.html" class="sc-btn sc-btn-outline sc-btn-pill">View Roadmap</a>
+
+        <div class="sc-hero-visual-card">
+          <img src="../assets/images/dashboard-hero.svg" alt="PostNexa Platform Overview">
         </div>
       </div>
     </div>
@@ -302,9 +308,19 @@
 
   <section style="padding: 80px 0; background-color: var(--color-bg-light);">
     <div class="sc-container">
+      
+      <!-- Filter Tabs -->
+      <div class="sc-filter-tabs">
+        <button type="button" class="sc-filter-tab-btn is-active" data-filter="all">All Features (12)</button>
+        <button type="button" class="sc-filter-tab-btn" data-filter="publishing">Publishing &amp; Planning</button>
+        <button type="button" class="sc-filter-tab-btn" data-filter="ai">AI Content Studio</button>
+        <button type="button" class="sc-filter-tab-btn" data-filter="growth">Growth &amp; Analytics</button>
+        <button type="button" class="sc-filter-tab-btn" data-filter="management">Team &amp; Workspaces</button>
+      </div>
+
       <div class="sc-card-grid-3">
         
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="publishing">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -312,8 +328,8 @@
           </div>
           <span class="sc-badge-status sc-badge-live">Live Feature</span>
         </div>
-        <h3 class="sc-card-title">Social Media Scheduling</h3>
-        <p class="sc-card-text">Plan, organize, and automate multi-network social posts with custom queues, individual time slots, and smart publishing.</p>
+        <h3 class="sc-card-title">Multi-Account Social Media Scheduling</h3>
+        <p class="sc-card-text">Automate cross-platform publishing with dedicated time slots, custom queue cadences, and background cloud delivery.</p>
       </div>
       <div class="sc-card-footer">
         <a href="social-media-scheduling/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -321,7 +337,7 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="publishing">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -329,8 +345,8 @@
           </div>
           <span class="sc-badge-status sc-badge-live">Live Feature</span>
         </div>
-        <h3 class="sc-card-title">Visual Content Calendar</h3>
-        <p class="sc-card-text">Drag-and-drop interactive monthly, weekly, and daily editorial calendars for cross-channel clarity.</p>
+        <h3 class="sc-card-title">Visual Interactive Content Calendar</h3>
+        <p class="sc-card-text">Gain total editorial clarity with drag-and-drop month, week, and day views for all your social marketing campaigns.</p>
       </div>
       <div class="sc-card-footer">
         <a href="content-calendar/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -338,16 +354,16 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="publishing">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
-            <img src="../assets/icons/publish.svg" alt="">
+            <img src="../assets/icons/facebook.svg" alt="">
           </div>
           <span class="sc-badge-status sc-badge-live">Live Feature</span>
         </div>
-        <h3 class="sc-card-title">Direct Channel Publishing</h3>
-        <p class="sc-card-text">Deliver photos, carousels, videos, and status updates directly via official social network partner APIs.</p>
+        <h3 class="sc-card-title">Direct Social Publishing Engine</h3>
+        <p class="sc-card-text">Publish high-resolution photos, multi-image carousels, and 4K videos directly through official Meta and YouTube developer APIs.</p>
       </div>
       <div class="sc-card-footer">
         <a href="social-publishing/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -355,7 +371,7 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="publishing">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -363,8 +379,8 @@
           </div>
           <span class="sc-badge-status sc-badge-live">Live Feature</span>
         </div>
-        <h3 class="sc-card-title">Bulk Post Scheduling</h3>
-        <p class="sc-card-text">Upload dozens or hundreds of scheduled posts in bulk via CSV spreadsheets or multi-item composers.</p>
+        <h3 class="sc-card-title">Bulk CSV & Multi-Post Uploader</h3>
+        <p class="sc-card-text">Ingest and schedule hundreds of social media posts in minutes using structured CSV spreadsheets or batch composers.</p>
       </div>
       <div class="sc-card-footer">
         <a href="bulk-scheduling/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -372,7 +388,7 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="ai">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -380,8 +396,8 @@
           </div>
           <span class="sc-badge-status sc-badge-beta">Beta Release</span>
         </div>
-        <h3 class="sc-card-title">AI Caption Generator</h3>
-        <p class="sc-card-text">Generate engaging, platform-tailored captions, hashtags, and call-to-actions tailored to your brand voice.</p>
+        <h3 class="sc-card-title">Context-Aware AI Caption Generator</h3>
+        <p class="sc-card-text">Generate engaging, platform-tailored captions, hooks, and trending hashtag clusters tailored to your distinct brand tone.</p>
       </div>
       <div class="sc-card-footer">
         <a href="ai-caption-writer/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -389,7 +405,7 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="ai">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -397,8 +413,8 @@
           </div>
           <span class="sc-badge-status sc-badge-beta">Beta Release</span>
         </div>
-        <h3 class="sc-card-title">AI Content & Idea Generator</h3>
-        <p class="sc-card-text">Transform high-level campaign themes, blog URLs, or rough notes into complete multi-post social campaigns.</p>
+        <h3 class="sc-card-title">AI Campaign & Idea Generator</h3>
+        <p class="sc-card-text">Transform long-form articles, YouTube URLs, or broad campaign themes into cohesive multi-week social content calendars.</p>
       </div>
       <div class="sc-card-footer">
         <a href="ai-content-generator/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -406,24 +422,7 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
-      <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-          <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
-            <img src="../assets/icons/ai-bot.svg" alt="">
-          </div>
-          <span class="sc-badge-status sc-badge-dev">In Active Development</span>
-        </div>
-        <h3 class="sc-card-title">AI Image & Visual Studio</h3>
-        <p class="sc-card-text">Generate high-resolution social visuals, stock-style backgrounds, and creative graphics directly inside the post editor.</p>
-      </div>
-      <div class="sc-card-footer">
-        <a href="ai-image-generator/index.html" class="sc-card-link">Explore Feature ➔</a>
-        <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-outline" style="padding: 6px 14px; font-size: 12.5px;" target="_blank" rel="noopener">Try in App</a>
-      </div>
-    </div>
-  
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="ai">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -431,8 +430,25 @@
           </div>
           <span class="sc-badge-status sc-badge-dev">In Active Development</span>
         </div>
-        <h3 class="sc-card-title">In-App Design Studio</h3>
-        <p class="sc-card-text">Crop, filter, add overlays, and style your images directly within PostNexa before publishing.</p>
+        <h3 class="sc-card-title">AI Visual & Image Creator</h3>
+        <p class="sc-card-text">Generate high-resolution social graphics, background visuals, and marketing imagery directly inside your post composer.</p>
+      </div>
+      <div class="sc-card-footer">
+        <a href="ai-image-generator/index.html" class="sc-card-link">Explore Feature ➔</a>
+        <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-outline" style="padding: 6px 14px; font-size: 12.5px;" target="_blank" rel="noopener">Try in App</a>
+      </div>
+    </div>
+  
+    <div class="sc-feature-item-card" data-category="management">
+      <div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+          <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
+            <img src="../assets/icons/star.svg" alt="">
+          </div>
+          <span class="sc-badge-status sc-badge-dev">In Active Development</span>
+        </div>
+        <h3 class="sc-card-title">In-App Social Design Studio</h3>
+        <p class="sc-card-text">Crop, filter, add text overlays, and style your image assets directly within PostNexa before publishing.</p>
       </div>
       <div class="sc-card-footer">
         <a href="design-studio/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -440,7 +456,7 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="growth">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -449,7 +465,7 @@
           <span class="sc-badge-status sc-badge-dev">In Active Development</span>
         </div>
         <h3 class="sc-card-title">Social Analytics & Reporting</h3>
-        <p class="sc-card-text">Track reach, engagement, follower growth, top-performing posts, and UTM attribution across connected profiles.</p>
+        <p class="sc-card-text">Track reach, engagement, follower growth, top-performing posts, and UTM campaign traffic across connected profiles.</p>
       </div>
       <div class="sc-card-footer">
         <a href="analytics/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -457,7 +473,7 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="growth">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -465,8 +481,8 @@
           </div>
           <span class="sc-badge-status sc-badge-dev">In Active Development</span>
         </div>
-        <h3 class="sc-card-title">Unified Social Inbox</h3>
-        <p class="sc-card-text">Engage with audience comments, replies, and mentions across your social accounts from a single inbox.</p>
+        <h3 class="sc-card-title">Unified Social Inbox & Engagement</h3>
+        <p class="sc-card-text">Manage audience comments, mentions, and community replies across your social channels from a single unified stream.</p>
       </div>
       <div class="sc-card-footer">
         <a href="social-inbox/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -474,16 +490,16 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="publishing">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
-            <img src="../assets/icons/publish.svg" alt="">
+            <img src="../assets/icons/calendar.svg" alt="">
           </div>
           <span class="sc-badge-status sc-badge-soon">Planned Capability</span>
         </div>
         <h3 class="sc-card-title">Smart Automation & Auto-Queues</h3>
-        <p class="sc-card-text">Build recurring publishing schedules, evergreen post recycling, and RSS-to-social automated publishing rules.</p>
+        <p class="sc-card-text">Build evergreen post recycling loops, automated RSS-to-social publishing, and custom webhook triggers.</p>
       </div>
       <div class="sc-card-footer">
         <a href="automation/index.html" class="sc-card-link">Explore Feature ➔</a>
@@ -491,7 +507,7 @@
       </div>
     </div>
   
-    <div class="sc-feature-item-card">
+    <div class="sc-feature-item-card" data-category="management">
       <div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div class="sc-card-icon-wrap" style="margin-bottom: 0;">
@@ -499,8 +515,8 @@
           </div>
           <span class="sc-badge-status sc-badge-dev">In Active Development</span>
         </div>
-        <h3 class="sc-card-title">Team Collaboration & Workspaces</h3>
-        <p class="sc-card-text">Organize multi-brand client workspaces, invite team members with role-based permissions, and manage review approvals.</p>
+        <h3 class="sc-card-title">Multi-Brand Workspaces & Approvals</h3>
+        <p class="sc-card-text">Organize client workspaces, invite team members with granular permissions, and enforce review approval gates.</p>
       </div>
       <div class="sc-card-footer">
         <a href="team-collaboration/index.html" class="sc-card-link">Explore Feature ➔</a>

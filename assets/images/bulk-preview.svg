@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bulkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A202C"/>
+      <stop offset="100%" stop-color="#2D3748"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F16A21"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="500" rx="16" fill="url(#bulkBg)"/>
+  
+  <!-- Window Header / Controls -->
+  <rect x="24" y="20" width="752" height="40" rx="8" fill="#111827"/>
+  <circle cx="48" cy="40" r="6" fill="#EF4444"/>
+  <circle cx="68" cy="40" r="6" fill="#F59E0B"/>
+  <circle cx="88" cy="40" r="6" fill="#10B981"/>
+  <text x="116" y="45" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#9CA3AF">PostNexa Bulk Ingestion Engine — CSV Batch Processor</text>
+
+  <!-- Upload Dropzone Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="40" y="80" width="720" height="130" rx="12" fill="#1F2937" stroke="#374151" stroke-dasharray="6,6" stroke-width="2"/>
+    <circle cx="400" cy="125" r="22" fill="#FFF4EE"/>
+    <path d="M400 115 v20 M390 125 l10 -10 l10 10" stroke="#F16A21" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="400" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="800" fill="#F3F4F6" text-anchor="middle">Drag &amp; Drop CSV / Spreadsheet Here</text>
+    <text x="400" y="185" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#9CA3AF" text-anchor="middle">Supports .CSV, .XLSX • Up to 250 scheduled posts per batch</text>
+  </g>
+
+  <!-- Batch Table Header -->
+  <rect x="40" y="230" width="720" height="36" rx="6" fill="#111827"/>
+  <text x="60" y="253" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#9CA3AF">STATUS</text>
+  <text x="150" y="253" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#9CA3AF">SCHEDULED TIME</text>
+  <text x="290" y="253" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#9CA3AF">TARGET CHANNELS</text>
+  <text x="460" y="253" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#9CA3AF">POST CAPTION / PREVIEW</text>
+  <text x="700" y="253" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#9CA3AF">VALIDATION</text>
+
+  <!-- Row 1 -->
+  <rect x="40" y="274" width="720" height="48" rx="8" fill="#1F2937"/>
+  <rect x="56" y="288" width="60" height="20" rx="10" fill="#DEF7EC"/>
+  <text x="86" y="302" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#03543F" text-anchor="middle">READY</text>
+  <text x="150" y="304" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#E5E7EB">Oct 12, 09:30 AM</text>
+  <!-- Channel Badges -->
+  <circle cx="300" cy="298" r="10" fill="#1877F2"/>
+  <circle cx="325" cy="298" r="10" fill="#E4405F"/>
+  <circle cx="350" cy="298" r="10" fill="#FF0000"/>
+  <text x="460" y="304" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#D1D5DB">Unlocking high-conversion Reel strategies for Q4 #growth...</text>
+  <text x="700" y="304" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#10B981">✓ Validated</text>
+
+  <!-- Row 2 -->
+  <rect x="40" y="330" width="720" height="48" rx="8" fill="#1F2937"/>
+  <rect x="56" y="344" width="60" height="20" rx="10" fill="#DEF7EC"/>
+  <text x="86" y="358" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#03543F" text-anchor="middle">READY</text>
+  <text x="150" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#E5E7EB">Oct 12, 02:15 PM</text>
+  <circle cx="300" cy="354" r="10" fill="#1877F2"/>
+  <circle cx="325" cy="354" r="10" fill="#E4405F"/>
+  <text x="460" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#D1D5DB">Behind the scenes of our new social management OS product...</text>
+  <text x="700" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#10B981">✓ Validated</text>
+
+  <!-- Row 3 -->
+  <rect x="40" y="386" width="720" height="48" rx="8" fill="#1F2937"/>
+  <rect x="56" y="400" width="60" height="20" rx="10" fill="#DEF7EC"/>
+  <text x="86" y="414" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#03543F" text-anchor="middle">READY</text>
+  <text x="150" y="416" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#E5E7EB">Oct 13, 11:00 AM</text>
+  <circle cx="300" cy="410" r="10" fill="#FF0000"/>
+  <text x="460" y="416" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#D1D5DB">Full YouTube 4K breakdown: Automating your scheduling queues...</text>
+  <text x="700" y="416" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#10B981">✓ Validated</text>
+
+  <!-- Bottom Action Bar -->
+  <rect x="40" y="445" width="720" height="40" rx="8" fill="#111827"/>
+  <text x="60" y="470" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#9CA3AF">Total Posts Loaded: 48 / 48 (0 Errors Detected)</text>
+  <rect x="610" y="452" width="135" height="26" rx="6" fill="url(#orangeGrad)"/>
+  <text x="677" y="469" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">Deploy Batch ➔</text>
+</svg>

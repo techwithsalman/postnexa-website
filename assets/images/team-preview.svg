@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="teamBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <filter id="teamShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#teamBg)"/>
+  
+  <!-- Window Header -->
+  <rect x="24" y="20" width="752" height="40" rx="8" fill="#020617"/>
+  <circle cx="48" cy="40" r="6" fill="#EF4444"/>
+  <circle cx="68" cy="40" r="6" fill="#F59E0B"/>
+  <circle cx="88" cy="40" r="6" fill="#10B981"/>
+  <text x="116" y="45" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#94A3B8">PostNexa Multi-Brand Workspaces &amp; Approval Gates</text>
+
+  <!-- Workspace Selector Bar -->
+  <rect x="36" y="76" width="728" height="46" rx="8" fill="#1E293B" stroke="#334155"/>
+  <rect x="48" y="84" width="140" height="30" rx="6" fill="#F16A21"/>
+  <text x="118" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#FFF" text-anchor="middle">Acme Agency (HQ)</text>
+  
+  <rect x="198" y="84" width="130" height="30" rx="6" fill="#0F172A"/>
+  <text x="263" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94A3B8" text-anchor="middle">Brand Client Alpha</text>
+  
+  <rect x="338" y="84" width="130" height="30" rx="6" fill="#0F172A"/>
+  <text x="403" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94A3B8" text-anchor="middle">Brand Client Beta</text>
+
+  <rect x="620" y="84" width="132" height="30" rx="6" fill="#10B981"/>
+  <text x="686" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFF" text-anchor="middle">+ Add Member</text>
+
+  <!-- Kanban Column 1: Drafts -->
+  <g filter="url(#teamShadow)">
+    <rect x="36" y="138" width="228" height="330" rx="10" fill="#1E293B" stroke="#334155"/>
+    <text x="52" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#94A3B8">DRAFTS (3)</text>
+    
+    <rect x="48" y="180" width="204" height="90" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="60" y="205" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#FFF">Q4 Product Teaser Video</text>
+    <text x="60" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748B">Author: Copywriter (Sarah)</text>
+    <rect x="60" y="238" width="70" height="18" rx="9" fill="#334155"/>
+    <text x="95" y="251" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#CBD5E1" text-anchor="middle">In Progress</text>
+
+    <rect x="48" y="280" width="204" height="80" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="60" y="305" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#FFF">Weekly Tip Graphic</text>
+    <text x="60" y="325" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748B">Author: Designer (Leo)</text>
+  </g>
+
+  <!-- Kanban Column 2: Pending Approval -->
+  <g filter="url(#teamShadow)">
+    <rect x="286" y="138" width="228" height="330" rx="10" fill="#1E293B" stroke="#F16A21" stroke-width="1.5"/>
+    <text x="302" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#F16A21">PENDING APPROVAL (2)</text>
+    
+    <rect x="298" y="180" width="204" height="130" rx="8" fill="#0F172A" stroke="#F16A21"/>
+    <text x="310" y="205" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#FFF">Major Feature Announcement</text>
+    <text x="310" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">Channels: FB, IG, YouTube</text>
+    <text x="310" y="245" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">Scheduled: Oct 14, 10:00 AM</text>
+    
+    <rect x="310" y="260" width="85" height="24" rx="4" fill="#10B981"/>
+    <text x="352" y="276" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#FFF" text-anchor="middle">✓ Approve</text>
+    
+    <rect x="405" y="260" width="85" height="24" rx="4" fill="#EF4444"/>
+    <text x="447" y="276" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#FFF" text-anchor="middle">Request Edit</text>
+  </g>
+
+  <!-- Kanban Column 3: Scheduled & Approved -->
+  <g filter="url(#teamShadow)">
+    <rect x="536" y="138" width="228" height="330" rx="10" fill="#1E293B" stroke="#334155"/>
+    <text x="552" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#10B981">APPROVED &amp; QUEUED (8)</text>
+    
+    <rect x="548" y="180" width="204" height="90" rx="8" fill="#0F172A" stroke="#10B981"/>
+    <text x="560" y="205" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#FFF">Case Study: 300% Reach Boost</text>
+    <text x="560" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#10B981">✓ Approved by Marketing Lead</text>
+    <text x="560" y="245" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748B">Auto-publish in 2h 45m</text>
+  </g>
+</svg>

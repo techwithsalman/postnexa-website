@@ -2715,3 +2715,249 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
 }
 
+/* --------------------------------------------------------------------------
+   21. ENHANCED INNER PAGE PREMIUM HERO & WORKFLOW COMPONENTS
+   -------------------------------------------------------------------------- */
+
+/* Split Hero Layout */
+.sc-inner-hero-split {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.sc-hero-trust-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+
+.sc-hero-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sc-hero-trust-item svg {
+  width: 16px;
+  height: 16px;
+  color: #10B981;
+}
+
+.sc-hero-visual-card {
+  background: linear-gradient(135deg, #181E23 0%, #263238 100%);
+  border: 1.5px solid #374151;
+  border-radius: var(--border-radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.sc-hero-visual-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgba(241, 106, 33, 0.25);
+}
+
+.sc-hero-visual-card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  display: block;
+}
+
+/* Alternating Feature Showcase Rows */
+.sc-feat-row {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.sc-feat-row:last-child {
+  margin-bottom: 0;
+}
+
+.sc-feat-row.is-reversed {
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.sc-feat-row.is-reversed .sc-feat-row-content {
+  order: 2;
+}
+
+.sc-feat-row.is-reversed .sc-feat-row-visual {
+  order: 1;
+}
+
+.sc-feat-row-eyebrow {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.sc-feat-row-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-text-heading);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.sc-feat-row-desc {
+  font-size: 16px;
+  color: var(--color-text-body);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.sc-feat-bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+  list-style: none;
+  padding: 0;
+}
+
+.sc-feat-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--color-text-body);
+  font-weight: 600;
+}
+
+.sc-feat-bullet-item img, .sc-feat-bullet-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sc-feat-row-visual {
+  background: linear-gradient(135deg, #181E23 0%, #263238 100%);
+  border: 1px solid #374151;
+  border-radius: var(--border-radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.sc-feat-row-visual img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  display: block;
+}
+
+/* 3-Step / 4-Step Process Pipeline */
+.sc-step-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  position: relative;
+}
+
+.sc-step-card {
+  background-color: var(--color-bg-white);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  padding: 36px 28px;
+  position: relative;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.sc-step-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.sc-step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.sc-step-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: 12px;
+}
+
+.sc-step-desc {
+  font-size: 14.5px;
+  color: var(--color-text-body);
+  line-height: 1.6;
+}
+
+/* Category Filter Tags */
+.sc-filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.sc-filter-tab-btn {
+  padding: 9px 20px;
+  border-radius: var(--border-radius-pill);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-body);
+  background-color: var(--color-bg-white);
+  border: 1.5px solid var(--color-border);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.sc-filter-tab-btn:hover, .sc-filter-tab-btn.is-active {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(241, 106, 33, 0.25);
+}
+
+/* Related Features Section */
+.sc-related-section {
+  padding: 80px 0;
+  background-color: var(--color-bg-warm);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.sc-related-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+

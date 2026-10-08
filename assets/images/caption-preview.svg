@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1F2937"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F16A21"/>
+      <stop offset="100%" stop-color="#FFCE38"/>
+    </linearGradient>
+    <filter id="aiShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Base Window -->
+  <rect width="800" height="500" rx="16" fill="url(#aiBg)"/>
+  
+  <!-- Header Bar -->
+  <rect x="24" y="20" width="752" height="40" rx="8" fill="#0B0F17"/>
+  <circle cx="48" cy="40" r="6" fill="#EF4444"/>
+  <circle cx="68" cy="40" r="6" fill="#F59E0B"/>
+  <circle cx="88" cy="40" r="6" fill="#10B981"/>
+  <text x="116" y="45" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#9CA3AF">PostNexa AI Assistant — Context-Aware Caption &amp; Hook Engine</text>
+
+  <!-- Left Column: Generator Form -->
+  <g filter="url(#aiShadow)">
+    <rect x="36" y="76" width="350" height="400" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+    
+    <text x="56" y="106" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#F16A21">CAMPAIGN TOPIC &amp; CONTEXT</text>
+    <rect x="56" y="118" width="310" height="60" rx="8" fill="#0F172A" stroke="#475569"/>
+    <text x="70" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#E2E8F0">Announcing our spring SaaS feature launch with 3x faster queues</text>
+
+    <!-- Tone Selector -->
+    <text x="56" y="205" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#94A3B8">TONE OF VOICE</text>
+    <rect x="56" y="218" width="90" height="30" rx="15" fill="#F16A21"/>
+    <text x="101" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFF" text-anchor="middle">Engaging</text>
+    <rect x="156" y="218" width="90" height="30" rx="15" fill="#334155"/>
+    <text x="201" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#CBD5E1" text-anchor="middle">Professional</text>
+    <rect x="256" y="218" width="80" height="30" rx="15" fill="#334155"/>
+    <text x="296" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#CBD5E1" text-anchor="middle">Witty</text>
+
+    <!-- Target Channels -->
+    <text x="56" y="278" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#94A3B8">TARGET FORMAT</text>
+    <rect x="56" y="290" width="145" height="36" rx="8" fill="#0F172A" stroke="#F16A21"/>
+    <text x="128" y="313" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#FFF" text-anchor="middle">Instagram Reel</text>
+    <rect x="215" y="290" width="150" height="36" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="290" y="313" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#94A3B8" text-anchor="middle">YouTube Short</text>
+
+    <!-- Generate Action -->
+    <rect x="56" y="415" width="310" height="42" rx="8" fill="url(#brandGrad)"/>
+    <text x="211" y="441" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="900" fill="#181E23" text-anchor="middle">✨ Generate 3 Caption Variations</text>
+  </g>
+
+  <!-- Right Column: Generated Output Variations -->
+  <g filter="url(#aiShadow)">
+    <rect x="410" y="76" width="354" height="400" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+    
+    <text x="430" y="106" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#10B981">GENERATED VARIATION (RECOMMENDED)</text>
+    
+    <rect x="430" y="118" width="314" height="150" rx="8" fill="#0F172A" stroke="#10B981"/>
+    <text x="446" y="145" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Stop wasting 2 hours a day manually scheduling posts.</text>
+    <text x="446" y="172" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#CBD5E1">Here is how our new spring update automates your multi-account queues with 100% official Meta &amp; YouTube APIs.</text>
+    <text x="446" y="210" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#F16A21">#SocialMediaMarketing #CreatorEconomy #SaaS #Growth</text>
+    <text x="446" y="245" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748B">242 characters • 4 hashtags • High engagement rating</text>
+
+    <!-- Alternate Hook -->
+    <rect x="430" y="282" width="314" height="110" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="446" y="308" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#E2E8F0">Variation B (Short &amp; Punchy):</text>
+    <text x="446" y="332" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94A3B8">3x faster publishing is finally here. Tap the link in bio to explore PostNexa for free!</text>
+    <text x="446" y="365" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#F16A21">#PostNexa #SocialOS #Productivity</text>
+
+    <!-- Use Button -->
+    <rect x="430" y="415" width="314" height="42" rx="8" fill="#F16A21"/>
+    <text x="587" y="441" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">Insert into Post Composer ➔</text>
+  </g>
+</svg>
