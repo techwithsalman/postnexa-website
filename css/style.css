@@ -2536,6 +2536,19 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+.sc-plan-subnote {
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 18px;
+  margin-top: 6px;
+  color: var(--color-text-muted);
+  transition: color var(--transition-base);
+}
+
+.sc-plan-subnote.is-annual {
+  color: #059669;
+}
+
 .sc-plan-features {
   display: flex;
   flex-direction: column;

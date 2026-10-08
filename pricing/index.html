@@ -277,14 +277,14 @@
       
       <div class="sc-pricing-header">
         <div style="margin-bottom: 14px;">
-          <span class="sc-badge-status sc-badge-live">Preview Pricing • Subject to Owner Finalization</span>
+          <span class="sc-badge-status sc-badge-live">Official Subscription Plans</span>
         </div>
         <h1 class="sc-inner-hero-title">Simple, Transparent Pricing for Every Growth Stage</h1>
-        <p class="sc-inner-hero-desc">Explore our planned pricing tiers and feature allocations. All plan tiers represent preview models subject to final commercial confirmation.</p>
+        <p class="sc-inner-hero-desc">Choose the plan that fits your publishing volume. Connect your accounts and manage your subscription directly in the PostNexa portal.</p>
         
         <div class="sc-pricing-toggle-wrap">
-          <button type="button" class="sc-pricing-toggle-btn is-active" id="billingMonthly">Monthly Billing</button>
-          <button type="button" class="sc-pricing-toggle-btn" id="billingAnnual">Annual Billing <span class="sc-pricing-discount-tag">Save 20%</span></button>
+          <button type="button" class="sc-pricing-toggle-btn is-active" id="billingMonthly" aria-pressed="true">Monthly Billing</button>
+          <button type="button" class="sc-pricing-toggle-btn" id="billingAnnual" aria-pressed="false">Annual Billing <span class="sc-pricing-discount-tag">Save up to 21%</span></button>
         </div>
       </div>
     </div>
@@ -294,89 +294,182 @@
     <div class="sc-container">
       
       <div class="sc-pricing-grid">
-        
+
         <!-- Free Tier -->
-        <div class="sc-pricing-card">
+        <div class="sc-pricing-card" data-plan-id="free">
+          
           <div>
-            <h3 class="sc-plan-name">Free Starter</h3>
-            <p class="sc-plan-desc">Perfect for testing the platform and getting started with scheduling.</p>
+            <h3 class="sc-plan-name">Free</h3>
+            <p class="sc-plan-desc">Perfect for testing PostNexa and getting started with basic social scheduling.</p>
             <div class="sc-plan-price-wrap">
-              <span class="sc-plan-price">$0</span>
-              <span class="sc-plan-period">/ forever</span>
+              <span class="sc-plan-price" data-monthly="$0" data-annual="$0">$0</span>
+              <span class="sc-plan-period" data-monthly="/ forever" data-annual="/ forever">/ forever</span>
+              <div class="sc-plan-subnote" data-monthly="Free forever" data-annual="Free forever">Free forever</div>
             </div>
             <div class="sc-plan-features">
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 2 Social Accounts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 15 Scheduled Posts in Queue</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Visual Content Calendar</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Community Support</div>
+              
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Up to 4 connected social accounts
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      100 scheduled/published posts / mo
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Instagram Auto DM: Up to 3 posts
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Bulk video uploads: 20 / month
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Up to 1 team member
+    </div>
+  
             </div>
           </div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-outline" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started Free</a>
+          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-outline" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started</a>
         </div>
 
         <!-- Starter Tier -->
-        <div class="sc-pricing-card">
+        <div class="sc-pricing-card" data-plan-id="starter">
+          
           <div>
             <h3 class="sc-plan-name">Starter</h3>
-            <p class="sc-plan-desc">Ideal for solo creators and small businesses building consistency.</p>
+            <p class="sc-plan-desc">Ideal for solo creators and small businesses building social consistency.</p>
             <div class="sc-plan-price-wrap">
-              <span class="sc-plan-price" data-monthly="$19" data-annual="$15">$19</span>
-              <span class="sc-plan-period">/ month</span>
+              <span class="sc-plan-price" data-monthly="$24" data-annual="$228">$24</span>
+              <span class="sc-plan-period" data-monthly="/ month" data-annual="/ year">/ month</span>
+              <div class="sc-plan-subnote" data-monthly="Billed monthly ($24/mo)" data-annual="Billed annually ($19/mo) • Save 20.8%">Billed monthly ($24/mo)</div>
             </div>
             <div class="sc-plan-features">
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 5 Social Accounts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Scheduled Posts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 50 AI Captions / month</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Bulk CSV Uploader</div>
+              
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Up to 15 connected social accounts
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      500 scheduled/published posts / mo
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Instagram Auto DM: Up to 20 posts
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Bulk video uploads: 100 / month
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Up to 2 team members
+    </div>
+  
             </div>
           </div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
+          <a href="https://app.techwithsalman.online/billing" class="sc-btn sc-btn-primary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Choose Starter</a>
         </div>
 
-        <!-- Creator / Pro Tier (Popular) -->
-        <div class="sc-pricing-card is-popular">
-          <span class="sc-popular-badge">Most Popular</span>
+        <!-- Pro Tier -->
+        <div class="sc-pricing-card is-popular" data-plan-id="pro">
+          <span class="sc-popular-badge">Featured Plan</span>
           <div>
-            <h3 class="sc-plan-name">Creator Pro</h3>
+            <h3 class="sc-plan-name">Pro</h3>
             <p class="sc-plan-desc">For active creators, influencers, and growing social brands.</p>
             <div class="sc-plan-price-wrap">
-              <span class="sc-plan-price" data-monthly="$39" data-annual="$29">$39</span>
-              <span class="sc-plan-period">/ month</span>
+              <span class="sc-plan-price" data-monthly="$59" data-annual="$588">$59</span>
+              <span class="sc-plan-period" data-monthly="/ month" data-annual="/ year">/ month</span>
+              <div class="sc-plan-subnote" data-monthly="Billed monthly ($59/mo)" data-annual="Billed annually ($49/mo) • Save 16.9%">Billed monthly ($59/mo)</div>
             </div>
             <div class="sc-plan-features">
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 15 Social Accounts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Posts &amp; Queues</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited AI Captions &amp; Hooks</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Cloud Publishing</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Support</div>
+              
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Up to 30 connected social accounts
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      1,500 scheduled/published posts / mo
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Instagram Auto DM: Up to 75 posts
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Bulk video uploads: 500 / month
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Up to 5 team members
+    </div>
+  
             </div>
           </div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
+          <a href="https://app.techwithsalman.online/billing" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Choose Pro</a>
         </div>
 
         <!-- Agency Tier -->
-        <div class="sc-pricing-card">
+        <div class="sc-pricing-card" data-plan-id="agency">
+          
           <div>
-            <h3 class="sc-plan-name">Agency &amp; Team</h3>
-            <p class="sc-plan-desc">For digital marketing agencies managing multi-client rosters.</p>
+            <h3 class="sc-plan-name">Agency</h3>
+            <p class="sc-plan-desc">For digital marketing agencies managing multi-client rosters and teams.</p>
             <div class="sc-plan-price-wrap">
-              <span class="sc-plan-price" data-monthly="$99" data-annual="$79">$99</span>
-              <span class="sc-plan-period">/ month</span>
+              <span class="sc-plan-price" data-monthly="$149" data-annual="$1,548">$149</span>
+              <span class="sc-plan-period" data-monthly="/ month" data-annual="/ year">/ month</span>
+              <div class="sc-plan-subnote" data-monthly="Billed monthly ($149/mo)" data-annual="Billed annually ($129/mo) • Save 13.4%">Billed monthly ($149/mo)</div>
             </div>
             <div class="sc-plan-features">
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 50+ Social Accounts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Brand Workspaces</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-User Permissions</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Account Specialist</div>
+              
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Up to 100 connected social accounts
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      5,000 scheduled/published posts / mo
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Instagram Auto DM: Up to 250 posts
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Bulk video uploads: 2,000 / month
+    </div>
+  
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      Up to 20 team members
+    </div>
+  
             </div>
           </div>
-          <a href="../contact/index.html" class="sc-btn sc-btn-outline" style="width: 100%; justify-content: center;">Contact Sales</a>
+          <a href="https://app.techwithsalman.online/billing" class="sc-btn sc-btn-outline" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Choose Agency</a>
         </div>
-
       </div>
 
       <div class="sc-legal-notice-box" style="margin-top: 40px; text-align: center;">
-        <p style="margin: 0; color: var(--color-text-muted); font-size: 13.5px;"><strong>Preview Pricing Disclaimer:</strong> Displayed pricing tiers and plan quotas represent proposed launch configurations. Final pricing and commercial payment gateways will be confirmed upon formal general availability by Tech With Salman.</p>
+        <p style="margin: 0; color: var(--color-text-muted); font-size: 13.5px;"><strong>Subscription Policy:</strong> Displayed pricing tiers and plan quotas represent the official PostNexa subscription plans. Billing is managed securely through your PostNexa account portal.</p>
       </div>
 
       <!-- Comparison Matrix -->
@@ -388,36 +481,65 @@
             <thead>
               <tr>
                 <th>Feature / Capability</th>
-                <th>Free Starter</th>
+                <th>Free</th>
                 <th>Starter</th>
-                <th>Creator Pro</th>
-                <th>Agency &amp; Team</th>
+                <th>Pro</th>
+                <th>Agency</th>
               </tr>
             </thead>
             <tbody>
+              
               <tr>
-                <td><strong>Social Accounts Connected</strong></td>
-                <td>2</td>
-                <td>5</td>
-                <td>15</td>
-                <td>50+</td>
+                <td><strong>Connected Social Accounts</strong></td>
+                <td>4 accounts</td>
+                <td>15 accounts</td>
+                <td>30 accounts</td>
+                <td>100 accounts</td>
               </tr>
               <tr>
-                <td><strong>Direct Meta &amp; YouTube Publishing</strong></td>
+                <td><strong>Monthly Post Publishing Limit</strong></td>
+                <td>100 posts / mo</td>
+                <td>500 posts / mo</td>
+                <td>1,500 posts / mo</td>
+                <td>5,000 posts / mo</td>
+              </tr>
+              <tr>
+                <td><strong>Instagram Auto DM Volume</strong></td>
+                <td>Up to 3 posts</td>
+                <td>Up to 20 posts</td>
+                <td>Up to 75 posts</td>
+                <td>Up to 250 posts</td>
+              </tr>
+              <tr>
+                <td><strong>Bulk Video Uploads</strong></td>
+                <td>20 / mo</td>
+                <td>100 / mo</td>
+                <td>500 / mo</td>
+                <td>2,000 / mo</td>
+              </tr>
+              <tr>
+                <td><strong>Team Members Included</strong></td>
+                <td>1 member</td>
+                <td>Up to 2 members</td>
+                <td>Up to 5 members</td>
+                <td>Up to 20 members</td>
+              </tr>
+              <tr>
+                <td><strong>Visual Content Calendar</strong></td>
                 <td>✓</td>
                 <td>✓</td>
                 <td>✓</td>
                 <td>✓</td>
               </tr>
               <tr>
-                <td><strong>Visual Drag-and-Drop Calendar</strong></td>
+                <td><strong>Direct Meta & YouTube Publishing</strong></td>
                 <td>✓</td>
                 <td>✓</td>
                 <td>✓</td>
                 <td>✓</td>
               </tr>
               <tr>
-                <td><strong>Bulk CSV Scheduler</strong></td>
+                <td><strong>Bulk CSV & Multi-Post Uploader</strong></td>
                 <td>—</td>
                 <td>✓</td>
                 <td>✓</td>
@@ -425,24 +547,17 @@
               </tr>
               <tr>
                 <td><strong>AI Caption Generator</strong></td>
-                <td>5 / mo</td>
-                <td>50 / mo</td>
-                <td>Unlimited</td>
-                <td>Unlimited</td>
+                <td>Beta Access</td>
+                <td>Beta Access</td>
+                <td>Beta Access</td>
+                <td>Beta Access</td>
               </tr>
               <tr>
-                <td><strong>Brand Workspaces</strong></td>
-                <td>1</td>
-                <td>1</td>
-                <td>3</td>
-                <td>Unlimited</td>
-              </tr>
-              <tr>
-                <td><strong>Customer Support</strong></td>
+                <td><strong>Support Level</strong></td>
                 <td>Community</td>
-                <td>Email (48h)</td>
-                <td>Priority (12h)</td>
-                <td>Dedicated Account Rep</td>
+                <td>Email Support</td>
+                <td>Priority Support</td>
+                <td>Dedicated Specialist</td>
               </tr>
             </tbody>
           </table>
@@ -574,6 +689,7 @@
 
   <!-- Core Scripts -->
   <script src="../js/config.js"></script>
+  <script src="../js/pricing-config.js"></script>
   <script src="../js/main.js"></script>
 
 

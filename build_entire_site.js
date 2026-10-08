@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const PRICING_CONFIG = require('./js/pricing-config.js');
 
 const BASE_DIR = __dirname;
 
@@ -368,6 +369,7 @@ function footer_html(rel) {
 
   <!-- Core Scripts -->
   <script src="${rel}js/config.js"></script>
+  <script src="${rel}js/pricing-config.js"></script>
   <script src="${rel}js/main.js"></script>
 `;
 }
@@ -619,7 +621,7 @@ const features_data = [
     ],
     related: ["ai-content-generator", "ai-image-generator", "social-media-scheduling"],
     faqs: [
-      { q: "How many AI captions can I generate?", a: "Starter plan includes 50 AI generations per month; Creator Pro and Agency plans include unlimited generations." },
+      { q: "How many AI captions can I generate?", a: "All subscription plans include access to the AI Caption Generator during our beta rollout to help you draft engaging post captions and hashtag clusters." },
       { q: "Can I customize the tone of voice?", a: "Yes. You can choose from built-in tones (Professional, Witty, Casual, Urgent) or enter custom tone instructions." }
     ]
   },
@@ -1612,8 +1614,48 @@ const integrations_index_html = `
 make_page("integrations/index.html", 1, "integrations", "Integrations Directory | Supported Social Networks", "Official API integrations for Facebook, Instagram, YouTube, TikTok, LinkedIn, and cloud storage tools.", "integrations/", integrations_index_html);
 
 // =========================================================================
-// 5. PRICING PAGE
-// =========================================================================
+// Render pricing cards from PRICING_CONFIG
+const pricing_cards_html = PRICING_CONFIG.plans.map(p => {
+  const featuredClass = p.isFeatured ? ' is-popular' : '';
+  const badgeHtml = p.badge ? `<span class="sc-popular-badge">${p.badge}</span>` : '';
+  const featuresList = p.limits.map(lim => `
+    <div class="sc-plan-feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      ${lim}
+    </div>
+  `).join("");
+
+  return `
+        <!-- ${p.name} Tier -->
+        <div class="sc-pricing-card${featuredClass}" data-plan-id="${p.id}">
+          ${badgeHtml}
+          <div>
+            <h3 class="sc-plan-name">${p.name}</h3>
+            <p class="sc-plan-desc">${p.desc}</p>
+            <div class="sc-plan-price-wrap">
+              <span class="sc-plan-price" data-monthly="${p.monthly.displayPrice}" data-annual="${p.annual.displayPrice}">${p.monthly.displayPrice}</span>
+              <span class="sc-plan-period" data-monthly="${p.monthly.period}" data-annual="${p.annual.period}">${p.monthly.period}</span>
+              <div class="sc-plan-subnote" data-monthly="${p.monthly.billingNote}" data-annual="${p.annual.billingNote}">${p.monthly.billingNote}</div>
+            </div>
+            <div class="sc-plan-features">
+              ${featuresList}
+            </div>
+          </div>
+          <a href="${p.ctaUrl}" class="sc-btn ${p.ctaClass}" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">${p.ctaText}</a>
+        </div>`;
+}).join("\n");
+
+// Render comparison table from PRICING_CONFIG
+const comparison_headers = PRICING_CONFIG.plans.map(p => `<th>${p.name}</th>`).join("\n                ");
+const comparison_rows = PRICING_CONFIG.comparisonFeatures.map(item => `
+              <tr>
+                <td><strong>${item.feature}</strong></td>
+                <td>${item.free}</td>
+                <td>${item.starter}</td>
+                <td>${item.pro}</td>
+                <td>${item.agency}</td>
+              </tr>`).join("");
+
 const pricing_html = `
   <section class="sc-inner-hero">
     <div class="sc-container">
@@ -1625,14 +1667,14 @@ const pricing_html = `
       
       <div class="sc-pricing-header">
         <div style="margin-bottom: 14px;">
-          <span class="sc-badge-status sc-badge-live">Preview Pricing • Subject to Owner Finalization</span>
+          <span class="sc-badge-status sc-badge-live">Official Subscription Plans</span>
         </div>
         <h1 class="sc-inner-hero-title">Simple, Transparent Pricing for Every Growth Stage</h1>
-        <p class="sc-inner-hero-desc">Explore our planned pricing tiers and feature allocations. All plan tiers represent preview models subject to final commercial confirmation.</p>
+        <p class="sc-inner-hero-desc">Choose the plan that fits your publishing volume. Connect your accounts and manage your subscription directly in the PostNexa portal.</p>
         
         <div class="sc-pricing-toggle-wrap">
-          <button type="button" class="sc-pricing-toggle-btn is-active" id="billingMonthly">Monthly Billing</button>
-          <button type="button" class="sc-pricing-toggle-btn" id="billingAnnual">Annual Billing <span class="sc-pricing-discount-tag">Save 20%</span></button>
+          <button type="button" class="sc-pricing-toggle-btn is-active" id="billingMonthly" aria-pressed="true">Monthly Billing</button>
+          <button type="button" class="sc-pricing-toggle-btn" id="billingAnnual" aria-pressed="false">Annual Billing <span class="sc-pricing-discount-tag">Save up to 21%</span></button>
         </div>
       </div>
     </div>
@@ -1642,89 +1684,11 @@ const pricing_html = `
     <div class="sc-container">
       
       <div class="sc-pricing-grid">
-        
-        <!-- Free Tier -->
-        <div class="sc-pricing-card">
-          <div>
-            <h3 class="sc-plan-name">Free Starter</h3>
-            <p class="sc-plan-desc">Perfect for testing the platform and getting started with scheduling.</p>
-            <div class="sc-plan-price-wrap">
-              <span class="sc-plan-price">$0</span>
-              <span class="sc-plan-period">/ forever</span>
-            </div>
-            <div class="sc-plan-features">
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 2 Social Accounts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 15 Scheduled Posts in Queue</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Visual Content Calendar</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Community Support</div>
-            </div>
-          </div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-outline" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started Free</a>
-        </div>
-
-        <!-- Starter Tier -->
-        <div class="sc-pricing-card">
-          <div>
-            <h3 class="sc-plan-name">Starter</h3>
-            <p class="sc-plan-desc">Ideal for solo creators and small businesses building consistency.</p>
-            <div class="sc-plan-price-wrap">
-              <span class="sc-plan-price" data-monthly="$19" data-annual="$15">$19</span>
-              <span class="sc-plan-period">/ month</span>
-            </div>
-            <div class="sc-plan-features">
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 5 Social Accounts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Scheduled Posts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 50 AI Captions / month</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Bulk CSV Uploader</div>
-            </div>
-          </div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
-        </div>
-
-        <!-- Creator / Pro Tier (Popular) -->
-        <div class="sc-pricing-card is-popular">
-          <span class="sc-popular-badge">Most Popular</span>
-          <div>
-            <h3 class="sc-plan-name">Creator Pro</h3>
-            <p class="sc-plan-desc">For active creators, influencers, and growing social brands.</p>
-            <div class="sc-plan-price-wrap">
-              <span class="sc-plan-price" data-monthly="$39" data-annual="$29">$39</span>
-              <span class="sc-plan-period">/ month</span>
-            </div>
-            <div class="sc-plan-features">
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 15 Social Accounts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Posts &amp; Queues</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited AI Captions &amp; Hooks</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Cloud Publishing</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Support</div>
-            </div>
-          </div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
-        </div>
-
-        <!-- Agency Tier -->
-        <div class="sc-pricing-card">
-          <div>
-            <h3 class="sc-plan-name">Agency &amp; Team</h3>
-            <p class="sc-plan-desc">For digital marketing agencies managing multi-client rosters.</p>
-            <div class="sc-plan-price-wrap">
-              <span class="sc-plan-price" data-monthly="$99" data-annual="$79">$99</span>
-              <span class="sc-plan-period">/ month</span>
-            </div>
-            <div class="sc-plan-features">
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 50+ Social Accounts</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Brand Workspaces</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-User Permissions</div>
-              <div class="sc-plan-feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Account Specialist</div>
-            </div>
-          </div>
-          <a href="../contact/index.html" class="sc-btn sc-btn-outline" style="width: 100%; justify-content: center;">Contact Sales</a>
-        </div>
-
+${pricing_cards_html}
       </div>
 
       <div class="sc-legal-notice-box" style="margin-top: 40px; text-align: center;">
-        <p style="margin: 0; color: var(--color-text-muted); font-size: 13.5px;"><strong>Preview Pricing Disclaimer:</strong> Displayed pricing tiers and plan quotas represent proposed launch configurations. Final pricing and commercial payment gateways will be confirmed upon formal general availability by Tech With Salman.</p>
+        <p style="margin: 0; color: var(--color-text-muted); font-size: 13.5px;"><strong>Subscription Policy:</strong> ${PRICING_CONFIG.disclaimer}</p>
       </div>
 
       <!-- Comparison Matrix -->
@@ -1736,62 +1700,11 @@ const pricing_html = `
             <thead>
               <tr>
                 <th>Feature / Capability</th>
-                <th>Free Starter</th>
-                <th>Starter</th>
-                <th>Creator Pro</th>
-                <th>Agency &amp; Team</th>
+                ${comparison_headers}
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>Social Accounts Connected</strong></td>
-                <td>2</td>
-                <td>5</td>
-                <td>15</td>
-                <td>50+</td>
-              </tr>
-              <tr>
-                <td><strong>Direct Meta &amp; YouTube Publishing</strong></td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-              </tr>
-              <tr>
-                <td><strong>Visual Drag-and-Drop Calendar</strong></td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-              </tr>
-              <tr>
-                <td><strong>Bulk CSV Scheduler</strong></td>
-                <td>—</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-              </tr>
-              <tr>
-                <td><strong>AI Caption Generator</strong></td>
-                <td>5 / mo</td>
-                <td>50 / mo</td>
-                <td>Unlimited</td>
-                <td>Unlimited</td>
-              </tr>
-              <tr>
-                <td><strong>Brand Workspaces</strong></td>
-                <td>1</td>
-                <td>1</td>
-                <td>3</td>
-                <td>Unlimited</td>
-              </tr>
-              <tr>
-                <td><strong>Customer Support</strong></td>
-                <td>Community</td>
-                <td>Email (48h)</td>
-                <td>Priority (12h)</td>
-                <td>Dedicated Account Rep</td>
-              </tr>
+              ${comparison_rows}
             </tbody>
           </table>
         </div>

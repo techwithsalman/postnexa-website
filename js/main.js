@@ -547,23 +547,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const monthlyBtn = document.getElementById('billingMonthly');
   const annualBtn = document.getElementById('billingAnnual');
   const priceElements = document.querySelectorAll('.sc-plan-price[data-monthly]');
+  const periodElements = document.querySelectorAll('.sc-plan-period[data-monthly]');
+  const subnoteElements = document.querySelectorAll('.sc-plan-subnote[data-monthly]');
 
-  if (monthlyBtn && annualBtn) {
-    monthlyBtn.addEventListener('click', () => {
-      monthlyBtn.classList.add('is-active');
-      annualBtn.classList.remove('is-active');
-      priceElements.forEach(el => {
-        el.textContent = el.getAttribute('data-monthly');
-      });
-    });
+  function updateBillingCycle(isAnnual) {
+    if (!monthlyBtn || !annualBtn) return;
 
-    annualBtn.addEventListener('click', () => {
+    if (isAnnual) {
       annualBtn.classList.add('is-active');
       monthlyBtn.classList.remove('is-active');
-      priceElements.forEach(el => {
-        el.textContent = el.getAttribute('data-annual');
-      });
+      annualBtn.setAttribute('aria-pressed', 'true');
+      monthlyBtn.setAttribute('aria-pressed', 'false');
+    } else {
+      monthlyBtn.classList.add('is-active');
+      annualBtn.classList.remove('is-active');
+      monthlyBtn.setAttribute('aria-pressed', 'true');
+      annualBtn.setAttribute('aria-pressed', 'false');
+    }
+
+    priceElements.forEach(el => {
+      const val = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+      if (val) el.textContent = val;
     });
+
+    periodElements.forEach(el => {
+      const val = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+      if (val) el.textContent = val;
+    });
+
+    subnoteElements.forEach(el => {
+      const val = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+      if (val) {
+        el.textContent = val;
+        if (isAnnual) {
+          el.classList.remove('is-monthly');
+          el.classList.add('is-annual');
+        } else {
+          el.classList.remove('is-annual');
+          el.classList.add('is-monthly');
+        }
+      }
+    });
+  }
+
+  if (monthlyBtn && annualBtn) {
+    monthlyBtn.addEventListener('click', () => updateBillingCycle(false));
+    annualBtn.addEventListener('click', () => updateBillingCycle(true));
   }
 
   // -------------------------------------------------------------------------

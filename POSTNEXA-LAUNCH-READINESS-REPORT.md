@@ -108,13 +108,25 @@ To ensure 100% compliance with consumer transparency standards, all features and
 
 ---
 
-## 4. PRICING CONTROLS & TRANSPARENCY
+## 4. PRICING ARCHITECTURE & LIVE APPLICATION SYNCHRONIZATION
 
-- **Preview Pricing Notice:** Every pricing section clearly displays the status badge `Preview Pricing • Subject to Owner Finalization`.
-- **Disclaimer Callout:** Included a dedicated disclaimer card:
-  > *"Displayed pricing tiers and plan quotas represent proposed launch configurations. Final pricing and commercial payment gateways will be confirmed upon formal general availability by Tech With Salman."*
-- **Interactive Switcher:** Supports seamless switching between Monthly and Annual billing (-20% discount reflected dynamically).
-- **Direct Application Onboarding:** Action buttons route users to `https://app.techwithsalman.online/` or `contact/index.html` for sales inquiries.
+The marketing website pricing is 100% synchronized with the live PostNexa application subscription plans:
+
+| Plan | Monthly Billing | Annual Billing | Accurate Annual Savings | Target CTA Route |
+|---|---|---|---|---|
+| **Free** | `$0 forever` | `$0 forever` | — | `https://app.techwithsalman.online/` |
+| **Starter** | `$24 / month` | `$228 / year` ($19/mo eq.) | **20.8% ($60/yr saved)** | `https://app.techwithsalman.online/billing` |
+| **Pro** | `$59 / month` | `$588 / year` ($49/mo eq.) | **16.9% ($120/yr saved)** | `https://app.techwithsalman.online/billing` |
+| **Agency** | `$149 / month` | `$1,548 / year` ($129/mo eq.) | **13.4% ($240/yr saved)** | `https://app.techwithsalman.online/billing` |
+
+### Synchronized Plan Limits:
+- **Free:** Up to 4 social accounts, 100 posts/mo, Instagram Auto DM: 3 posts, Bulk video uploads: 20/mo, 1 team member.
+- **Starter:** Up to 15 social accounts, 500 posts/mo, Instagram Auto DM: 20 posts, Bulk video uploads: 100/mo, Up to 2 team members.
+- **Pro:** Up to 30 social accounts, 1,500 posts/mo, Instagram Auto DM: 75 posts, Bulk video uploads: 500/mo, Up to 5 team members.
+- **Agency:** Up to 100 social accounts, 5,000 posts/mo, Instagram Auto DM: 250 posts, Bulk video uploads: 2,000/mo, Up to 20 team members.
+
+- **Centralized Configuration:** Managed entirely through `js/pricing-config.js` as the single source of truth.
+- **Dynamic Billing Toggle:** Instant client-side switching between monthly and annual prices without page reloads.
 
 ---
 
