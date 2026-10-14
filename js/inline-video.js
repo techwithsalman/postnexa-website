@@ -117,11 +117,25 @@
       }
     });
 
-    video.addEventListener('loadedmetadata', function () {
+    function initVideoFrame() {
       if (timeDisplay) {
         timeDisplay.textContent = '0:00 / ' + formatTime(video.duration);
       }
-    });
+      // Guarantee initial frame is decoded and painted without black screen
+      if (video.currentTime === 0) {
+        try {
+          video.currentTime = 0.001;
+        } catch (e) {
+          // Ignore if pre-playback seek is restricted by browser policy
+        }
+      }
+    }
+
+    if (video.readyState >= 1) {
+      initVideoFrame();
+    } else {
+      video.addEventListener('loadedmetadata', initVideoFrame);
+    }
 
     // Interactive Timeline Scrubbing
     function seekFromEvent(e) {
