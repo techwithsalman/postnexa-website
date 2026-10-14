@@ -350,8 +350,11 @@ function footer_html(rel) {
         </div>
 
         <!-- Copyright Note -->
-        <div>
-          <p>&copy; 2026 PostNexa. Developed by <a href="https://techwithsalman.online/" target="_blank" rel="noopener" style="color: var(--color-primary); font-weight: 700;">Tech With Salman</a>.</p>
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <a href="${rel}index.html" class="sc-logo-link" aria-label="PostNexa Home">
+            <img src="${rel}assets/logos/postnexa-logo.png" alt="PostNexa" class="sc-logo-img" style="height: 28px; width: auto;">
+          </a>
+          <p style="margin: 0;">&copy; 2026 PostNexa. Developed by <a href="https://techwithsalman.online/" target="_blank" rel="noopener" style="color: var(--color-primary); font-weight: 700;">Tech With Salman</a>.</p>
         </div>
 
         <!-- Legal Links -->

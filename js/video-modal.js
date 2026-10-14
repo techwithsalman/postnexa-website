@@ -49,7 +49,12 @@
   function openVideoModal() {
     overlay.classList.add('is-active');
     document.body.style.overflow = 'hidden';
-    // Do NOT autoplay with sound — wait for user interaction
+    // Play video upon user click
+    if (video) {
+      video.play().catch(function (err) {
+        console.warn('Video play prevented:', err);
+      });
+    }
   }
 
   function closeVideoModal() {
@@ -69,9 +74,15 @@
   // The main play trigger (the yellow badge button on homepage)
   const mainTrigger = document.querySelector('.sc-showcase-play-badge');
   if (mainTrigger) {
-    // Remove any existing listener bound by main.js for this element
-    // Re-assign with our video-aware version
     mainTrigger.addEventListener('click', openVideoModal);
+  }
+  const mockupWrap = document.querySelector('.sc-hero-mockup-wrap');
+  if (mockupWrap) {
+    mockupWrap.style.cursor = 'pointer';
+    mockupWrap.addEventListener('click', function (e) {
+      if (e.target.closest('.sc-showcase-play-badge')) return;
+      openVideoModal();
+    });
   }
 
   // Close button

@@ -983,8 +983,11 @@
         </div>
 
         <!-- Copyright Note -->
-        <div>
-          <p>&copy; 2026 PostNexa. Developed by <a href="https://techwithsalman.online/" target="_blank" rel="noopener" style="color: var(--color-primary); font-weight: 700;">Tech With Salman</a>.</p>
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <a href="index.html" class="sc-logo-link" aria-label="PostNexa Home">
+            <img src="assets/logos/postnexa-logo.png" alt="PostNexa" class="sc-logo-img" style="height: 28px; width: auto;">
+          </a>
+          <p style="margin: 0;">&copy; 2026 PostNexa. Developed by <a href="https://techwithsalman.online/" target="_blank" rel="noopener" style="color: var(--color-primary); font-weight: 700;">Tech With Salman</a>.</p>
         </div>
 
         <!-- Legal Links -->
@@ -1026,23 +1029,19 @@
 
         <!-- ============================================================
              VIDEO SOURCE — update src here when real video is ready
-             Primary:  assets/videos/postnexa-platform-demo.mp4
-             Fallback: BigBuckBunny sample clip (royalty-free, CC)
+             VIDEO SOURCE: Official PostNexa Promotional Video
+             File: assets/videos/postnexa-platform-demo.mp4
              ============================================================ -->
         <video
           id="postnexaDemoVideo"
           class="sc-platform-video"
           preload="metadata"
           playsinline
-          aria-label="PostNexa platform demonstration video"
+          aria-label="PostNexa official promotional video"
         >
-          <!-- PRIMARY: Replace this src with your real PostNexa demo video -->
           <source src="assets/videos/postnexa-platform-demo.mp4" type="video/mp4">
-          <!-- FALLBACK: Open-source sample video (Creative Commons) -->
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
           <p style="color:#fff;text-align:center;padding:40px;">
             Your browser does not support HTML5 video.
-            <a href="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" style="color:#F16A21;">Download the video</a>
           </p>
         </video>
 

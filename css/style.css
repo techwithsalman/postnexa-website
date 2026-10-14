@@ -1,4 +1,4 @@
-/* ==========================================================================
+ï»¿/* ==========================================================================
    POSTNEXA - CORE MARKETING STYLESHEET
    ========================================================================== */
 
@@ -3115,7 +3115,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ==========================================================================
-   VIDEO MODAL PLAYER — PostNexa Platform Preview
+   VIDEO MODAL PLAYER ï¿½ PostNexa Platform Preview
    ========================================================================== */
 .sc-video-modal-container {
   max-width: 900px;
@@ -3132,7 +3132,8 @@ h1, h2, h3, h4, h5, h6 {
 .sc-platform-video {
   display: block;
   width: 100%;
-  max-height: 55vh;
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
   object-fit: contain;
   background-color: #000;
   cursor: pointer;
@@ -3237,7 +3238,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 @media (max-width: 640px) {
-  .sc-platform-video { max-height: 45vw; }
+  .sc-platform-video { width: 100%; height: auto; aspect-ratio: 16 / 9; max-height: 80vh; object-fit: contain; }
   .sc-volume-slider { width: 56px; }
   .sc-video-time { font-size: 11px; }
 }
