@@ -3242,3 +3242,130 @@ h1, h2, h3, h4, h5, h6 {
   .sc-volume-slider { width: 56px; }
   .sc-video-time { font-size: 11px; }
 }
+
+
+/* =========================================================================
+   INLINE VIDEO PLAYER STYLING
+   ========================================================================= */
+.sc-inline-player-container {
+  position: relative;
+  background-color: #0B0E14;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-inline-video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  display: block;
+  background-color: #0B0E14;
+  cursor: pointer;
+}
+
+/* Big Centered Play Button */
+.sc-inline-center-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F16A21, #E55A10);
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 35px rgba(241, 106, 33, 0.5);
+  z-index: 8;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+  animation: inline-play-pulse 2.4s infinite;
+}
+
+@keyframes inline-play-pulse {
+  0% {
+    box-shadow: 0 12px 35px rgba(241, 106, 33, 0.5), 0 0 0 0 rgba(241, 106, 33, 0.5);
+  }
+  70% {
+    box-shadow: 0 12px 35px rgba(241, 106, 33, 0.5), 0 0 0 22px rgba(241, 106, 33, 0);
+  }
+  100% {
+    box-shadow: 0 12px 35px rgba(241, 106, 33, 0.5), 0 0 0 0 rgba(241, 106, 33, 0);
+  }
+}
+
+.sc-inline-center-play:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: linear-gradient(135deg, #FF7B35, #F16A21);
+}
+
+.sc-inline-center-play-icon {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide center play button and yellow badge when video is playing */
+.sc-inline-player-container.is-playing .sc-inline-center-play {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  animation: none;
+}
+
+.sc-inline-player-container.is-playing .sc-showcase-play-badge {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* Custom Controls Bar for Inline Player */
+.sc-inline-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(11, 14, 20, 0.96) 0%, rgba(11, 14, 20, 0.72) 65%, transparent 100%);
+  padding: 12px 20px 16px;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+/* Show controls when playing and hovered, or when paused after starting */
+.sc-inline-player-container.is-playing:hover .sc-inline-controls,
+.sc-inline-player-container.is-playing:focus-within .sc-inline-controls,
+.sc-inline-player-container.has-started.is-paused .sc-inline-controls {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .sc-inline-center-play {
+    width: 64px;
+    height: 64px;
+  }
+  .sc-inline-center-play svg {
+    width: 26px;
+    height: 26px;
+  }
+  .sc-inline-controls {
+    padding: 8px 12px 12px;
+  }
+}

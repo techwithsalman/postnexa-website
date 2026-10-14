@@ -400,18 +400,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // -------------------------------------------------------------------------
-  // 9. Video Demo Modal
+  // 9. Legacy Modal Fallback (Safely Deactivated for Inline Video Player)
   // -------------------------------------------------------------------------
-  const modalTrigger = document.querySelector('.sc-showcase-play-badge');
   const modalOverlay = document.querySelector('.sc-modal-overlay');
   const modalCloseBtn = document.querySelector('.sc-modal-close-btn');
-
-  function openModal() {
-    if (modalOverlay) {
-      modalOverlay.classList.add('is-active');
-      document.body.style.overflow = 'hidden';
-    }
-  }
 
   function closeModal() {
     if (modalOverlay) {
@@ -420,7 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if (modalTrigger) modalTrigger.addEventListener('click', openModal);
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
   if (modalOverlay) {
     modalOverlay.addEventListener('click', (e) => {

@@ -340,18 +340,89 @@
 
         </div>
 
-        <!-- Dashboard Product Visual Showcase -->
+        <!-- Dashboard Product Visual Showcase (Inline Video Player) -->
         <div class="sc-hero-showcase">
-          <div class="sc-hero-mockup-wrap">
-            <img src="assets/images/dashboard-hero.svg" alt="PostNexa Social Media Management Workspace Preview" class="sc-hero-mockup-img">
+          <div class="sc-hero-mockup-wrap sc-inline-player-container" id="inlinePlayerContainer">
             
-            <!-- Interactive "See it in action" Play Badge -->
-            <button type="button" class="sc-showcase-play-badge" aria-label="Open interactive product preview">
-              <span class="sc-play-icon-circle">
-                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <!-- Inline Promotional Video Element -->
+            <video
+              id="postnexaInlineVideo"
+              class="sc-inline-video"
+              preload="metadata"
+              playsinline
+              poster="assets/images/dashboard-hero.svg"
+              aria-label="PostNexa Platform Video Demonstration"
+            >
+              <source src="assets/videos/postnexa-platform-demo.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+
+            <!-- Centered Play Button (pulses when paused) -->
+            <button type="button" class="sc-inline-center-play" id="inlineCenterPlayBtn" aria-label="Play PostNexa Demonstration Video">
+              <span class="sc-inline-center-play-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
               </span>
-              <span>Platform Preview</span>
             </button>
+
+            <!-- Repurposed Platform Preview Badge -->
+            <button type="button" class="sc-showcase-play-badge" id="inlinePlatformBadge" aria-label="Play PostNexa Platform Preview">
+              <span class="sc-play-icon-circle" id="badgePlayIconCircle">
+                <svg id="badgePlaySvg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <svg id="badgePauseSvg" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </span>
+              <span id="badgePlayText">Platform Preview</span>
+            </button>
+
+            <!-- Interactive Inline Controls Bar -->
+            <div class="sc-inline-controls" id="inlineControls" role="group" aria-label="Video controls">
+              
+              <!-- Progress Timeline Slider -->
+              <div class="sc-video-progress-wrap" id="inlineProgressWrap" role="slider" aria-label="Video timeline" tabindex="0">
+                <div class="sc-video-progress-bg">
+                  <div class="sc-video-progress-bar" id="inlineProgressBar"></div>
+                </div>
+              </div>
+
+              <!-- Controls Row -->
+              <div class="sc-video-controls-row">
+                
+                <!-- Left: Play/Pause Button + Time Display -->
+                <div class="sc-video-controls-left">
+                  <button type="button" class="sc-video-btn" id="inlinePlayPauseBtn" aria-label="Play video">
+                    <svg id="inlinePlayIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <svg id="inlinePauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                  </button>
+                  <div class="sc-video-time" id="inlineTimeDisplay" aria-live="off">0:00 / 0:48</div>
+                </div>
+
+                <!-- Right: Volume + Fullscreen Controls -->
+                <div class="sc-video-controls-right">
+                  <button type="button" class="sc-video-btn" id="inlineMuteBtn" aria-label="Mute video">
+                    <svg id="inlineVolumeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                    <svg id="inlineMuteIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <line x1="23" y1="9" x2="17" y2="15"></line>
+                      <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                  </button>
+                  <input type="range" class="sc-volume-slider" id="inlineVolumeSlider" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+                  <button type="button" class="sc-video-btn" id="inlineFullscreenBtn" aria-label="Toggle fullscreen">
+                    <svg id="inlineFsExpandIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                    </svg>
+                    <svg id="inlineFsCollapseIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                      <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+                    </svg>
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
         </div>
 
@@ -1004,110 +1075,6 @@
   </footer>
 
   <!-- =========================================================================
-       13. PLATFORM PREVIEW VIDEO MODAL
-       =========================================================================
-       VIDEO SOURCE CONFIGURATION:
-       To replace the demo video, update the <source> src attribute below.
-       Future filename: assets/videos/postnexa-platform-demo.mp4
-       ========================================================================= -->
-  <div class="sc-modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="sc-modal-container sc-video-modal-container">
-
-      <!-- Modal Header -->
-      <div class="sc-modal-header">
-        <h3 class="sc-modal-title" id="modalTitle">
-          <span class="sc-play-icon-circle" style="width:28px;height:28px;display:inline-flex;vertical-align:middle;margin-right:10px;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-          </span>
-          PostNexa Platform Preview
-        </h3>
-        <button type="button" class="sc-modal-close-btn" id="videoModalClose" aria-label="Close video modal">&#10005;</button>
-      </div>
-
-      <!-- Video Player Body -->
-      <div class="sc-modal-body sc-video-modal-body">
-
-        <!-- ============================================================
-             VIDEO SOURCE — update src here when real video is ready
-             VIDEO SOURCE: Official PostNexa Promotional Video
-             File: assets/videos/postnexa-platform-demo.mp4
-             ============================================================ -->
-        <video
-          id="postnexaDemoVideo"
-          class="sc-platform-video"
-          preload="metadata"
-          playsinline
-          aria-label="PostNexa official promotional video"
-        >
-          <source src="assets/videos/postnexa-platform-demo.mp4" type="video/mp4">
-          <p style="color:#fff;text-align:center;padding:40px;">
-            Your browser does not support HTML5 video.
-          </p>
-        </video>
-
-        <!-- Custom Video Controls -->
-        <div class="sc-video-controls" id="scVideoControls" role="group" aria-label="Video controls">
-
-          <!-- Progress Bar -->
-          <div class="sc-video-progress-wrap" id="scVideoProgressWrap" role="slider" aria-label="Video progress" tabindex="0">
-            <div class="sc-video-progress-bg">
-              <div class="sc-video-progress-bar" id="scVideoProgressBar"></div>
-            </div>
-          </div>
-
-          <!-- Controls Row -->
-          <div class="sc-video-controls-row">
-
-            <!-- Left: Play/Pause + Time -->
-            <div class="sc-video-controls-left">
-              <button type="button" class="sc-video-btn" id="scPlayPauseBtn" aria-label="Play video">
-                <svg id="scPlayIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                <svg id="scPauseIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-              </button>
-              <div class="sc-video-time" id="scVideoTime" aria-live="off">0:00 / 0:00</div>
-            </div>
-
-            <!-- Right: Volume + Fullscreen -->
-            <div class="sc-video-controls-right">
-              <button type="button" class="sc-video-btn" id="scMuteBtn" aria-label="Mute video">
-                <svg id="scVolumeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                </svg>
-                <svg id="scMuteIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                  <line x1="23" y1="9" x2="17" y2="15"></line>
-                  <line x1="17" y1="9" x2="23" y2="15"></line>
-                </svg>
-              </button>
-              <input type="range" class="sc-volume-slider" id="scVolumeSlider" min="0" max="1" step="0.05" value="1" aria-label="Volume">
-              <button type="button" class="sc-video-btn" id="scFullscreenBtn" aria-label="Toggle fullscreen">
-                <svg id="scFsExpandIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-                </svg>
-                <svg id="scFsCollapseIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-                  <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fallback banner shown if video fails to load -->
-        <div class="sc-video-fallback" id="scVideoFallback" style="display:none;">
-          <div style="text-align:center;padding:60px 20px;">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#F16A21" stroke-width="1.5" style="margin-bottom:20px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            <p style="color:#fff;font-size:16px;font-weight:700;margin-bottom:8px;">Platform Demo Coming Soon</p>
-            <p style="color:#9CA3AF;font-size:14px;margin-bottom:24px;">The full PostNexa platform walkthrough video will be available shortly.</p>
-            <a href="contact/index.html" class="sc-btn sc-btn-primary" id="scVideoFallbackContact">Request a Demo ➔</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
        14. COOKIE NOTICE BANNER
        ========================================================================= -->
   <div class="sc-cookie-notice" role="alert">
@@ -1126,8 +1093,8 @@
   <script src="js/config.js"></script>
   <script src="js/pricing-config.js"></script>
   <script src="js/main.js"></script>
-  <!-- Video Modal Controller (separate file for easy maintenance) -->
-  <script src="js/video-modal.js"></script>
+  <!-- Inline Video Player Controller -->
+  <script src="js/inline-video.js"></script>
 </body>
 </html>
 
