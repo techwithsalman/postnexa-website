@@ -20,7 +20,7 @@ function header_html(rel, active = "") {
       
       <!-- Brand Logo -->
       <a href="${rel}index.html" class="sc-logo-link" aria-label="PostNexa Home">
-        <img src="${rel}assets/logos/postnexa-logo.svg" alt="PostNexa by Tech With Salman" class="sc-logo-img">
+        <img src="${rel}assets/logos/postnexa-logo.png" alt="PostNexa by Tech With Salman" class="sc-logo-img">
       </a>
 
       <!-- Desktop Navigation Links & Mega Menus -->
@@ -73,7 +73,7 @@ function header_html(rel, active = "") {
                         <h4>Developed by Tech With Salman</h4>
                         <p>Designed as a modern social media management platform for creators and digital teams.</p>
                       </div>
-                      <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-yellow sc-btn-pill" target="_blank" rel="noopener">Launch App ➔</a>
+                      <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-yellow sc-btn-pill">Launch App ➔</a>
                     </div>
                   </div>
 
@@ -168,8 +168,8 @@ function header_html(rel, active = "") {
 
       <!-- Right Header Actions (Login + CTA) -->
       <div class="sc-header-actions">
-        <a href="https://app.techwithsalman.online/" class="sc-login-link" target="_blank" rel="noopener">Login</a>
-        <a href="https://app.techwithsalman.online/" class="sc-header-cta" target="_blank" rel="noopener">
+        <a href="${rel}coming-soon/index.html" class="sc-login-link">Login</a>
+        <a href="${rel}coming-soon/index.html" class="sc-header-cta">
           <span>Get Started</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -192,7 +192,7 @@ function header_html(rel, active = "") {
   <div class="sc-mobile-drawer" id="scMobileDrawer" aria-label="Mobile Navigation">
     <div class="sc-mobile-drawer-header">
       <a href="${rel}index.html" class="sc-logo-link" aria-label="PostNexa Home">
-        <img src="${rel}assets/logos/postnexa-logo.svg" alt="PostNexa by Tech With Salman" class="sc-logo-img">
+        <img src="${rel}assets/logos/postnexa-logo.png" alt="PostNexa by Tech With Salman" class="sc-logo-img">
       </a>
       <button type="button" class="sc-mobile-close-btn" id="scMobileClose" aria-label="Close navigation menu">&times;</button>
     </div>
@@ -241,8 +241,8 @@ function header_html(rel, active = "") {
       <li class="sc-mobile-item"><a href="${rel}contact/index.html" class="sc-mobile-direct-link">Contact Support</a></li>
     </ul>
     <div class="sc-mobile-actions">
-      <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-secondary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Log In</a>
-      <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Get Started ➔</a>
+      <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-secondary" style="width: 100%; justify-content: center;">Log In</a>
+      <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-primary sc-btn-pill" style="width: 100%; justify-content: center;">Get Started ➔</a>
     </div>
   </div>
   `;
@@ -318,7 +318,7 @@ function footer_html(rel) {
             <li><a href="https://techwithsalman.online/" class="sc-footer-link" target="_blank" rel="noopener">Tech With Salman</a></li>
             <li><a href="${rel}pricing/index.html" class="sc-footer-link">Pricing Plans</a></li>
             <li><a href="${rel}contact/index.html" class="sc-footer-link">Contact Us</a></li>
-            <li><a href="https://app.techwithsalman.online/" class="sc-footer-link" target="_blank" rel="noopener">Application Dashboard</a></li>
+            <li><a href="${rel}coming-soon/index.html" class="sc-footer-link">Application Dashboard</a></li>
           </ul>
         </div>
 
@@ -404,7 +404,7 @@ function make_page(rel_path, depth, active, title, desc, canonical, main_html) {
   <link rel="stylesheet" href="${rel}css/responsive.css">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="${rel}assets/logos/postnexa-logo.svg">
+  <link rel="icon" type="image/svg+xml" href="${rel}assets/logos/postnexa-logo.png">
 </head>
 <body>
 
@@ -970,7 +970,7 @@ features_data.forEach(feat => {
           <h1 class="sc-inner-hero-title">${feat.title}</h1>
           <p class="sc-inner-hero-desc">${feat.desc}</p>
           <div class="sc-inner-hero-actions">
-            <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">
+            <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-primary sc-btn-pill">
               Launch in PostNexa ➔
             </a>
             <a href="${rel}pricing/index.html" class="sc-btn sc-btn-outline sc-btn-pill">
@@ -1019,7 +1019,7 @@ features_data.forEach(feat => {
           <ul class="sc-feat-bullet-list">
             ${feat.deep_dive_1.bullets.map(b => `<li class="sc-feat-bullet-item"><img src="${rel}assets/icons/check.svg" alt=""> <span>${b}</span></li>`).join("")}
           </ul>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary" target="_blank" rel="noopener">Experience in App ➔</a>
+          <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-primary">Experience in App ➔</a>
         </div>
         <div class="sc-feat-row-visual">
           <img src="${rel}assets/images/${feat.deep_dive_1.visual}" alt="${feat.deep_dive_1.title}">
@@ -1097,7 +1097,7 @@ features_data.forEach(feat => {
           <p style="font-size: 16px; color: #D1D5DB; margin-top: 6px;">Sign up today on our web application and connect your social accounts in under two minutes.</p>
         </div>
         <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-yellow sc-btn-pill" target="_blank" rel="noopener">Get Started Free ➔</a>
+          <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-yellow sc-btn-pill">Get Started Free ➔</a>
           <a href="${rel}contact/index.html" class="sc-btn sc-btn-outline" style="color: #FFF; border-color: rgba(255,255,255,0.4);">Contact Us</a>
         </div>
       </div>
@@ -1131,7 +1131,7 @@ const features_dir_cards = features_data.map(f => {
       </div>
       <div class="sc-card-footer">
         <a href="${f.slug}/index.html" class="sc-card-link">Explore Feature ➔</a>
-        <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-outline" style="padding: 6px 14px; font-size: 12.5px;" target="_blank" rel="noopener">Try in App</a>
+        <a href="../coming-soon/index.html" class="sc-btn sc-btn-outline" style="padding: 6px 14px; font-size: 12.5px;">Try in App</a>
       </div>
     </div>
   `;
@@ -1154,7 +1154,7 @@ const features_index_html = `
           <h1 class="sc-inner-hero-title">Powerful Social Media Architecture, Built into One Unified Workspace</h1>
           <p class="sc-inner-hero-desc">Explore PostNexa's complete suite of publishing, AI writing, visual planning, and team collaboration tools — built with complete transparency regarding development status.</p>
           <div class="sc-inner-hero-actions">
-            <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">Launch Application ➔</a>
+            <a href="../coming-soon/index.html" class="sc-btn sc-btn-primary sc-btn-pill">Launch Application ➔</a>
             <a href="../roadmap/index.html" class="sc-btn sc-btn-outline sc-btn-pill">View Roadmap</a>
           </div>
         </div>
@@ -1192,7 +1192,7 @@ const features_index_html = `
           <p style="font-size: 16px; color: #D1D5DB; margin-top: 6px;">Connect your Facebook, Instagram, and YouTube accounts today.</p>
         </div>
         <div>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-yellow sc-btn-pill" target="_blank" rel="noopener">Get Started Free ➔</a>
+          <a href="../coming-soon/index.html" class="sc-btn sc-btn-yellow sc-btn-pill">Get Started Free ➔</a>
         </div>
       </div>
     </div>
@@ -1377,7 +1377,7 @@ solutions_data.forEach(s => {
           <h1 class="sc-inner-hero-title">${s.title}</h1>
           <p class="sc-inner-hero-desc">${s.desc}</p>
           <div class="sc-inner-hero-actions">
-            <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">
+            <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-primary sc-btn-pill">
               Start Free Trial ➔
             </a>
             <a href="${rel}pricing/index.html" class="sc-btn sc-btn-outline sc-btn-pill">
@@ -1424,7 +1424,7 @@ solutions_data.forEach(s => {
           <ul class="sc-feat-bullet-list">
             ${s.deep_dive_1.bullets.map(b => `<li class="sc-feat-bullet-item"><img src="${rel}assets/icons/check.svg" alt=""> <span>${b}</span></li>`).join("")}
           </ul>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary" target="_blank" rel="noopener">Launch Application ➔</a>
+          <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-primary">Launch Application ➔</a>
         </div>
         <div class="sc-feat-row-visual">
           <img src="${rel}assets/images/${s.deep_dive_1.visual}" alt="${s.deep_dive_1.title}">
@@ -1459,7 +1459,7 @@ solutions_data.forEach(s => {
           <p style="font-size: 16px; color: #D1D5DB; margin-top: 6px;">Join digital professionals building their social media presence with PostNexa.</p>
         </div>
         <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-yellow sc-btn-pill" target="_blank" rel="noopener">Launch Application ➔</a>
+          <a href="${rel}coming-soon/index.html" class="sc-btn sc-btn-yellow sc-btn-pill">Launch Application ➔</a>
           <a href="${rel}solutions/index.html" class="sc-btn sc-btn-outline" style="color: #FFF; border-color: rgba(255,255,255,0.4);">All Solutions</a>
         </div>
       </div>
@@ -1481,7 +1481,7 @@ const solutions_dir_cards = solutions_data.map(s => `
     </div>
     <div class="sc-card-footer">
       <a href="${s.slug}/index.html" class="sc-card-link">View Solution Details ➔</a>
-      <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-outline" style="padding: 6px 14px; font-size: 12.5px;" target="_blank" rel="noopener">Try Free</a>
+      <a href="../coming-soon/index.html" class="sc-btn sc-btn-outline" style="padding: 6px 14px; font-size: 12.5px;">Try Free</a>
     </div>
   </div>
 `).join("");
@@ -1503,7 +1503,7 @@ const solutions_index_html = `
           <h1 class="sc-inner-hero-title">Tailored Social Workspaces for Every Role &amp; Business Model</h1>
           <p class="sc-inner-hero-desc">Whether you are a solo content creator, marketing agency, or fast-growing digital team, PostNexa adapts to your publishing volume and collaboration needs.</p>
           <div class="sc-inner-hero-actions">
-            <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">Start Free Trial ➔</a>
+            <a href="../coming-soon/index.html" class="sc-btn sc-btn-primary sc-btn-pill">Start Free Trial ➔</a>
             <a href="../pricing/index.html" class="sc-btn sc-btn-outline sc-btn-pill">View Pricing</a>
           </div>
         </div>
@@ -1555,7 +1555,7 @@ const integrations_cards = integrations_data.map(item => `
     <p class="sc-card-text">${item.desc}</p>
     <div class="sc-card-footer">
       <span style="font-size: 12.5px; font-weight: 700; color: var(--color-text-muted);">OAuth 2.0 Protocol</span>
-      <a href="https://app.techwithsalman.online/" class="sc-card-link" target="_blank" rel="noopener">Connect ➔</a>
+      <a href="../coming-soon/index.html" class="sc-card-link">Connect ➔</a>
     </div>
   </div>
 `).join("");
@@ -1577,7 +1577,7 @@ const integrations_index_html = `
           <h1 class="sc-inner-hero-title">Connect Your Favorite Social Networks &amp; Digital Tools</h1>
           <p class="sc-inner-hero-desc">PostNexa integrates through official public developer APIs and OAuth standards to ensure your account security and uninterrupted publishing.</p>
           <div class="sc-inner-hero-actions">
-            <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">Connect Accounts in App ➔</a>
+            <a href="../coming-soon/index.html" class="sc-btn sc-btn-primary sc-btn-pill">Connect Accounts in App ➔</a>
             <a href="../help/index.html" class="sc-btn sc-btn-outline sc-btn-pill">Integration Guides</a>
           </div>
         </div>
@@ -1641,7 +1641,7 @@ const pricing_cards_html = PRICING_CONFIG.plans.map(p => {
               ${featuresList}
             </div>
           </div>
-          <a href="${p.ctaUrl}" class="sc-btn ${p.ctaClass}" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">${p.ctaText}</a>
+          <a href="../coming-soon/index.html" class="sc-btn ${p.ctaClass}" style="width: 100%; justify-content: center;">${p.ctaText}</a>
         </div>`;
 }).join("\n");
 
@@ -1781,7 +1781,7 @@ const about_html = `
         <p style="color: var(--color-text-muted); margin-bottom: 20px;">Digital Solutions, Software Engineering &amp; Modern Cloud Applications</p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
           <a href="https://techwithsalman.online/" class="sc-btn sc-btn-primary" target="_blank" rel="noopener">Visit Parent Website ➔</a>
-          <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-outline" target="_blank" rel="noopener">Open App Portal</a>
+          <a href="../coming-soon/index.html" class="sc-btn sc-btn-outline">Open App Portal</a>
         </div>
       </div>
     </div>
@@ -1854,7 +1854,7 @@ const contact_html = `
               </div>
               <div>
                 <h4 style="font-size: 16px; font-weight: 800;">Web Application</h4>
-                <p style="font-size: 14px; color: var(--color-text-muted); margin: 0;">https://app.techwithsalman.online/</p>
+                <p style="font-size: 14px; color: var(--color-text-muted); margin: 0;">https://postnexa.netlify.app/</p>
               </div>
             </div>
           </div>
@@ -2220,7 +2220,7 @@ const article_html = `
       <p>Consistency is the single biggest predictor of organic social reach. By leveraging automated cloud workers, context-aware AI copy assistants, and structured bulk scheduling, you can focus on what truly matters: creating compelling content and engaging with your audience.</p>
 
       <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--color-border); text-align: center;">
-        <a href="https://app.techwithsalman.online/" class="sc-btn sc-btn-primary sc-btn-pill" target="_blank" rel="noopener">Experience PostNexa Free ➔</a>
+        <a href="../../coming-soon/index.html" class="sc-btn sc-btn-primary sc-btn-pill">Experience PostNexa Free ➔</a>
       </div>
     </div>
   </section>
@@ -2427,7 +2427,7 @@ const privacy_html = `
 
   <section class="sc-legal-wrapper">
     <div class="sc-legal-content">
-      <p>This Privacy Policy describes how PostNexa ("we", "us", or "our"), operated by Tech With Salman, collects, uses, and safeguards information when you use our website and web application located at <a href="https://app.techwithsalman.online/">app.techwithsalman.online</a>.</p>
+      <p>This Privacy Policy describes how PostNexa ("we", "us", or "our"), operated by Tech With Salman, collects, uses, and safeguards information when you use our website and web application located at <a href="https://postnexa.netlify.app/">app.techwithsalman.online</a>.</p>
 
       <h2>1. Information We Collect</h2>
       <p>We collect information necessary to provide, maintain, and secure our social media management services:</p>
@@ -2551,7 +2551,7 @@ const data_deletion_html = `
 
       <h2>Option 1: Disconnect a Specific Social Account</h2>
       <ol>
-        <li>Log in to your dashboard at <a href="https://app.techwithsalman.online/" target="_blank" rel="noopener">app.techwithsalman.online</a>.</li>
+        <li>Log in to your dashboard at <a href="https://postnexa.netlify.app/" target="_blank" rel="noopener">app.techwithsalman.online</a>.</li>
         <li>Navigate to <strong>Settings &gt; Connected Accounts</strong>.</li>
         <li>Locate the social account you wish to remove and click <strong>Disconnect</strong>.</li>
         <li>All associated access tokens and pending queues for that profile are immediately deleted.</li>
@@ -2572,6 +2572,49 @@ const data_deletion_html = `
 make_page("data-deletion/index.html", 1, "resources", "User Data Deletion Instructions | PostNexa", "Step-by-step instructions for disconnecting social accounts and permanently deleting your PostNexa data.", "data-deletion/", data_deletion_html);
 
 // =========================================================================
+
+// =========================================================================
+// 12.5. COMING SOON / WAITLIST PAGE
+// =========================================================================
+const page_coming_soon_html = `
+  <section class="sc-inner-hero" style="padding: 80px 0 100px; text-align: center; background: linear-gradient(135deg, #fff 0%, #FFF7F2 60%, #FFF3E6 100%);">
+    <div class="sc-container" style="max-width: 680px; margin: 0 auto;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: #FFF3E6; border: 1px solid rgba(241,106,33,0.25); border-radius: 100px; padding: 6px 18px; font-size: 12px; font-weight: 700; color: #F16A21; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 24px;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #F16A21; display: inline-block;"></span>
+        Launching Soon
+      </div>
+      <h1 class="sc-inner-hero-title" style="font-size: clamp(32px, 5vw, 50px); font-weight: 900; line-height: 1.15; margin-bottom: 16px;">
+        PostNexa is almost <span style="color: var(--color-primary);">ready</span> for you.
+      </h1>
+      <p class="sc-inner-hero-desc" style="font-size: 17px; color: var(--color-text-muted); margin: 0 auto 32px auto; line-height: 1.6; max-width: 520px;">
+        We are putting the final touches on our social media management OS. Enter your work email below to get notified the moment public registration opens.
+      </p>
+      
+      <form class="sc-newsletter-form" id="csWaitlistForm" style="max-width: 460px; margin: 0 auto 20px auto;" onsubmit="event.preventDefault(); document.getElementById('csSuccessNote').style.display = 'block'; this.style.display = 'none';">
+        <input type="email" class="sc-newsletter-input" placeholder="Enter your work email..." required aria-label="Work Email">
+        <button type="submit" class="sc-btn sc-btn-primary">Notify Me ➔</button>
+      </form>
+      <p id="csSuccessNote" style="display: none; font-size: 14px; font-weight: 700; color: #10B981; margin-bottom: 24px;">
+        ✓ You have been added to the priority notification list!
+      </p>
+      <p style="font-size: 12.5px; color: var(--color-text-light); margin-bottom: 40px;">No spam, ever. Only product launch and early-access invitations.</p>
+
+      <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
+        <span class="sc-badge-status sc-badge-live">Direct API Publishing</span>
+        <span class="sc-badge-status sc-badge-live">Content Calendar</span>
+        <span class="sc-badge-status sc-badge-dev">AI Caption Writer</span>
+        <span class="sc-badge-status sc-badge-soon">Cloud Auto-Queues</span>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="../index.html" class="sc-btn sc-btn-secondary sc-btn-pill">Return to Homepage ➔</a>
+        <a href="../features/index.html" class="sc-btn sc-btn-outline sc-btn-pill">Explore Features</a>
+      </div>
+    </div>
+  </section>
+`;
+make_page("coming-soon/index.html", 1, "", "Platform Launch Waitlist | PostNexa", "Join the priority launch waitlist for PostNexa social media management platform.", "coming-soon/", page_coming_soon_html);
+
 // 13. 404 PAGE
 // =========================================================================
 const page_404_html = `

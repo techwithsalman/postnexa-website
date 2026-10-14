@@ -3113,3 +3113,131 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+/* ==========================================================================
+   VIDEO MODAL PLAYER — PostNexa Platform Preview
+   ========================================================================== */
+.sc-video-modal-container {
+  max-width: 900px;
+  width: 95vw;
+  background-color: #0F1117;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.sc-video-modal-body {
+  padding: 0;
+  position: relative;
+  background-color: #000;
+}
+.sc-platform-video {
+  display: block;
+  width: 100%;
+  max-height: 55vh;
+  object-fit: contain;
+  background-color: #000;
+  cursor: pointer;
+}
+.sc-video-controls {
+  background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 70%, transparent 100%);
+  padding: 10px 16px 14px;
+  position: relative;
+}
+.sc-video-progress-wrap {
+  width: 100%;
+  cursor: pointer;
+  padding: 6px 0;
+  margin-bottom: 8px;
+}
+.sc-video-progress-bg {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: height 0.15s;
+}
+.sc-video-progress-wrap:hover .sc-video-progress-bg {
+  height: 6px;
+}
+.sc-video-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #F16A21, #FFCE38);
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+.sc-video-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sc-video-controls-left,
+.sc-video-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sc-video-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  opacity: 0.85;
+  transition: opacity 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.sc-video-btn:hover { opacity: 1; background: rgba(255,255,255,0.12); }
+.sc-video-btn:focus-visible { outline: 2px solid #F16A21; outline-offset: 2px; }
+.sc-video-time {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.3px;
+}
+.sc-volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  outline: none;
+}
+.sc-volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #F16A21;
+  cursor: pointer;
+}
+.sc-volume-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #F16A21;
+  cursor: pointer;
+  border: none;
+}
+.sc-video-fallback {
+  background-color: #0F1117;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 640px) {
+  .sc-platform-video { max-height: 45vw; }
+  .sc-volume-slider { width: 56px; }
+  .sc-video-time { font-size: 11px; }
+}
