@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://techwithsalman.online/postnexa/sitemap.xml
+Sitemap: https://postnexa.world/sitemap.xml

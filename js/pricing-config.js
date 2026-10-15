@@ -36,7 +36,7 @@ const PRICING_CONFIG = {
         "Up to 1 team member"
       ],
       ctaText: "Get Started",
-      ctaUrl: "/coming-soon/",
+      ctaUrl: "https://app.postnexa.world/signup",
       ctaClass: "sc-btn-outline"
     },
     {
@@ -67,7 +67,7 @@ const PRICING_CONFIG = {
         "Up to 2 team members"
       ],
       ctaText: "Choose Starter",
-      ctaUrl: "/coming-soon/",
+      ctaUrl: "https://app.postnexa.world/signup",
       ctaClass: "sc-btn-primary"
     },
     {
@@ -98,7 +98,7 @@ const PRICING_CONFIG = {
         "Up to 5 team members"
       ],
       ctaText: "Choose Pro",
-      ctaUrl: "/coming-soon/",
+      ctaUrl: "https://app.postnexa.world/signup",
       ctaClass: "sc-btn-primary sc-btn-pill"
     },
     {
@@ -129,7 +129,7 @@ const PRICING_CONFIG = {
         "Up to 20 team members"
       ],
       ctaText: "Choose Agency",
-      ctaUrl: "/coming-soon/",
+      ctaUrl: "https://app.postnexa.world/signup",
       ctaClass: "sc-btn-outline"
     }
   ],

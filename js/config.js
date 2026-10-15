@@ -5,27 +5,27 @@
 window.POSTNEXA_CONFIG = {
   productName: "PostNexa",
   parentCompany: "Tech With Salman",
-  parentWebsiteUrl: "https://techwithsalman.online/",
-  appBaseUrl: "https://app.techwithsalman.online/",
-  appLoginUrl: "https://app.techwithsalman.online/",
-  appSignupUrl: "https://app.techwithsalman.online/",
-  marketingBaseUrl: "/", // Configurable for custom domain or relative root
-  contactEmail: "support@techwithsalman.online",
+  parentWebsiteUrl: "https://postnexa.world/",
+  appBaseUrl: "https://app.postnexa.world/",
+  appLoginUrl: "https://app.postnexa.world/login",
+  appSignupUrl: "https://app.postnexa.world/signup",
+  marketingBaseUrl: "https://postnexa.world/",
+  contactEmail: "postnexa.online@gmail.com",
   version: "1.0.0",
 
-  // Verified Feature Inventory Status
+  // Standardized Feature Inventory Status
   featureStatus: {
     facebookPublishing: "LIVE",
     instagramPublishing: "LIVE",
-    youtubeUploads: "BETA",
+    youtubeUploads: "LIVE",
     tiktokPublishing: "BETA",
     contentCalendar: "LIVE",
     scheduledQueue: "LIVE",
     multiAccountManager: "LIVE",
-    aiCaptionWriter: "IN_DEVELOPMENT",
-    aiImageGenerator: "COMING_SOON",
+    aiCaptionWriter: "BETA",
+    aiImageGenerator: "IN_DEVELOPMENT",
     socialInbox: "IN_DEVELOPMENT",
-    analyticsGa4: "COMING_SOON",
+    analyticsGa4: "IN_DEVELOPMENT",
     teamWorkspaces: "IN_DEVELOPMENT"
   }
 };

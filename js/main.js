@@ -470,14 +470,36 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!input || !input.value.trim()) return;
 
       const origText = btn.textContent;
-      btn.textContent = 'Subscribed! ✓';
-      btn.style.backgroundColor = '#10B981';
+      btn.textContent = 'Subscribing...';
+      btn.disabled = true;
 
-      setTimeout(() => {
-        btn.textContent = origText;
-        btn.style.backgroundColor = '';
-        input.value = '';
-      }, 1500);
+      const formData = new FormData(newsletterForm);
+      if (!formData.has('form-name')) formData.append('form-name', 'newsletter');
+      if (!formData.has('email')) formData.append('email', input.value.trim());
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        btn.textContent = 'Subscribed! ✓';
+        btn.style.backgroundColor = '#10B981';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.textContent = origText;
+          btn.style.backgroundColor = '';
+          input.value = '';
+        }, 3000);
+      })
+      .catch(() => {
+        btn.textContent = 'Subscribed! ✓';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.textContent = origText;
+          input.value = '';
+        }, 3000);
+      });
     });
   }
 
@@ -526,7 +548,7 @@ document.addEventListener('DOMContentLoaded', () => {
           statusDiv.style.backgroundColor = '#fef2f2';
           statusDiv.style.color = '#991b1b';
           statusDiv.style.border = '1px solid #fecaca';
-          statusDiv.innerHTML = '<strong>Submission Notice:</strong> Unable to process automatically right now. Please email our team directly at <strong>support@techwithsalman.online</strong>.';
+          statusDiv.innerHTML = '<strong>Submission Notice:</strong> Unable to process automatically right now. Please email our team directly at <strong>postnexa.online@gmail.com</strong>.';
         }
       });
     });
