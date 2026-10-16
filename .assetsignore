@@ -4,6 +4,8 @@
 .gemini
 node_modules
 dist
+functions
+server
 audit-screenshots
 _backup_v1
 *.md

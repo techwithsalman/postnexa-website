@@ -12,7 +12,7 @@ function scanDirectory(dir) {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      if (!['node_modules', '.git', '_backup_v1', 'dist', '.wrangler', 'audit-screenshots'].includes(entry.name)) {
+      if (!['node_modules', '.git', '_backup_v1', 'dist', '.wrangler', 'audit-screenshots', 'functions', 'server'].includes(entry.name)) {
         scanDirectory(fullPath);
       }
     } else if (entry.name.endsWith('.html')) {

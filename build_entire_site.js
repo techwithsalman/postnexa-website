@@ -138,6 +138,56 @@ function header_html(rel, active = "") {
             </div>
           </li>
 
+          <!-- Menu Item: Tools -->
+          <li class="sc-nav-item">
+            <button type="button" class="sc-nav-head${active === 'tools' ? ' is-active' : ''}" aria-expanded="false" aria-haspopup="true">
+              Tools
+              <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="sc-mega-menu">
+              <div class="sc-container-wide">
+                <div class="sc-mega-grid sc-mega-solutions">
+                  
+                  <div class="sc-mega-col">
+                    <h3 class="sc-mega-lead">Creator Tools</h3>
+                    <p class="sc-mega-desc">Free utility tools built by PostNexa to help creators and teams inspect, preview, and save their own social media videos.</p>
+                    <a href="${rel}tools/social-media-downloader/index.html" class="sc-card-link" style="margin-top: 16px;">Open Video Downloader ➔</a>
+                  </div>
+
+                  <div class="sc-mega-col">
+                    <h4 class="sc-mega-col-title">Video Downloader</h4>
+                    <ul class="sc-mega-list">
+                      <li><a href="${rel}tools/social-media-downloader/index.html" class="sc-mega-link"><img src="${rel}assets/icons/publish.svg" class="sc-mega-link-icon" alt="">Social Media Video Downloader</a></li>
+                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=tiktok" class="sc-mega-link"><img src="${rel}assets/icons/tiktok.svg" class="sc-mega-link-icon" alt="">TikTok Downloader</a></li>
+                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=instagram" class="sc-mega-link"><img src="${rel}assets/icons/instagram.svg" class="sc-mega-link-icon" alt="">Instagram Downloader</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="sc-mega-col">
+                    <h4 class="sc-mega-col-title">Supported Platforms</h4>
+                    <ul class="sc-mega-list">
+                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=facebook" class="sc-mega-link"><img src="${rel}assets/icons/facebook.svg" class="sc-mega-link-icon" alt="">Facebook Downloader</a></li>
+                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=youtube" class="sc-mega-link"><img src="${rel}assets/icons/youtube.svg" class="sc-mega-link-icon" alt="">YouTube Downloader</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="sc-mega-col">
+                    <div class="sc-mega-demo-card">
+                      <div>
+                        <h4>All-in-One Workspace</h4>
+                        <p>Schedule and publish your videos across all major social networks with PostNexa.</p>
+                      </div>
+                      <a href="https://app.postnexa.world/signup" class="sc-btn sc-btn-yellow sc-btn-pill" target="_blank" rel="noopener">Start Free ➔</a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </li>
+
           <!-- Direct Link: Integrations -->
           <li class="sc-nav-item">
             <a href="${rel}integrations/index.html" class="sc-nav-head${active === 'integrations' ? ' is-active' : ''}">Integrations</a>
@@ -232,6 +282,19 @@ function header_html(rel, active = "") {
           <a href="${rel}features/team-collaboration/index.html" class="sc-mobile-sublink">Team Collaboration</a>
         </div>
       </li>
+      <li class="sc-mobile-item">
+        <button type="button" class="sc-mobile-link-head" aria-expanded="false">
+          <span>Tools</span>
+          <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sc-mobile-submenu">
+          <a href="${rel}tools/social-media-downloader/index.html" class="sc-mobile-sublink">Social Media Video Downloader</a>
+          <a href="${rel}tools/social-media-downloader/index.html?platform=tiktok" class="sc-mobile-sublink">TikTok Downloader</a>
+          <a href="${rel}tools/social-media-downloader/index.html?platform=instagram" class="sc-mobile-sublink">Instagram Downloader</a>
+          <a href="${rel}tools/social-media-downloader/index.html?platform=facebook" class="sc-mobile-sublink">Facebook Downloader</a>
+          <a href="${rel}tools/social-media-downloader/index.html?platform=youtube" class="sc-mobile-sublink">YouTube Downloader</a>
+        </div>
+      </li>
       <li class="sc-mobile-item"><a href="${rel}integrations/index.html" class="sc-mobile-direct-link">Integrations</a></li>
       <li class="sc-mobile-item"><a href="${rel}pricing/index.html" class="sc-mobile-direct-link">Pricing</a></li>
       <li class="sc-mobile-item"><a href="${rel}blog/index.html" class="sc-mobile-direct-link">Blog &amp; Guides</a></li>
@@ -302,6 +365,7 @@ function footer_html(rel) {
         <div>
           <h4 class="sc-footer-col-title">Resources</h4>
           <ul class="sc-footer-links">
+            <li><a href="${rel}tools/social-media-downloader/index.html" class="sc-footer-link">Social Media Video Downloader</a></li>
             <li><a href="${rel}blog/index.html" class="sc-footer-link">Social Media Blog</a></li>
             <li><a href="${rel}changelog/index.html" class="sc-footer-link">Changelog &amp; Releases</a></li>
             <li><a href="${rel}roadmap/index.html" class="sc-footer-link">Product Roadmap</a></li>
@@ -2651,4 +2715,604 @@ const page_404_html = `
 `;
 make_page("404.html", 0, "", "404 Not Found | PostNexa", "The requested page could not be found.", "404.html", page_404_html);
 
-console.log("REGENERATING ALL 35 PAGES WITH PREMIUM COMPOSITIONS & RESPONSIVE POLISH COMPLETED!");
+// 14. ALL-IN-ONE SOCIAL MEDIA VIDEO DOWNLOADER PAGE
+// =========================================================================
+const downloader_rel = get_rel_prefix(2);
+const downloader_title = "Social Media Video Downloader | PostNexa";
+const downloader_desc = "Save your own or authorized social media videos using PostNexa's online downloader. Paste a supported TikTok, Instagram, Facebook or YouTube link to check available download options.";
+const downloader_canonical = "https://postnexa.world/tools/social-media-downloader/";
+
+const page_downloader_main_html = `
+  <!-- =========================================================================
+       1. DOWNLOADER HERO & INTERACTIVE WORKSPACE
+       ========================================================================= -->
+  <section class="sc-dl-hero-section">
+    <div class="sc-container">
+
+      <nav class="sc-breadcrumb" aria-label="Breadcrumb" style="justify-content: center; margin-bottom: 18px;">
+        <a href="../../index.html">Home</a>
+        <span class="sc-breadcrumb-sep">/</span>
+        <span>Tools</span>
+        <span class="sc-breadcrumb-sep">/</span>
+        <span>Social Media Video Downloader</span>
+      </nav>
+
+      <div class="sc-dl-hero-header">
+        <div class="sc-dl-eyebrow">
+          <span>⚡ Creator Media Utility • Authorized Video Inspector &amp; Saver</span>
+        </div>
+        <h1 class="sc-dl-main-title">Social Media Video Downloader</h1>
+        <p class="sc-dl-main-subtitle">
+          Download your own videos from supported social platforms with one simple link.
+        </p>
+      </div>
+
+      <!-- Main Interactive Downloader Card -->
+      <div class="sc-dl-workspace-card" role="region" aria-label="Social Media Video Downloader Tool">
+
+        <!-- Platform Tabs -->
+        <div class="sc-dl-tabs-nav" role="tablist" aria-label="Select Social Media Platform">
+          <button type="button" class="sc-dl-tab-btn is-active" role="tab" aria-selected="true" data-platform="all" id="tab-all">
+            <img src="../../assets/icons/publish.svg" alt="">
+            <span>All Platforms</span>
+          </button>
+          <button type="button" class="sc-dl-tab-btn" role="tab" aria-selected="false" data-platform="tiktok" id="tab-tiktok">
+            <img src="../../assets/icons/tiktok.svg" alt="">
+            <span>TikTok</span>
+          </button>
+          <button type="button" class="sc-dl-tab-btn" role="tab" aria-selected="false" data-platform="instagram" id="tab-instagram">
+            <img src="../../assets/icons/instagram.svg" alt="">
+            <span>Instagram</span>
+          </button>
+          <button type="button" class="sc-dl-tab-btn" role="tab" aria-selected="false" data-platform="facebook" id="tab-facebook">
+            <img src="../../assets/icons/facebook.svg" alt="">
+            <span>Facebook</span>
+          </button>
+          <button type="button" class="sc-dl-tab-btn" role="tab" aria-selected="false" data-platform="youtube" id="tab-youtube">
+            <img src="../../assets/icons/youtube.svg" alt="">
+            <span>YouTube</span>
+          </button>
+        </div>
+
+        <!-- Universal URL Input Form -->
+        <form id="dlToolForm" class="sc-dl-input-shell" novalidate>
+          <div class="sc-dl-input-row">
+            <input
+              type="url"
+              id="dlUrlInput"
+              class="sc-dl-url-input"
+              placeholder="Paste your video link here..."
+              aria-label="Paste your video link here"
+              autocomplete="off"
+              spellcheck="false"
+              required
+            >
+            <div class="sc-dl-input-actions">
+              <button type="button" id="dlPasteBtn" class="sc-dl-util-btn" aria-label="Paste Link from Clipboard">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                <span>Paste Link</span>
+              </button>
+              <button type="button" id="dlClearBtn" class="sc-dl-util-btn" aria-label="Clear URL Input">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Clear</span>
+              </button>
+              <button type="submit" id="dlSubmitBtn" class="sc-dl-submit-btn">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span id="dlSubmitBtnText">Download Video</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Status Row: Platform Hint + Real-Time Detection Badge -->
+          <div class="sc-dl-status-row">
+            <p id="dlPlatformHint" class="sc-dl-hint-text">
+              Supports TikTok, Instagram Reels, Facebook Watch/Reels, YouTube links, and authorized owned MP4 sources.
+            </p>
+            <div id="dlDetectionBar" class="sc-dl-detection-pill" role="status" aria-live="polite">
+              <img id="dlDetectionIcon" src="../../assets/icons/tiktok.svg" alt="">
+              <span id="dlDetectionText">Platform detected: TikTok</span>
+            </div>
+          </div>
+
+          <!-- Quick Verification Sample Links -->
+          <div class="sc-dl-samples-bar">
+            <span class="sc-dl-samples-label">Quick Test Links:</span>
+            <button
+              type="button"
+              class="sc-dl-sample-btn"
+              data-sample-platform="tiktok"
+              data-sample-url="https://postnexa.world/assets/videos/postnexa-platform-demo.mp4?platform=tiktok"
+            >
+              ✓ Test Verified Owned MP4 Download
+            </button>
+            <button
+              type="button"
+              class="sc-dl-sample-btn"
+              data-sample-platform="youtube"
+              data-sample-url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            >
+              YouTube Metadata &amp; Policy Check
+            </button>
+            <button
+              type="button"
+              class="sc-dl-sample-btn"
+              data-sample-platform="tiktok"
+              data-sample-url="https://www.tiktok.com/@tiktok/video/7106594312292453675"
+            >
+              TikTok Link Check
+            </button>
+            <button
+              type="button"
+              class="sc-dl-sample-btn"
+              data-sample-platform="instagram"
+              data-sample-url="https://www.instagram.com/reel/C8abc123xyz/"
+            >
+              Instagram Reel Check
+            </button>
+          </div>
+        </form>
+
+        <!-- Cross-Tab Mismatch Warning Banner -->
+        <div id="dlMismatchBanner" class="sc-dl-mismatch-banner" role="alert">
+          <span id="dlMismatchText">You pasted a link belonging to another platform.</span>
+          <button type="button" id="dlMismatchSwitchBtn" class="sc-dl-mismatch-btn">Switch Tab</button>
+        </div>
+
+        <!-- Validation / API Error Banner -->
+        <div id="dlErrorBanner" class="sc-dl-error-banner" role="alert">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <div>
+            <strong id="dlErrorTitle">Unsupported URL</strong>
+            <p id="dlErrorText">Please enter a valid supported social media video URL.</p>
+          </div>
+        </div>
+
+        <!-- Processing / Loading State -->
+        <div id="dlLoadingState" class="sc-dl-loading-box" role="status" aria-live="polite">
+          <div class="sc-dl-spinner" aria-hidden="true"></div>
+          <span id="dlLoadingText">Resolving video URL and checking permitted media options...</span>
+        </div>
+
+        <!-- ===================================================================
+             DOWNLOAD RESULT SECTION (TASK 5)
+             =================================================================== -->
+        <div id="dlResultSection" class="sc-dl-result-section" aria-live="polite">
+          <div class="sc-dl-result-grid">
+
+            <!-- Left Column: Video Preview / Thumbnail -->
+            <div id="dlResMediaStage" class="sc-dl-media-stage"></div>
+
+            <!-- Right Column: Metadata, Capabilities & Download Actions -->
+            <div class="sc-dl-result-details">
+              <div class="sc-dl-result-top-bar">
+                <span class="sc-dl-platform-chip">
+                  <img id="dlResPlatformIcon" src="../../assets/icons/tiktok.svg" alt="">
+                  <span id="dlResPlatformName">TikTok</span>
+                </span>
+                <span id="dlResStatusBadge" class="sc-dl-status-pill is-ready">Verified MP4 Ready</span>
+              </div>
+
+              <h2 id="dlResTitle" class="sc-dl-result-title">PostNexa Video Title</h2>
+
+              <div class="sc-dl-meta-grid">
+                <div class="sc-dl-meta-item"><strong>Creator:</strong> <span id="dlResAuthor">@postnexa</span></div>
+                <div class="sc-dl-meta-item"><strong>Duration:</strong> <span id="dlResDuration">0:48</span></div>
+                <div class="sc-dl-meta-item"><strong>Format:</strong> <span id="dlResFormat">MP4 (H.264)</span></div>
+                <div class="sc-dl-meta-item"><strong>File Size:</strong> <span id="dlResSize">18.12 MB</span></div>
+              </div>
+
+              <p id="dlResStatusMessage" class="sc-dl-status-note">
+                Authorized owned media source verified. Direct MP4 download is ready.
+              </p>
+
+              <!-- Real Byte-Stream Progress Bar -->
+              <div id="dlProgressContainer" class="sc-dl-progress-wrap" role="status">
+                <div class="sc-dl-progress-track">
+                  <div id="dlProgressBarFill" class="sc-dl-progress-fill"></div>
+                </div>
+                <div id="dlProgressLabel" class="sc-dl-progress-text">Preparing download...</div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="sc-dl-actions-row">
+                <button type="button" id="dlResDownloadBtn" class="sc-dl-download-btn">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span id="dlResDownloadBtnText">Download MP4</span>
+                </button>
+
+                <a
+                  href="https://studio.youtube.com/"
+                  id="dlResOfficialLinkBtn"
+                  class="sc-btn sc-btn-secondary sc-btn-pill"
+                  target="_blank"
+                  rel="noopener"
+                  style="display: none; padding: 11px 20px; font-size: 13.5px;"
+                >
+                  Open Official Studio ➔
+                </a>
+
+                <button type="button" id="dlResCopyLinkBtn" class="sc-dl-util-btn" style="border-radius: 999px; padding: 11px 18px;">
+                  Copy Original Link
+                </button>
+
+                <button type="button" id="dlResResetBtn" class="sc-dl-util-btn" style="border-radius: 999px; padding: 11px 18px;">
+                  Download Another Video
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. HOW TO DOWNLOAD SOCIAL MEDIA VIDEOS (SEO SECTION 1)
+       ========================================================================= -->
+  <section style="padding: 80px 0; background-color: #FFFFFF;">
+    <div class="sc-container">
+      <div class="sc-section-header">
+        <span class="sc-section-eyebrow">Step-by-Step Workflow</span>
+        <h2 class="sc-section-title">How to Download Social Media Videos</h2>
+        <p class="sc-section-desc">
+          Inspect, verify, and save your own or authorized social media videos in three straightforward steps.
+        </p>
+      </div>
+
+      <div class="sc-features-grid" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
+        <div class="sc-feature-card">
+          <div class="sc-card-icon-wrap"><img src="../../assets/icons/publish.svg" alt=""></div>
+          <span class="sc-badge-status sc-badge-live" style="margin-bottom: 12px;">Step 1</span>
+          <h3 class="sc-card-title">Copy Your Video Link</h3>
+          <p class="sc-card-desc">
+            Open TikTok, Instagram, Facebook, or YouTube, locate the video you created or have permission to archive, and copy its share URL to your clipboard.
+          </p>
+        </div>
+
+        <div class="sc-feature-card">
+          <div class="sc-card-icon-wrap"><img src="../../assets/icons/ai-bot.svg" alt=""></div>
+          <span class="sc-badge-status sc-badge-live" style="margin-bottom: 12px;">Step 2</span>
+          <h3 class="sc-card-title">Automatic Platform Detection</h3>
+          <p class="sc-card-desc">
+            Paste the link into PostNexa's universal input bar. Our engine automatically identifies the source platform, resolves short links, and checks permitted media access.
+          </p>
+        </div>
+
+        <div class="sc-feature-card">
+          <div class="sc-card-icon-wrap"><img src="../../assets/icons/check.svg" alt=""></div>
+          <span class="sc-badge-status sc-badge-live" style="margin-bottom: 12px;">Step 3</span>
+          <h3 class="sc-card-title">Preview &amp; Save Permitted Media</h3>
+          <p class="sc-card-desc">
+            Review the video metadata, thumbnail, and preview player. Where an authorized direct MP4 stream is permitted, click <strong>Download MP4</strong> to save the verified video file.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. SUPPORTED PLATFORMS & CAPABILITY MATRIX (SEO SECTION 2)
+       ========================================================================= -->
+  <section style="padding: 80px 0; background-color: var(--color-bg-light); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="sc-container">
+      <div class="sc-section-header">
+        <span class="sc-section-eyebrow">Transparent Capabilities</span>
+        <h2 class="sc-section-title">Supported Platforms</h2>
+        <p class="sc-section-desc">
+          PostNexa connects exclusively through documented platform endpoints and respects creator ownership, OAuth permissions, and platform Terms of Service.
+        </p>
+      </div>
+
+      <div class="sc-features-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <div class="sc-feature-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+            <img src="../../assets/icons/tiktok.svg" alt="TikTok" style="width:32px; height:32px;">
+            <span class="sc-badge-status sc-badge-live">URL + oEmbed + OAuth MP4</span>
+          </div>
+          <h3 class="sc-card-title">TikTok Video Inspector</h3>
+          <p class="sc-card-desc">
+            Recognizes <code>tiktok.com</code>, <code>vm.tiktok.com</code>, and <code>vt.tiktok.com</code> links, resolves short links, retrieves official oEmbed metadata, and streams MP4 files for authorized owned media.
+          </p>
+        </div>
+
+        <div class="sc-feature-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+            <img src="../../assets/icons/instagram.svg" alt="Instagram" style="width:32px; height:32px;">
+            <span class="sc-badge-status sc-badge-beta">URL + Embed + Graph OAuth</span>
+          </div>
+          <h3 class="sc-card-title">Instagram Reels &amp; Video</h3>
+          <p class="sc-card-desc">
+            Supports <code>instagram.com/reel/</code>, <code>/p/</code>, and <code>/tv/</code> links with embedded post previews. Direct MP4 extraction requires creator OAuth via the Meta Instagram Graph API.
+          </p>
+        </div>
+
+        <div class="sc-feature-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+            <img src="../../assets/icons/facebook.svg" alt="Facebook" style="width:32px; height:32px;">
+            <span class="sc-badge-status sc-badge-beta">URL + Watch + Graph OAuth</span>
+          </div>
+          <h3 class="sc-card-title">Facebook Watch &amp; Reels</h3>
+          <p class="sc-card-desc">
+            Supports <code>facebook.com/reel/</code>, <code>/watch/</code>, <code>/videos/</code>, and <code>fb.watch/</code> short links with OpenGraph inspection and Page owner Graph API support.
+          </p>
+        </div>
+
+        <div class="sc-feature-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+            <img src="../../assets/icons/youtube.svg" alt="YouTube" style="width:32px; height:32px;">
+            <span class="sc-badge-status sc-badge-live">oEmbed Metadata &amp; Preview</span>
+          </div>
+          <h3 class="sc-card-title">YouTube Watch &amp; Shorts</h3>
+          <p class="sc-card-desc">
+            Supports <code>youtube.com/watch</code>, <code>youtube.com/shorts/</code>, and <code>youtu.be/</code> links with live oEmbed metadata, high-res thumbnails, and official YouTube Studio export guidance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. PLATFORM-SPECIFIC GUIDES (SEO SECTIONS 3, 4, 5, 6)
+       ========================================================================= -->
+  <section style="padding: 80px 0; background-color: #FFFFFF;">
+    <div class="sc-container">
+      <div class="sc-features-grid" style="grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 28px;">
+
+        <!-- Guide 1: TikTok -->
+        <div class="sc-feature-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <img src="../../assets/icons/tiktok.svg" alt="" style="width:28px; height:28px;">
+            <h2 style="font-size:22px; font-weight:800; margin:0;">How to Save Your Own TikTok Videos</h2>
+          </div>
+          <p class="sc-card-desc" style="margin-bottom:12px;">
+            When repurposing your short-form clips for cross-platform scheduling inside PostNexa, you can inspect any TikTok URL (<code>tiktok.com/@username/video/...</code> or <code>vm.tiktok.com/...</code>) to verify its title, creator handle, and embed preview.
+          </p>
+          <p class="sc-card-desc" style="margin:0;">
+            <strong>Saving Original MP4 Files:</strong> For unauthenticated public links, TikTok's oEmbed API provides metadata and preview players. To download raw MP4 files directly, connect an authorized TikTok Display API token (<code>TIKTOK_ACCESS_TOKEN</code>) or tap <em>Share → Save video</em> on your own post inside the TikTok mobile app.
+          </p>
+        </div>
+
+        <!-- Guide 2: Instagram -->
+        <div class="sc-feature-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <img src="../../assets/icons/instagram.svg" alt="" style="width:28px; height:28px;">
+            <h2 style="font-size:22px; font-weight:800; margin:0;">How to Save Your Own Instagram Reels</h2>
+          </div>
+          <p class="sc-card-desc" style="margin-bottom:12px;">
+            Paste any Instagram Reel (<code>instagram.com/reel/...</code>), feed video (<code>/p/...</code>), or IGTV link (<code>/tv/...</code>) into the downloader to validate the shortcode and load an official embedded preview.
+          </p>
+          <p class="sc-card-desc" style="margin:0;">
+            <strong>Owner Authorization:</strong> Meta restricts unauthenticated third-party scraping of Instagram Reels. Creators can download their own published Reels via the Instagram mobile app (<em>Menu → Your Activity → Archived / Download</em>) or through an authenticated Instagram Graph API <code>media_url</code> integration.
+          </p>
+        </div>
+
+        <!-- Guide 3: Facebook -->
+        <div class="sc-feature-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <img src="../../assets/icons/facebook.svg" alt="" style="width:28px; height:28px;">
+            <h2 style="font-size:22px; font-weight:800; margin:0;">How to Download Your Facebook Videos</h2>
+          </div>
+          <p class="sc-card-desc" style="margin-bottom:12px;">
+            PostNexa detects standard Facebook Watch links (<code>facebook.com/watch/?v=...</code>), Page videos (<code>facebook.com/pagename/videos/...</code>), Facebook Reels (<code>facebook.com/reel/...</code>), and <code>fb.watch/</code> short URLs.
+          </p>
+          <p class="sc-card-desc" style="margin:0;">
+            <strong>Meta Business Suite &amp; Graph API:</strong> Page administrators can download high-definition MP4 copies of their uploaded videos through <em>Meta Business Suite → Content → Published</em>, or by configuring a Page-scoped <code>FACEBOOK_ACCESS_TOKEN</code> on the backend worker.
+          </p>
+        </div>
+
+        <!-- Guide 4: YouTube -->
+        <div class="sc-feature-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <img src="../../assets/icons/youtube.svg" alt="" style="width:28px; height:28px;">
+            <h2 style="font-size:22px; font-weight:800; margin:0;">YouTube Download Options and Limitations</h2>
+          </div>
+          <p class="sc-card-desc" style="margin-bottom:12px;">
+            Paste any <code>youtube.com/watch?v=...</code>, <code>youtube.com/shorts/...</code>, or <code>youtu.be/...</code> link to immediately fetch real-time video metadata, channel attribution, high-resolution thumbnails, and an official embedded preview via YouTube's documented oEmbed API.
+          </p>
+          <p class="sc-card-desc" style="margin:0;">
+            <strong>YouTube Terms of Service Compliance:</strong> PostNexa does not perform unauthorized third-party stream extraction from YouTube. To download MP4 files of videos you own, sign in to <a href="https://studio.youtube.com/" target="_blank" rel="noopener" style="color:var(--color-primary); font-weight:700;">YouTube Studio</a>, open <em>Content</em>, click the three-dot menu next to your video, and select <em>Download</em>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. FREQUENTLY ASKED QUESTIONS (SEO SECTION 7)
+       ========================================================================= -->
+  <section style="padding: 80px 0; background-color: var(--color-bg-light); border-top: 1px solid var(--color-border);">
+    <div class="sc-container" style="max-width: 860px;">
+      <div class="sc-section-header">
+        <span class="sc-section-eyebrow">Common Questions</span>
+        <h2 class="sc-section-title">Frequently Asked Questions</h2>
+        <p class="sc-section-desc">
+          Everything you need to know about how PostNexa's Social Media Video Downloader inspects links and handles media permissions.
+        </p>
+      </div>
+
+      <div class="sc-faq-accordion">
+        <div class="sc-faq-item is-open">
+          <button type="button" class="sc-faq-trigger" aria-expanded="true">
+            <span>Which social media platforms are detected by this tool?</span>
+            <span class="sc-faq-icon">+</span>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-content-inner">
+              <p>PostNexa automatically detects video links from <strong>TikTok</strong> (<code>tiktok.com</code>, <code>vm.tiktok.com</code>, <code>vt.tiktok.com</code>), <strong>Instagram</strong> (<code>/reel/</code>, <code>/p/</code>, <code>/tv/</code>), <strong>Facebook</strong> (<code>/reel/</code>, <code>/watch/</code>, <code>/videos/</code>, <code>fb.watch</code>), and <strong>YouTube</strong> (<code>youtube.com/watch</code>, <code>youtube.com/shorts/</code>, <code>youtu.be/</code>), as well as authorized first-party PostNexa MP4 assets.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-faq-item">
+          <button type="button" class="sc-faq-trigger" aria-expanded="false">
+            <span>Why do some public videos show metadata and preview instead of a direct MP4 download?</span>
+            <span class="sc-faq-icon">+</span>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-content-inner">
+              <p>Major social platforms (including YouTube, Instagram, Facebook, and TikTok) enforce strict API policies and Terms of Service that prohibit unauthenticated third-party scraping of raw video streams. Rather than using unreliable scraper endpoints or showing fake download buttons, PostNexa retrieves documented public metadata (such as oEmbed titles, thumbnails, and official embeds) and only enables direct MP4 downloads when a verified, permitted video file stream is available.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-faq-item">
+          <button type="button" class="sc-faq-trigger" aria-expanded="false">
+            <span>Do I need to enter my social media password or session cookies?</span>
+            <span class="sc-faq-icon">+</span>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-content-inner">
+              <p>Never. PostNexa never asks for social media passwords, browser cookies, or private session tokens on this tool. All inspections occur over public oEmbed endpoints or server-side Cloudflare Pages Functions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-faq-item">
+          <button type="button" class="sc-faq-trigger" aria-expanded="false">
+            <span>How can I test a real end-to-end MP4 video download on this page?</span>
+            <span class="sc-faq-icon">+</span>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-content-inner">
+              <p>Click the <strong>"✓ Test Verified Owned MP4 Download"</strong> button right below the URL input bar. Our Cloudflare Worker will verify the 1080p MP4 stream via HTTP byte-range headers, display the interactive video preview and exact file size (<code>18.12 MB</code>), and stream the full MP4 file to your device with real-time byte progress.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. RESPONSIBLE USE AND COPYRIGHT (SEO SECTION 8)
+       ========================================================================= -->
+  <section style="padding: 72px 0; background-color: #FFFFFF; border-top: 1px solid var(--color-border);">
+    <div class="sc-container" style="max-width: 880px;">
+      <div style="background: #FFF9F5; border: 1px solid #FFD6BC; border-radius: 20px; padding: 32px;">
+        <span class="sc-badge-status sc-badge-live" style="margin-bottom: 12px;">Compliance &amp; Intellectual Property</span>
+        <h2 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #111827;">Responsible Use and Copyright</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: #374151; margin-bottom: 12px;">
+          PostNexa's Social Media Video Downloader is designed exclusively for content creators, social media managers, and digital teams to inspect, archive, and repurpose <strong>media they own or have explicit legal authorization to download</strong>.
+        </p>
+        <p style="font-size: 15px; line-height: 1.65; color: #374151; margin: 0;">
+          We strictly respect platform Terms of Service, Digital Rights Management (DRM), creator copyrights, and access controls. This tool does not bypass private account protections, paywalls, age gates, or platform download restrictions. Users are solely responsible for ensuring they hold the necessary rights or licenses before downloading or redistributing any media content.
+        </p>
+      </div>
+    </div>
+  </section>
+`;
+
+const downloader_structured_data = `  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "PostNexa Social Media Video Downloader",
+        "url": "https://postnexa.world/tools/social-media-downloader/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "description": "${downloader_desc}",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "PostNexa",
+          "url": "https://postnexa.world/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://postnexa.world/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://postnexa.world/tools/social-media-downloader/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Social Media Video Downloader",
+            "item": "https://postnexa.world/tools/social-media-downloader/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>`;
+
+const downloader_full_html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>${downloader_title}</title>
+  <meta name="description" content="${downloader_desc}">
+  <link rel="canonical" href="${downloader_canonical}">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${downloader_canonical}">
+  <meta property="og:title" content="${downloader_title}">
+  <meta property="og:description" content="${downloader_desc}">
+  <meta property="og:image" content="https://postnexa.world/assets/images/dashboard-hero.svg">
+
+  <!-- Twitter Sharing Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${downloader_title}">
+  <meta name="twitter:description" content="${downloader_desc}">
+  <meta name="twitter:image" content="https://postnexa.world/assets/images/dashboard-hero.svg">
+
+${downloader_structured_data}
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="${downloader_rel}css/style.css">
+  <link rel="stylesheet" href="${downloader_rel}css/responsive.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="${downloader_rel}assets/logos/postnexa-icon.png">
+</head>
+<body>
+
+${header_html(downloader_rel, "tools")}
+
+<main id="mainContent">
+${page_downloader_main_html}
+</main>
+
+${footer_html(downloader_rel)}
+  <script src="${downloader_rel}js/downloader.js"></script>
+
+</body>
+</html>
+`;
+
+const downloader_abs_path = path.join(BASE_DIR, "tools/social-media-downloader/index.html");
+fs.mkdirSync(path.dirname(downloader_abs_path), { recursive: true });
+fs.writeFileSync(downloader_abs_path, downloader_full_html, "utf8");
+console.log("Generated: tools/social-media-downloader/index.html");
+
+console.log("REGENERATING ALL PAGES WITH PREMIUM COMPOSITIONS & RESPONSIVE POLISH COMPLETED!");
+

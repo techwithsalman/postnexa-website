@@ -32,7 +32,8 @@ const PUBLIC_DIRS = [
   'privacy-policy',
   'roadmap',
   'solutions',
-  'terms'
+  'terms',
+  'tools'
 ];
 
 const PUBLIC_ROOT_FILES = [

@@ -7,7 +7,7 @@ function scan(dir) {
   for (const f of fs.readdirSync(dir)) {
     const full = path.join(dir, f);
     if (fs.statSync(full).isDirectory()) {
-      if (!['.git', 'node_modules', 'audit-screenshots', '_backup_v1', 'dist', '.wrangler'].includes(f)) scan(full);
+      if (!['.git', 'node_modules', 'audit-screenshots', '_backup_v1', 'dist', '.wrangler', 'functions', 'server'].includes(f)) scan(full);
     } else if (f.endsWith('.html')) {
       htmlFiles.push(full);
     }
