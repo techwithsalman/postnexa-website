@@ -603,6 +603,9 @@
           videoEl.playsInline = true;
           videoEl.preload = 'metadata';
           videoEl.className = 'sc-dl-preview-video';
+          if (data.thumbnailUrl) {
+            videoEl.poster = data.thumbnailUrl;
+          }
           videoEl.src = data.previewVideoUrl + '#t=0.001';
           resMediaStage.appendChild(videoEl);
         } else if (data.thumbnailUrl) {

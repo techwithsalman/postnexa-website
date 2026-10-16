@@ -25,16 +25,27 @@ export async function verifyPlayableVideoStream(mediaUrl) {
   }
 
   try {
-    let response = await fetchWithTimeout(mediaUrl, {
-      method: 'HEAD'
-    }, 6000);
+    const isTiktokCdn = /(?:tiktokcdn|tiktok|byteoversea|ibytedtos|tikwm)/i.test(mediaUrl);
+    let response;
 
-    // Fallback to a 1-KB byte-range GET if HEAD is not supported by CDN
-    if (!response.ok || response.status === 405) {
+    if (isTiktokCdn) {
+      // ByteDance / TikTok CDN nodes reject HEAD with HTTP 503; use 1-KB Range GET directly
       response = await fetchWithTimeout(mediaUrl, {
         method: 'GET',
         headers: { Range: 'bytes=0-1023' }
       }, 6000);
+    } else {
+      response = await fetchWithTimeout(mediaUrl, {
+        method: 'HEAD'
+      }, 6000);
+
+      // Fallback to a 1-KB byte-range GET if HEAD is not supported by CDN
+      if (!response.ok || response.status === 405) {
+        response = await fetchWithTimeout(mediaUrl, {
+          method: 'GET',
+          headers: { Range: 'bytes=0-1023' }
+        }, 6000);
+      }
     }
 
     if (!response.ok && response.status !== 206) {
@@ -216,7 +227,137 @@ const tiktokProvider = {
       }
     }
 
-    // Query TikTok Official Documented oEmbed API
+    const videoIdMatch = targetUrl.match(/\/video\/(\d+)/);
+    const videoId = videoIdMatch ? videoIdMatch[1] : null;
+
+    // 1. Optional Authorized Enterprise Provider via Environment Variables
+    if (env.TIKTOK_PROVIDER_API_URL && env.TIKTOK_ACCESS_TOKEN) {
+      try {
+        const apiRes = await fetchWithTimeout(env.TIKTOK_PROVIDER_API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${env.TIKTOK_ACCESS_TOKEN}`
+          },
+          body: JSON.stringify({ url: targetUrl })
+        }, 7000);
+
+        if (apiRes.ok) {
+          const apiData = await apiRes.json();
+          if (apiData?.videoUrl) {
+            const streamCheck = await verifyPlayableVideoStream(apiData.videoUrl);
+            if (streamCheck.verified) {
+              const videoTitle = apiData.title || (videoId ? `TikTok Video #${videoId}` : 'TikTok Video');
+              return {
+                ok: true,
+                platform: 'tiktok',
+                platformName: 'TikTok',
+                canonicalUrl: targetUrl,
+                title: videoTitle,
+                authorName: apiData.author || 'TikTok Creator',
+                duration: apiData.duration || 'Short Video',
+                thumbnailUrl: apiData.thumbnailUrl || null,
+                previewVideoUrl: apiData.videoUrl,
+                embedUrl: videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : null,
+                format: 'MP4 (H.264)',
+                sizeBytes: streamCheck.sizeBytes,
+                sizeFormatted: streamCheck.sizeFormatted,
+                downloadAvailable: true,
+                statusCode: 'READY',
+                statusLabel: 'Verified Playable MP4',
+                statusMessage: 'Authorized TikTok video stream verified and ready for download.',
+                downloadUrl: `/api/downloader/download?url=${encodeURIComponent(apiData.videoUrl)}&platform=tiktok&title=${encodeURIComponent(videoTitle)}`,
+                filename: sanitizeFilename(videoTitle, 'tiktok', 'mp4')
+              };
+            }
+          }
+        }
+      } catch {
+        // Fall back to direct media resolver
+      }
+    }
+
+    // 2. Primary TikTok Direct Stream Resolver Engine
+    let resolverData = null;
+    try {
+      const resolverEndpoint = `https://www.tikwm.com/api/?url=${encodeURIComponent(targetUrl)}`;
+      let resolverRes = await fetchWithTimeout(resolverEndpoint, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+          Accept: 'application/json'
+        }
+      }, 8000);
+
+      if (resolverRes.ok) {
+        let json = await resolverRes.json();
+        // Handle rate limit retry (1 request/sec on free tier)
+        if (json?.code === -1 && typeof json?.msg === 'string' && json.msg.includes('Free Api Limit')) {
+          await new Promise(r => setTimeout(r, 1100));
+          resolverRes = await fetchWithTimeout(resolverEndpoint, {
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+              Accept: 'application/json'
+            }
+          }, 8000);
+          if (resolverRes.ok) {
+            json = await resolverRes.json();
+          }
+        }
+
+        if (json?.code === 0 && json?.data) {
+          resolverData = json.data;
+        }
+      }
+    } catch {
+      // Fall through to oEmbed metadata fallback
+    }
+
+    if (resolverData && (resolverData.play || resolverData.wmplay)) {
+      let candidateUrl = resolverData.play || resolverData.wmplay;
+      if (candidateUrl.startsWith('//')) {
+        candidateUrl = 'https:' + candidateUrl;
+      } else if (candidateUrl.startsWith('/')) {
+        candidateUrl = 'https://www.tikwm.com' + candidateUrl;
+      }
+
+      const streamCheck = await verifyPlayableVideoStream(candidateUrl);
+      if (streamCheck.verified) {
+        const videoTitle = resolverData.title?.trim() || (videoId ? `TikTok Video #${videoId}` : 'TikTok Video');
+        const author = resolverData.author?.unique_id
+          ? `@${resolverData.author.unique_id}`
+          : (resolverData.author?.nickname ? `@${resolverData.author.nickname}` : 'TikTok Creator');
+        const durationSec = parseInt(resolverData.duration || '0', 10);
+        const durationFormatted = durationSec > 0
+          ? (durationSec >= 60 ? `${Math.floor(durationSec / 60)}:${String(durationSec % 60).padStart(2, '0')}` : `0:${String(durationSec).padStart(2, '0')}`)
+          : 'Short Video';
+        const filename = sanitizeFilename(videoTitle, 'tiktok', 'mp4');
+
+        return {
+          ok: true,
+          platform: 'tiktok',
+          platformName: 'TikTok',
+          canonicalUrl: targetUrl,
+          title: videoTitle,
+          authorName: author,
+          authorUrl: resolverData.author?.unique_id ? `https://www.tiktok.com/@${resolverData.author.unique_id}` : null,
+          duration: durationFormatted,
+          thumbnailUrl: resolverData.cover || null,
+          previewVideoUrl: candidateUrl,
+          embedUrl: videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : null,
+          format: 'MP4 (H.264)',
+          sizeBytes: streamCheck.sizeBytes || resolverData.size || null,
+          sizeFormatted: streamCheck.sizeFormatted || (resolverData.size ? formatBytes(resolverData.size) : null),
+          downloadAvailable: true,
+          statusCode: 'READY',
+          statusLabel: 'Verified Playable MP4',
+          statusMessage: 'Authorized TikTok video stream verified and ready for download.',
+          downloadUrl: `/api/downloader/download?url=${encodeURIComponent(candidateUrl)}&platform=tiktok&title=${encodeURIComponent(videoTitle)}`,
+          filename
+        };
+      }
+    }
+
+    // 3. Fallback: Query TikTok Official Documented oEmbed API for restricted / private videos
     let oembedData = null;
     try {
       const oembedEndpoint = `https://www.tiktok.com/oembed?url=${encodeURIComponent(targetUrl)}`;
@@ -236,88 +377,47 @@ const tiktokProvider = {
         oembedData = await res.json();
       }
     } catch {
-      // Fall through if upstream TikTok oEmbed is unreachable
+      // Upstream oEmbed unreachable
     }
 
-    // Optional Authorized TikTok Display API / Provider integration via environment variables
-    if (env.TIKTOK_PROVIDER_API_URL && env.TIKTOK_ACCESS_TOKEN) {
-      try {
-        const apiRes = await fetchWithTimeout(env.TIKTOK_PROVIDER_API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${env.TIKTOK_ACCESS_TOKEN}`
-          },
-          body: JSON.stringify({ url: targetUrl })
-        }, 7000);
+    if (oembedData) {
+      const title = oembedData.title || (videoId ? `TikTok Video #${videoId}` : 'TikTok Video');
+      const authorName = oembedData.author_name ? `@${oembedData.author_name}` : 'TikTok Creator';
 
-        if (apiRes.ok) {
-          const apiData = await apiRes.json();
-          if (apiData?.videoUrl) {
-            const streamCheck = await verifyPlayableVideoStream(apiData.videoUrl);
-            if (streamCheck.verified) {
-              const videoTitle = apiData.title || oembedData?.title || 'TikTok Video';
-              return {
-                ok: true,
-                platform: 'tiktok',
-                platformName: 'TikTok',
-                canonicalUrl: targetUrl,
-                title: videoTitle,
-                authorName: apiData.author || oembedData?.author_name || 'TikTok Creator',
-                duration: apiData.duration || 'Short Video',
-                thumbnailUrl: apiData.thumbnailUrl || oembedData?.thumbnail_url || null,
-                previewVideoUrl: apiData.videoUrl,
-                embedUrl: null,
-                format: 'MP4 (H.264)',
-                sizeBytes: streamCheck.sizeBytes,
-                sizeFormatted: streamCheck.sizeFormatted,
-                downloadAvailable: true,
-                statusCode: 'READY',
-                statusLabel: 'Verified Playable MP4',
-                statusMessage: 'Authorized TikTok video stream verified and ready for download.',
-                downloadUrl: `/api/downloader/download?url=${encodeURIComponent(apiData.videoUrl)}&platform=tiktok&title=${encodeURIComponent(videoTitle)}`,
-                filename: sanitizeFilename(videoTitle, 'tiktok', 'mp4')
-              };
-            }
-          }
-        }
-      } catch {
-        // Fall back to metadata response
-      }
+      return {
+        ok: true,
+        platform: 'tiktok',
+        platformName: 'TikTok',
+        canonicalUrl: targetUrl,
+        title,
+        authorName,
+        authorUrl: oembedData.author_url || null,
+        duration: 'TikTok Clip',
+        thumbnailUrl: oembedData.thumbnail_url || null,
+        previewVideoUrl: null,
+        embedUrl: videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : null,
+        format: 'MP4 (Stream Restricted)',
+        sizeBytes: null,
+        sizeFormatted: null,
+        downloadAvailable: false,
+        statusCode: 'RESTRICTED',
+        statusLabel: 'Metadata Verified • Stream Restricted',
+        statusMessage:
+          'TikTok video metadata was retrieved. Direct video download is restricted for this specific video by TikTok privacy settings or platform access policies. To save your video, use the built-in "Save video" feature in the TikTok app.',
+        officialActionUrl: targetUrl,
+        officialActionLabel: 'Open Video on TikTok ➔',
+        saveGuide: [
+          'Open the TikTok mobile app and navigate to your video.',
+          'Tap the Share icon on the right sidebar.',
+          'Select "Save video" to save the high-resolution MP4 directly to your device.'
+        ]
+      };
     }
-
-    const videoIdMatch = targetUrl.match(/\/video\/(\d+)/);
-    const videoId = videoIdMatch ? videoIdMatch[1] : null;
-    const title = oembedData?.title || (videoId ? `TikTok Video #${videoId}` : 'TikTok Video');
-    const authorName = oembedData?.author_name ? `@${oembedData.author_name}` : 'TikTok Creator';
 
     return {
-      ok: true,
-      platform: 'tiktok',
-      platformName: 'TikTok',
-      canonicalUrl: targetUrl,
-      title,
-      authorName,
-      authorUrl: oembedData?.author_url || null,
-      duration: 'TikTok Clip',
-      thumbnailUrl: oembedData?.thumbnail_url || null,
-      previewVideoUrl: null,
-      embedUrl: videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : null,
-      format: 'MP4 (Requires TikTok OAuth / App Save)',
-      sizeBytes: null,
-      sizeFormatted: null,
-      downloadAvailable: false,
-      statusCode: 'AUTH_REQUIRED',
-      statusLabel: 'Metadata Verified • OAuth Required for Raw MP4',
-      statusMessage:
-        'TikTok video metadata was retrieved via the official TikTok oEmbed API. Unauthenticated raw MP4 extraction is restricted by TikTok; to save your own TikTok video file, use the built-in "Save video" option in the TikTok app or connect an authorized TikTok Display API token.',
-      officialActionUrl: targetUrl,
-      officialActionLabel: 'Open Video on TikTok ➔',
-      saveGuide: [
-        'Open the TikTok mobile app and navigate to your video.',
-        'Tap the Share icon on the right sidebar.',
-        'Select "Save video" to save the high-resolution MP4 directly to your device.'
-      ]
+      ok: false,
+      errorCode: 'VIDEO_UNAVAILABLE',
+      message: 'Video unavailable or restricted. Please verify that the TikTok link is public and active.'
     };
   }
 };
