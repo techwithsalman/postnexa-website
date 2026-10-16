@@ -165,10 +165,10 @@
       };
     }
 
-    // Authorized PostNexa direct MP4 asset
-    if (['postnexa.world', 'www.postnexa.world', 'postnexa-website.pages.dev'].includes(host) && /\.mp4$/i.test(pathname)) {
+    // Direct MP4 video asset
+    if (/\.mp4$/i.test(pathname)) {
       const p = (parsed.searchParams.get('platform') || 'tiktok').toLowerCase();
-      const map = { tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook', youtube: 'YouTube' };
+      const map = { tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook', youtube: 'YouTube', all: 'All Platforms' };
       const plat = map[p] ? p : 'tiktok';
       return {
         valid: true,
@@ -452,6 +452,11 @@
       if (resultSection) resultSection.style.display = 'none';
       if (progressContainer) progressContainer.style.display = 'none';
       if (resMediaStage) resMediaStage.innerHTML = '';
+      const resGuideWrap = document.getElementById('dlResGuideWrap');
+      if (resGuideWrap) {
+        resGuideWrap.innerHTML = '';
+        resGuideWrap.style.display = 'none';
+      }
     }
 
     if (clearBtn) {
@@ -662,28 +667,53 @@
         }
       }
 
+      // Render Official Save Guide for Restricted Platforms
+      const resGuideWrap = document.getElementById('dlResGuideWrap');
+      if (resGuideWrap) {
+        if (!data.downloadAvailable && Array.isArray(data.saveGuide) && data.saveGuide.length > 0) {
+          resGuideWrap.innerHTML = `
+            <div class="sc-dl-guide-box">
+              <div class="sc-dl-guide-box-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Official Creator Export Instructions</span>
+              </div>
+              <ol class="sc-dl-guide-box-list">
+                ${data.saveGuide.map(step => `<li>${step}</li>`).join('')}
+              </ol>
+            </div>
+          `;
+          resGuideWrap.style.display = 'block';
+        } else {
+          resGuideWrap.innerHTML = '';
+          resGuideWrap.style.display = 'none';
+        }
+      }
+
       // Configure Download Button Honesty & State
       if (resDownloadBtn && resDownloadBtnText) {
         if (data.downloadAvailable && data.downloadUrl) {
           resDownloadBtn.disabled = false;
           resDownloadBtn.setAttribute('aria-disabled', 'false');
           resDownloadBtn.classList.remove('is-disabled');
+          resDownloadBtn.style.display = 'inline-flex';
           resDownloadBtnText.textContent = data.sizeFormatted
             ? `Download MP4 (${data.sizeFormatted})`
             : 'Download MP4';
         } else {
+          // Never display a misleading disabled Download button for restricted platforms
           resDownloadBtn.disabled = true;
           resDownloadBtn.setAttribute('aria-disabled', 'true');
           resDownloadBtn.classList.add('is-disabled');
-          resDownloadBtnText.textContent = 'Direct MP4 Restricted by Platform';
+          resDownloadBtn.style.display = 'none';
         }
       }
 
-      // Official Platform / Studio Fallback Action Link
+      // Official Platform / Studio Action Button
       if (resOfficialLinkBtn) {
         if (!data.downloadAvailable && data.officialActionUrl) {
           resOfficialLinkBtn.href = data.officialActionUrl;
           resOfficialLinkBtn.textContent = data.officialActionLabel || 'Open Official Source ➔';
+          resOfficialLinkBtn.className = 'sc-btn sc-btn-primary sc-btn-pill';
           resOfficialLinkBtn.style.display = 'inline-flex';
         } else {
           resOfficialLinkBtn.style.display = 'none';

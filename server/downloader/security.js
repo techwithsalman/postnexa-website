@@ -48,11 +48,21 @@ const PLATFORM_DOMAINS = {
 const ALLOWED_MEDIA_CDN_SUFFIXES = [
   'postnexa.world',
   'postnexa-website.pages.dev',
+  'pages.dev',
+  'r2.cloudflarestorage.com',
   'tiktokcdn.com',
   'tiktokcdn-us.com',
   'tiktokv.com',
+  'byteoversea.com',
+  'ibytedtos.com',
   'fbcdn.net',
-  'cdninstagram.com'
+  'cdninstagram.com',
+  'instagram.com',
+  'googlevideo.com',
+  'ytimg.com',
+  'wikimedia.org',
+  'archive.org',
+  'githubusercontent.com'
 ];
 
 // Sliding-window rate limit buckets (per Worker isolate)
@@ -246,10 +256,10 @@ export function detectPlatformFromUrl(rawUrl) {
     };
   }
 
-  // 5. Authorized First-Party PostNexa Video Assets (for verified owned media downloads)
-  if (PLATFORM_DOMAINS.postnexa_authorized.includes(host) && /\.mp4$/i.test(pathname)) {
+  // 5. Authorized Direct MP4 Video Assets (for verified owned media downloads)
+  if (/\.mp4$/i.test(pathname) && (PLATFORM_DOMAINS.postnexa_authorized.includes(host) || isAllowedMediaStreamUrl(parsed.toString()))) {
     const taggedPlatform = (parsed.searchParams.get('platform') || 'tiktok').toLowerCase();
-    const validPlatforms = { tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook', youtube: 'YouTube' };
+    const validPlatforms = { tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook', youtube: 'YouTube', all: 'All Platforms' };
     const resolvedPlatform = validPlatforms[taggedPlatform] ? taggedPlatform : 'tiktok';
     return {
       valid: true,

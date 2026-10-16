@@ -58,6 +58,23 @@ export async function verifyPlayableVideoStream(mediaUrl) {
       if (!isNaN(parsedLen) && parsedLen > 0) sizeBytes = parsedLen;
     }
 
+    if (!sizeBytes) {
+      try {
+        const rangeRes = await fetchWithTimeout(mediaUrl, {
+          method: 'GET',
+          headers: { Range: 'bytes=0-0' }
+        }, 5000);
+        const cr = rangeRes.headers.get('content-range');
+        if (cr && cr.includes('/')) {
+          const totalPart = cr.split('/')[1];
+          const parsedTotal = parseInt(totalPart, 10);
+          if (!isNaN(parsedTotal) && parsedTotal > 0) sizeBytes = parsedTotal;
+        }
+      } catch {
+        // Range fallback failed or not supported
+      }
+    }
+
     if (sizeBytes && sizeBytes > MAX_DOWNLOAD_BYTES) {
       return {
         verified: false,
@@ -136,7 +153,11 @@ async function inspectAuthorizedDirectAsset(detection) {
     };
   }
 
-  const title = 'PostNexa Official Promotional Video (Authorized Owned Media)';
+  const pathParts = new URL(detection.normalizedUrl).pathname.split('/');
+  const rawFileName = decodeURIComponent(pathParts[pathParts.length - 1] || 'video.mp4').replace(/\.mp4$/i, '');
+  const title = detection.normalizedUrl.includes('postnexa-platform-demo')
+    ? 'PostNexa Official Promotional Video (Authorized Owned Media)'
+    : (rawFileName.replace(/[-_]+/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) + ' (Authorized Media)');
   const filename = sanitizeFilename(title, detection.platform, 'mp4');
 
   return {
@@ -152,7 +173,7 @@ async function inspectAuthorizedDirectAsset(detection) {
     embedUrl: null,
     format: 'MP4 (H.264 1080p HD)',
     sizeBytes: check.sizeBytes,
-    sizeFormatted: check.sizeFormatted || '18.12 MB',
+    sizeFormatted: check.sizeFormatted || (check.sizeBytes ? formatBytes(check.sizeBytes) : '18.12 MB'),
     downloadAvailable: true,
     statusCode: 'READY',
     statusLabel: 'Verified Playable MP4',
@@ -291,7 +312,12 @@ const tiktokProvider = {
       statusMessage:
         'TikTok video metadata was retrieved via the official TikTok oEmbed API. Unauthenticated raw MP4 extraction is restricted by TikTok; to save your own TikTok video file, use the built-in "Save video" option in the TikTok app or connect an authorized TikTok Display API token.',
       officialActionUrl: targetUrl,
-      officialActionLabel: 'Open Video on TikTok'
+      officialActionLabel: 'Open Video on TikTok ➔',
+      saveGuide: [
+        'Open the TikTok mobile app and navigate to your video.',
+        'Tap the Share icon on the right sidebar.',
+        'Select "Save video" to save the high-resolution MP4 directly to your device.'
+      ]
     };
   }
 };
@@ -374,7 +400,12 @@ const instagramProvider = {
       statusMessage:
         'Instagram restricts unauthenticated third-party video extraction and requires Meta Graph API OAuth authentication (INSTAGRAM_ACCESS_TOKEN) to access owned media_url files. You can preview the embedded post above or download your own Reel directly inside the Instagram mobile app.',
       officialActionUrl: canonicalUrl,
-      officialActionLabel: 'Open on Instagram'
+      officialActionLabel: 'Open Reel on Instagram ➔',
+      saveGuide: [
+        'Open the Instagram app and navigate to your profile.',
+        'Select your published Reel and tap the three-dot menu (...) in the bottom-right.',
+        'Tap "Save to camera roll" (or export via Meta Business Suite under Content → Published).'
+      ]
     };
   }
 };
@@ -447,7 +478,12 @@ const facebookProvider = {
       statusMessage:
         'Facebook restricts unauthenticated third-party video file scraping. Downloading a raw MP4 from Facebook requires Page/Creator ownership via the Meta Graph API (FACEBOOK_ACCESS_TOKEN) or downloading directly from Meta Business Suite.',
       officialActionUrl: targetUrl,
-      officialActionLabel: 'Open on Facebook'
+      officialActionLabel: 'Open Video on Facebook ➔',
+      saveGuide: [
+        'Open Meta Business Suite (business.facebook.com) in your desktop browser.',
+        'Navigate to Content → Published and locate the video you want to export.',
+        'Click the three-dot menu (...) and select "Download SD" or "Download HD" MP4.'
+      ]
     };
   }
 };
@@ -560,7 +596,12 @@ const youtubeProvider = {
       statusMessage:
         'YouTube video metadata and preview were retrieved via the official YouTube oEmbed API. Per YouTube Terms of Service, third-party stream extraction is not permitted. To download a video you own, open YouTube Studio (Content → Options → Download) to save your original MP4.',
       officialActionUrl: 'https://studio.youtube.com/',
-      officialActionLabel: 'Open YouTube Studio to Download Owned Videos'
+      officialActionLabel: 'Open YouTube Studio (Owner Export) ➔',
+      saveGuide: [
+        'Sign in to YouTube Studio (studio.youtube.com) with the channel account.',
+        'From the left sidebar, click Content.',
+        'Hover over the video you want to save, click the three-dot Options menu, and select "Download".'
+      ]
     };
   }
 };

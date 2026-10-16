@@ -2920,6 +2920,9 @@ const page_downloader_main_html = `
                   Authorized owned media source verified. Direct MP4 download is ready.
                 </p>
 
+                <!-- Official Save Guide Callout for Non-Downloadable Content -->
+                <div id="dlResGuideWrap" class="sc-dl-res-guide-wrap" style="display: none;"></div>
+
                 <!-- Real Byte-Stream Progress Bar -->
                 <div id="dlProgressContainer" class="sc-dl-progress-wrap" role="status">
                   <div class="sc-dl-progress-track">
