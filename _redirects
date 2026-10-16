@@ -1,2 +1,10 @@
-# Netlify Clean Routing Rules
-/*    /index.html   200
+# Cloudflare Pages & Netlify Routing Configuration
+# Static multi-page architecture: all 36 HTML routes and 404.html are served natively.
+/home              /                          301
+/index             /                          301
+/signin            https://app.postnexa.world/login   302
+/login             https://app.postnexa.world/login   302
+/signup            https://app.postnexa.world/signup  302
+/register          https://app.postnexa.world/signup  302
+/app               https://app.postnexa.world/        302
+/dashboard         https://app.postnexa.world/        302

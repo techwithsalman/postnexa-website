@@ -1,0 +1,13 @@
+{
+  "name": "postnexa-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PostNexa Official Marketing Website (Static HTML5, CSS3, Vanilla JS)",
+  "scripts": {
+    "build": "node build_cloudflare.js",
+    "audit": "node audit_site.js && node verify_navigation_integrity.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

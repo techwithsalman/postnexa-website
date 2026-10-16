@@ -1,0 +1,18 @@
+# Exclude development scripts, documentation, and internal files from Cloudflare asset upload
+.git
+.gitignore
+.gemini
+node_modules
+dist
+audit-screenshots
+_backup_v1
+*.md
+*.log
+audit_site.js
+build_entire_site.js
+build_cloudflare.js
+run_browser_verification.js
+verify_navigation_integrity.js
+package.json
+package-lock.json
+wrangler.jsonc

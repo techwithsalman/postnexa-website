@@ -15,6 +15,9 @@ Thumbs.db
 *.pem
 *.key
 
-# Local Backups & Scratch Files
+# Local Backups, Build Outputs & Scratch Files
 _backup_v1/
+dist/
+.wrangler/
 *.log
+
