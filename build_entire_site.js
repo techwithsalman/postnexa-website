@@ -2752,16 +2752,8 @@ const page_downloader_main_html = `
         </p>
       </div>
 
-      <!-- Hero Workspace Stage with Subtle Floating SaaS Badges -->
+      <!-- Hero Workspace Stage -->
       <div class="sc-dl-workspace-stage">
-        <div class="sc-dl-floating-chip sc-dl-floating-chip--tl" aria-hidden="true">
-          <img src="../../assets/icons/tiktok.svg" alt="">
-          <span>TikTok &amp; Reels • Auto-Detect</span>
-        </div>
-        <div class="sc-dl-floating-chip sc-dl-floating-chip--tr" aria-hidden="true">
-          <img src="../../assets/icons/youtube.svg" alt="">
-          <span>Official oEmbed &amp; OAuth API</span>
-        </div>
 
         <!-- Main Interactive Downloader Card -->
         <div class="sc-dl-workspace-card" role="region" aria-label="Social Media Video Downloader Tool">
@@ -2770,23 +2762,23 @@ const page_downloader_main_html = `
           <div class="sc-dl-tabs-header">
             <div class="sc-dl-tabs-nav" role="tablist" aria-label="Select Social Media Platform">
               <button type="button" class="sc-dl-tab-btn is-active" role="tab" aria-selected="true" data-platform="all" id="tab-all">
-                <img src="../../assets/icons/publish.svg" alt="">
+                <img src="../../assets/icons/publish.svg" alt="" class="sc-dl-icon sc-dl-icon--tab" width="18" height="18">
                 <span>All Platforms</span>
               </button>
               <button type="button" class="sc-dl-tab-btn" role="tab" aria-selected="false" data-platform="tiktok" id="tab-tiktok">
-                <img src="../../assets/icons/tiktok.svg" alt="">
+                <img src="../../assets/icons/tiktok.svg" alt="" class="sc-dl-icon sc-dl-icon--tab" width="18" height="18">
                 <span>TikTok</span>
               </button>
               <button type="button" class="sc-dl-tab-btn" role="tab" aria-selected="false" data-platform="instagram" id="tab-instagram">
-                <img src="../../assets/icons/instagram.svg" alt="">
+                <img src="../../assets/icons/instagram.svg" alt="" class="sc-dl-icon sc-dl-icon--tab" width="18" height="18">
                 <span>Instagram</span>
               </button>
               <button type="button" class="sc-dl-tab-btn" role="tab" aria-selected="false" data-platform="facebook" id="tab-facebook">
-                <img src="../../assets/icons/facebook.svg" alt="">
+                <img src="../../assets/icons/facebook.svg" alt="" class="sc-dl-icon sc-dl-icon--tab" width="18" height="18">
                 <span>Facebook</span>
               </button>
               <button type="button" class="sc-dl-tab-btn" role="tab" aria-selected="false" data-platform="youtube" id="tab-youtube">
-                <img src="../../assets/icons/youtube.svg" alt="">
+                <img src="../../assets/icons/youtube.svg" alt="" class="sc-dl-icon sc-dl-icon--tab" width="18" height="18">
                 <span>YouTube</span>
               </button>
             </div>
@@ -2832,7 +2824,7 @@ const page_downloader_main_html = `
                 Supports TikTok, Instagram Reels, Facebook Watch/Reels, YouTube links, and authorized owned MP4 sources.
               </p>
               <div id="dlDetectionBar" class="sc-dl-detection-pill" role="status" aria-live="polite">
-                <img id="dlDetectionIcon" src="../../assets/icons/tiktok.svg" alt="">
+                <img id="dlDetectionIcon" src="../../assets/icons/tiktok.svg" alt="" class="sc-dl-icon sc-dl-icon--status" width="16" height="16">
                 <span id="dlDetectionText">Platform detected: TikTok</span>
               </div>
             </div>
@@ -2909,7 +2901,7 @@ const page_downloader_main_html = `
               <div class="sc-dl-result-details">
                 <div class="sc-dl-result-top-bar">
                   <span class="sc-dl-platform-chip">
-                    <img id="dlResPlatformIcon" src="../../assets/icons/tiktok.svg" alt="">
+                    <img id="dlResPlatformIcon" src="../../assets/icons/tiktok.svg" alt="" class="sc-dl-icon sc-dl-icon--status" width="16" height="16">
                     <span id="dlResPlatformName">TikTok</span>
                   </span>
                   <span id="dlResStatusBadge" class="sc-dl-status-pill is-ready">Verified MP4 Ready</span>
@@ -3010,7 +3002,7 @@ const page_downloader_main_html = `
         <div class="sc-dl-step-card">
           <div class="sc-dl-step-top">
             <div class="sc-dl-step-icon-box">
-              <img src="../../assets/icons/publish.svg" alt="">
+              <img src="../../assets/icons/publish.svg" alt="" class="sc-dl-icon sc-dl-icon--step" width="28" height="28">
             </div>
             <span class="sc-dl-step-num">Step 01</span>
           </div>
@@ -3023,7 +3015,7 @@ const page_downloader_main_html = `
         <div class="sc-dl-step-card">
           <div class="sc-dl-step-top">
             <div class="sc-dl-step-icon-box">
-              <img src="../../assets/icons/ai-bot.svg" alt="">
+              <img src="../../assets/icons/ai-bot.svg" alt="" class="sc-dl-icon sc-dl-icon--step" width="28" height="28">
             </div>
             <span class="sc-dl-step-num">Step 02</span>
           </div>
@@ -3036,7 +3028,7 @@ const page_downloader_main_html = `
         <div class="sc-dl-step-card">
           <div class="sc-dl-step-top">
             <div class="sc-dl-step-icon-box">
-              <img src="../../assets/icons/check.svg" alt="">
+              <img src="../../assets/icons/check.svg" alt="" class="sc-dl-icon sc-dl-icon--step" width="28" height="28">
             </div>
             <span class="sc-dl-step-num">Step 03</span>
           </div>
@@ -3068,7 +3060,7 @@ const page_downloader_main_html = `
           <div>
             <div class="sc-dl-platform-card-head">
               <div class="sc-dl-platform-logo-box">
-                <img src="../../assets/icons/tiktok.svg" alt="TikTok">
+                <img src="../../assets/icons/tiktok.svg" alt="TikTok" class="sc-dl-icon sc-dl-icon--platform" width="36" height="36">
               </div>
               <span class="sc-badge-status sc-badge-live">oEmbed + OAuth MP4</span>
             </div>
@@ -3089,7 +3081,7 @@ const page_downloader_main_html = `
           <div>
             <div class="sc-dl-platform-card-head">
               <div class="sc-dl-platform-logo-box">
-                <img src="../../assets/icons/instagram.svg" alt="Instagram">
+                <img src="../../assets/icons/instagram.svg" alt="Instagram" class="sc-dl-icon sc-dl-icon--platform" width="36" height="36">
               </div>
               <span class="sc-badge-status sc-badge-beta">Embed + Graph OAuth</span>
             </div>
@@ -3110,7 +3102,7 @@ const page_downloader_main_html = `
           <div>
             <div class="sc-dl-platform-card-head">
               <div class="sc-dl-platform-logo-box">
-                <img src="../../assets/icons/facebook.svg" alt="Facebook">
+                <img src="../../assets/icons/facebook.svg" alt="Facebook" class="sc-dl-icon sc-dl-icon--platform" width="36" height="36">
               </div>
               <span class="sc-badge-status sc-badge-beta">Watch + Graph OAuth</span>
             </div>
@@ -3131,7 +3123,7 @@ const page_downloader_main_html = `
           <div>
             <div class="sc-dl-platform-card-head">
               <div class="sc-dl-platform-logo-box">
-                <img src="../../assets/icons/youtube.svg" alt="YouTube">
+                <img src="../../assets/icons/youtube.svg" alt="YouTube" class="sc-dl-icon sc-dl-icon--platform" width="36" height="36">
               </div>
               <span class="sc-badge-status sc-badge-live">oEmbed + Studio Export</span>
             </div>
@@ -3171,7 +3163,7 @@ const page_downloader_main_html = `
             <div class="sc-dl-guide-head">
               <div class="sc-dl-guide-title-group">
                 <div class="sc-dl-guide-icon">
-                  <img src="../../assets/icons/tiktok.svg" alt="">
+                  <img src="../../assets/icons/tiktok.svg" alt="" class="sc-dl-icon sc-dl-icon--guide" width="28" height="28">
                 </div>
                 <h2 class="sc-dl-guide-h2">How to Save Your Own TikTok Videos</h2>
               </div>
@@ -3196,7 +3188,7 @@ const page_downloader_main_html = `
             <div class="sc-dl-guide-head">
               <div class="sc-dl-guide-title-group">
                 <div class="sc-dl-guide-icon">
-                  <img src="../../assets/icons/instagram.svg" alt="">
+                  <img src="../../assets/icons/instagram.svg" alt="" class="sc-dl-icon sc-dl-icon--guide" width="28" height="28">
                 </div>
                 <h2 class="sc-dl-guide-h2">How to Save Your Own Instagram Reels</h2>
               </div>
@@ -3221,7 +3213,7 @@ const page_downloader_main_html = `
             <div class="sc-dl-guide-head">
               <div class="sc-dl-guide-title-group">
                 <div class="sc-dl-guide-icon">
-                  <img src="../../assets/icons/facebook.svg" alt="">
+                  <img src="../../assets/icons/facebook.svg" alt="" class="sc-dl-icon sc-dl-icon--guide" width="28" height="28">
                 </div>
                 <h2 class="sc-dl-guide-h2">How to Download Your Facebook Videos</h2>
               </div>
@@ -3246,7 +3238,7 @@ const page_downloader_main_html = `
             <div class="sc-dl-guide-head">
               <div class="sc-dl-guide-title-group">
                 <div class="sc-dl-guide-icon">
-                  <img src="../../assets/icons/youtube.svg" alt="">
+                  <img src="../../assets/icons/youtube.svg" alt="" class="sc-dl-icon sc-dl-icon--guide" width="28" height="28">
                 </div>
                 <h2 class="sc-dl-guide-h2">YouTube Download Options and Limitations</h2>
               </div>
@@ -3454,6 +3446,14 @@ const downloader_structured_data = `  <!-- JSON-LD Structured Data -->
   }
   </script>`;
 
+// Extract Section 20 from css/style.css so the downloader page also carries inline scoped styles
+// (eliminates any possibility of stale CDN/browser stylesheet cache breaking icon sizes or grids)
+const fullStyleCssText = fs.readFileSync(path.join(BASE_DIR, "css/style.css"), "utf8");
+const dlCssMarkerIndex = fullStyleCssText.indexOf("20. ALL-IN-ONE SOCIAL MEDIA VIDEO DOWNLOADER");
+const dlScopedInlineCss = dlCssMarkerIndex !== -1
+  ? fullStyleCssText.slice(fullStyleCssText.lastIndexOf("/*", dlCssMarkerIndex))
+  : "";
+
 const downloader_full_html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3489,6 +3489,9 @@ ${downloader_structured_data}
   <!-- Core Stylesheets -->
   <link rel="stylesheet" href="${downloader_rel}css/style.css">
   <link rel="stylesheet" href="${downloader_rel}css/responsive.css">
+  <style id="sc-dl-scoped-styles">
+${dlScopedInlineCss}
+  </style>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="${downloader_rel}assets/logos/postnexa-icon.png">
@@ -3497,7 +3500,7 @@ ${downloader_structured_data}
 
 ${header_html(downloader_rel, "tools")}
 
-<main id="mainContent">
+<main id="mainContent" class="sc-dl-page">
 ${page_downloader_main_html}
 </main>
 
