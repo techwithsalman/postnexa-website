@@ -77,8 +77,15 @@ export async function onRequestGet(context) {
 
   try {
     console.log(`[Downloader Stream] platform=${platform} url=${redactUrlForLog(mediaUrl)}`);
+    const isTiktokCdn = /(?:tiktokcdn|tiktok|byteoversea|ibytedtos|tikwm|bytedance)/i.test(mediaUrl);
     const upstreamRes = await fetchWithTimeout(mediaUrl, {
-      method: 'GET'
+      method: 'GET',
+      headers: isTiktokCdn
+        ? {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+            'Referer': 'https://www.tiktok.com/'
+          }
+        : {}
     }, 25000);
 
     if (!upstreamRes.ok || !upstreamRes.body) {

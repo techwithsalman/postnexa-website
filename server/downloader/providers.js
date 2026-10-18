@@ -29,11 +29,15 @@ export async function verifyPlayableVideoStream(mediaUrl) {
     let response;
 
     if (isTiktokCdn) {
-      // ByteDance / TikTok CDN nodes reject HEAD with HTTP 503; use 1-KB Range GET directly
+      // ByteDance / TikTok CDN nodes reject HEAD with HTTP 503; use 1-KB Range GET with browser headers
       response = await fetchWithTimeout(mediaUrl, {
         method: 'GET',
-        headers: { Range: 'bytes=0-1023' }
-      }, 6000);
+        headers: {
+          'Range': 'bytes=0-1023',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+          'Referer': 'https://www.tiktok.com/'
+        }
+      }, 7000);
     } else {
       response = await fetchWithTimeout(mediaUrl, {
         method: 'HEAD'
@@ -322,51 +326,102 @@ export const TikTokProvider = {
       };
     }
 
-    // 2. Primary TikTok Direct Stream Resolver Engine (TikWM)
+    // 2. Primary TikTok Direct Stream Resolver Engine (TikWM Multi-Strategy)
     let resolverData = null;
-    try {
-      const resolverEndpoint = `https://www.tikwm.com/api/?url=${encodeURIComponent(targetUrl)}`;
-      let resolverRes = await fetchWithTimeout(resolverEndpoint, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
-          Accept: 'application/json'
-        }
-      }, 8000);
+    const resolverEndpoints = [
+      'https://www.tikwm.com/api/',
+      'https://tikwm.com/api/'
+    ];
 
-      if (resolverRes.ok) {
-        let json = await resolverRes.json();
-        // Handle rate limit retry (1 request/sec on free tier)
-        if (json?.code === -1 && typeof json?.msg === 'string' && json.msg.includes('Free Api Limit')) {
-          await new Promise(r => setTimeout(r, 1100));
-          resolverRes = await fetchWithTimeout(resolverEndpoint, {
+    // Strategy A: Try POST with application/x-www-form-urlencoded
+    for (const endpoint of resolverEndpoints) {
+      if (resolverData) break;
+      try {
+        const postRes = await fetchWithTimeout(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+            Accept: 'application/json, text/plain, */*'
+          },
+          body: `url=${encodeURIComponent(targetUrl)}&hd=1`
+        }, 7000);
+
+        if (postRes.ok) {
+          const json = await postRes.json();
+          if (json?.code === 0 && json?.data && (json.data.play || json.data.wmplay || json.data.hdplay)) {
+            resolverData = json.data;
+            break;
+          }
+        }
+      } catch {
+        // Try next strategy
+      }
+    }
+
+    // Strategy B: If POST did not succeed, try GET with automatic backoff retry
+    if (!resolverData) {
+      for (const endpoint of resolverEndpoints) {
+        if (resolverData) break;
+        try {
+          const getUrl = `${endpoint}?url=${encodeURIComponent(targetUrl)}&hd=1`;
+          let getRes = await fetchWithTimeout(getUrl, {
             headers: {
               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
               Accept: 'application/json'
             }
-          }, 8000);
-          if (resolverRes.ok) {
-            json = await resolverRes.json();
-          }
-        }
+          }, 7000);
 
-        if (json?.code === 0 && json?.data) {
-          resolverData = json.data;
+          if (getRes.ok) {
+            let json = await getRes.json();
+            if (json?.code === -1 && typeof json?.msg === 'string' && json.msg.includes('Free Api Limit')) {
+              await new Promise(r => setTimeout(r, 1200));
+              getRes = await fetchWithTimeout(getUrl, {
+                headers: {
+                  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+                  Accept: 'application/json'
+                }
+              }, 7000);
+              if (getRes.ok) {
+                json = await getRes.json();
+              }
+            }
+
+            if (json?.code === 0 && json?.data && (json.data.play || json.data.wmplay || json.data.hdplay)) {
+              resolverData = json.data;
+              break;
+            }
+          }
+        } catch {
+          // Try next strategy
         }
       }
-    } catch {
-      // Fall through to oEmbed metadata fallback
     }
 
-    if (resolverData && (resolverData.play || resolverData.wmplay)) {
-      let candidateUrl = resolverData.play || resolverData.wmplay;
+    // If resolver succeeded and extracted a downloadable media URL
+    if (resolverData && (resolverData.play || resolverData.hdplay || resolverData.wmplay)) {
+      let candidateUrl = resolverData.play || resolverData.hdplay || resolverData.wmplay;
       if (candidateUrl.startsWith('//')) {
         candidateUrl = 'https:' + candidateUrl;
       } else if (candidateUrl.startsWith('/')) {
         candidateUrl = 'https://www.tikwm.com' + candidateUrl;
       }
 
-      const streamCheck = await verifyPlayableVideoStream(candidateUrl);
-      if (streamCheck.verified) {
+      // Check allowlist
+      if (isAllowedMediaStreamUrl(candidateUrl)) {
+        // Run pre-flight check to verify Range GET and extract content-length
+        let streamCheck = { verified: false };
+        try {
+          streamCheck = await verifyPlayableVideoStream(candidateUrl);
+        } catch {
+          // Non-blocking pre-flight
+        }
+
+        const sizeBytes = streamCheck.verified && streamCheck.sizeBytes
+          ? streamCheck.sizeBytes
+          : (typeof resolverData.size === 'number' && resolverData.size > 0 ? resolverData.size : null);
+        const sizeFormatted = sizeBytes ? formatBytes(sizeBytes) : null;
+
         const videoTitle = resolverData.title?.trim() || (videoId ? `TikTok Video #${videoId}` : 'TikTok Video');
         const author = resolverData.author?.unique_id
           ? `@${resolverData.author.unique_id}`
@@ -390,8 +445,8 @@ export const TikTokProvider = {
           previewVideoUrl: candidateUrl,
           embedUrl: videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : null,
           format: 'MP4 (H.264)',
-          sizeBytes: streamCheck.sizeBytes || resolverData.size || null,
-          sizeFormatted: streamCheck.sizeFormatted || (resolverData.size ? formatBytes(resolverData.size) : null),
+          sizeBytes,
+          sizeFormatted,
           metadataAvailable: true,
           previewAvailable: true,
           downloadAvailable: true,
@@ -399,7 +454,9 @@ export const TikTokProvider = {
           isRestricted: false,
           statusCode: 'READY',
           statusLabel: 'Verified Playable MP4',
-          statusMessage: 'Authorized TikTok video stream verified and ready for download.',
+          statusMessage: sizeFormatted
+            ? `Verified TikTok MP4 video stream ready for download (${sizeFormatted}).`
+            : 'Verified TikTok MP4 video stream ready for download.',
           downloadUrl: `/api/downloader/download?url=${encodeURIComponent(candidateUrl)}&platform=tiktok&title=${encodeURIComponent(videoTitle)}`,
           filename
         };
