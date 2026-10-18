@@ -450,9 +450,290 @@
     margin-bottom: 28px;
   }
 
-  .sc-filter-tab-btn {
-    padding: 7px 16px;
+/* --------------------------------------------------------------------------
+   Global Layout, Containers & Fluid Typography Safeguards
+   -------------------------------------------------------------------------- */
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.sc-hero-title,
+.sc-inner-hero-title,
+.sc-section-title,
+.sc-dl-main-title {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   Small Mobile Viewports (<= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .sc-container,
+  .sc-container-wide {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sc-header {
+    height: 64px;
+  }
+
+  .sc-logo-img {
+    height: 28px;
+    max-width: 130px;
+    object-fit: contain;
+  }
+
+  .sc-mobile-toggle,
+  .sc-hamburger-btn {
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+  }
+
+  .sc-mobile-drawer {
+    max-width: 100vw;
+    width: 100%;
+    padding: 20px 16px;
+  }
+
+  /* Homepage promotional video with white border */
+  .sc-inline-player-container {
+    border-width: 6px;
+    border-radius: 14px;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .sc-inline-center-play {
+    width: 52px;
+    height: 52px;
+  }
+
+  .sc-inline-center-play svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sc-hero-actions,
+  .sc-inner-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .sc-hero-actions .sc-btn,
+  .sc-inner-hero-actions .sc-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Extra Small Mobile Viewports (<= 360px - 320px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .sc-container,
+  .sc-container-wide {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .sc-logo-img {
+    height: 25px;
+    max-width: 110px;
+  }
+
+  .sc-hero-title {
+    font-size: 24px;
+  }
+
+  .sc-section-title {
+    font-size: 20px;
+  }
+
+  .sc-stat-number {
+    font-size: 28px;
+  }
+
+  .sc-inline-player-container {
+    border-width: 4px;
+    border-radius: 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Downloader Tool Dedicated Responsive Controls (<= 640px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .sc-dl-page .sc-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sc-dl-hero-section {
+    padding: 24px 0 40px;
+  }
+
+  .sc-dl-hero-header {
+    margin-bottom: 20px;
+  }
+
+  .sc-dl-workspace-card {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .sc-dl-workspace-card::before {
+    left: 16px;
+    right: 16px;
+  }
+
+  /* Segmented control tabs: smooth horizontal touch swipe on mobile */
+  .sc-dl-tabs-nav {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding: 4px;
+    gap: 4px;
+    border-radius: 14px;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+
+  .sc-dl-tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sc-dl-tab-btn {
+    padding: 8px 12px;
     font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .sc-dl-input-row {
+    padding: 10px;
+    border-radius: 14px;
+    gap: 10px;
+  }
+
+  .sc-dl-url-input {
+    font-size: 14px;
+    padding: 8px 2px;
+  }
+
+  .sc-dl-input-actions {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .sc-dl-util-btn {
+    flex: 1;
+    min-height: 44px;
+    padding: 8px 10px;
+    font-size: 13px;
+    justify-content: center;
+  }
+
+  .sc-dl-submit-btn {
+    width: 100%;
+    min-height: 46px;
+    font-size: 15px;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .sc-dl-mismatch-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .sc-dl-mismatch-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sc-dl-result-section {
+    padding: 16px 12px;
+    border-radius: 16px;
+    margin-top: 20px;
+  }
+
+  .sc-dl-result-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .sc-dl-meta-grid {
+    grid-template-columns: 1fr;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .sc-dl-caps-strip {
+    gap: 6px;
+  }
+
+  .sc-dl-cap-pill {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .sc-dl-actions-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .sc-dl-download-btn,
+  .sc-dl-actions-row .sc-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    font-size: 14px;
+  }
+
+  .sc-dl-platforms-grid,
+  .sc-dl-steps-grid,
+  .sc-dl-guides-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sc-dl-platform-card,
+  .sc-dl-step-card,
+  .sc-dl-guide-card {
+    padding: 20px 16px;
+  }
+
+  .sc-dl-bottom-cta-box {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+
+  .sc-dl-bottom-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sc-dl-bottom-cta-actions .sc-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 

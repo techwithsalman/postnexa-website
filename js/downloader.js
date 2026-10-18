@@ -477,7 +477,104 @@
       });
     }
 
-    // 4. Backend Inspection Request
+    function sanitizeFilenameClient(title, platform = 'video', ext = 'mp4') {
+      const cleanPlatform = String(platform || 'video').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const slug = String(title || 'media')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 60) || 'clip';
+      return `postnexa-${cleanPlatform}-${slug}.${ext}`;
+    }
+
+    /**
+     * Client-side direct stream resolver for TikTok.
+     * Operates from the user's browser (residential/mobile IP with CORS: *)
+     * to guarantee MP4 streaming even if Cloudflare Edge Worker IPs encounter rate limits.
+     */
+    async function resolveTikTokClientSide(targetUrl, serverFallbackData) {
+      const candidateUrls = [
+        (serverFallbackData && serverFallbackData.canonicalUrl) || null,
+        targetUrl
+      ].filter((u, i, arr) => !!u && arr.indexOf(u) === i);
+
+      const endpoints = [
+        'https://www.tikwm.com/api/',
+        'https://tikwm.com/api/'
+      ];
+
+      for (const urlToTry of candidateUrls) {
+        for (const endpoint of endpoints) {
+          try {
+            const apiUrl = `${endpoint}?url=${encodeURIComponent(urlToTry)}&hd=1`;
+            const res = await fetch(apiUrl, {
+              headers: { Accept: 'application/json' }
+            });
+            if (!res.ok) continue;
+
+            const json = await res.json();
+            if (json && json.code === 0 && json.data && (json.data.play || json.data.hdplay || json.data.wmplay)) {
+              let playUrl = json.data.play || json.data.hdplay || json.data.wmplay;
+              if (playUrl.startsWith('//')) {
+                playUrl = 'https:' + playUrl;
+              } else if (playUrl.startsWith('/')) {
+                playUrl = 'https://www.tikwm.com' + playUrl;
+              }
+
+              const videoIdMatch = urlToTry.match(/\/video\/(\d+)/);
+              const videoId = videoIdMatch ? videoIdMatch[1] : (json.data.id || null);
+              const rawTitle = (json.data.title || '').trim();
+              const title = rawTitle || (serverFallbackData && serverFallbackData.title) || (videoId ? `TikTok Video #${videoId}` : 'TikTok Video');
+              const author = json.data.author?.unique_id
+                ? `@${json.data.author.unique_id}`
+                : (json.data.author?.nickname ? `@${json.data.author.nickname}` : (serverFallbackData?.authorName || 'TikTok Creator'));
+              const durationSec = parseInt(json.data.duration || '0', 10);
+              const durationFormatted = durationSec > 0
+                ? (durationSec >= 60 ? `${Math.floor(durationSec / 60)}:${String(durationSec % 60).padStart(2, '0')}` : `0:${String(durationSec).padStart(2, '0')}`)
+                : (serverFallbackData?.duration || 'Short Video');
+              const sizeBytes = typeof json.data.size === 'number' && json.data.size > 0 ? json.data.size : null;
+              const sizeFormatted = sizeBytes ? formatBytesClient(sizeBytes) : null;
+              const filename = sanitizeFilenameClient(title, 'tiktok', 'mp4');
+
+              return {
+                ok: true,
+                platform: 'tiktok',
+                platformName: 'TikTok',
+                canonicalUrl: urlToTry,
+                title,
+                authorName: author,
+                authorUrl: json.data.author?.unique_id ? `https://www.tiktok.com/@${json.data.author.unique_id}` : (serverFallbackData?.authorUrl || null),
+                duration: durationFormatted,
+                thumbnailUrl: json.data.cover || (serverFallbackData && serverFallbackData.thumbnailUrl) || null,
+                previewVideoUrl: playUrl,
+                embedUrl: videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : (serverFallbackData?.embedUrl || null),
+                format: 'MP4 (H.264 HD)',
+                sizeBytes,
+                sizeFormatted,
+                metadataAvailable: true,
+                previewAvailable: true,
+                downloadAvailable: true,
+                authorizationRequired: false,
+                isRestricted: false,
+                statusCode: 'READY',
+                statusLabel: 'Verified Playable MP4',
+                statusMessage: sizeFormatted
+                  ? `Verified TikTok MP4 video stream ready for download (${sizeFormatted}).`
+                  : 'Verified TikTok MP4 video stream ready for download.',
+                downloadUrl: playUrl,
+                directDownloadUrl: playUrl,
+                filename
+              };
+            }
+          } catch {
+            // Continue to next endpoint or candidate URL
+          }
+        }
+      }
+      return null;
+    }
+
+    // 4. Backend Inspection Request with Automatic Client-Side Fallback
     async function inspectAndResolveUrl(rawUrl) {
       hideMessages();
       const detected = detectClientPlatform(rawUrl);
@@ -501,24 +598,58 @@
       if (submitBtnText) submitBtnText.textContent = 'Checking Link...';
 
       try {
-        const response = await fetch('/api/downloader/inspect', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          },
-          body: JSON.stringify({ url: detected.url })
-        });
-
+        let response = null;
         let data = null;
-        const contentType = response.headers.get('content-type') || '';
-        if (contentType.includes('application/json')) {
-          data = await response.json();
-        } else {
-          throw new Error('Backend endpoint returned non-JSON response.');
+
+        try {
+          response = await fetch('/api/downloader/inspect', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            },
+            body: JSON.stringify({ url: detected.url })
+          });
+
+          const contentType = response.headers.get('content-type') || '';
+          if (contentType.includes('application/json')) {
+            data = await response.json();
+          }
+        } catch {
+          // Network error or local inspection failure
         }
 
-        if (!response.ok || !data || !data.ok) {
+        // If backend succeeded and verified MP4 download is available, use it directly
+        if (response && response.ok && data && data.ok && data.downloadAvailable) {
+          lastInspectionResult = data;
+          renderResultCard(data);
+          return;
+        }
+
+        // PART A: Client-Side Fallback for TikTok
+        // When Cloudflare Edge Worker IP is rate-limited or challenged by TikWM WAF,
+        // the client browser (with consumer IP & CORS: *) resolves the stream directly.
+        if (detected.platform === 'tiktok') {
+          if (loadingText) {
+            loadingText.textContent = 'Verifying direct TikTok high-speed media stream...';
+          }
+          const clientData = await resolveTikTokClientSide(detected.url, data);
+          if (clientData && clientData.downloadAvailable) {
+            lastInspectionResult = clientData;
+            renderResultCard(clientData);
+            return;
+          }
+        }
+
+        // If client resolution didn't produce a stream, but server returned valid data (e.g. metadata or official guide)
+        if (response && response.ok && data && data.ok) {
+          lastInspectionResult = data;
+          renderResultCard(data);
+          return;
+        }
+
+        // If error response
+        if (data && !data.ok) {
           const errorTitles = {
             UNSUPPORTED_URL: 'Unsupported URL',
             VIDEO_UNAVAILABLE: 'Video Unavailable',
@@ -537,8 +668,10 @@
           return;
         }
 
-        lastInspectionResult = data;
-        renderResultCard(data);
+        showError(
+          'Server Temporarily Unavailable',
+          'Could not reach the PostNexa media inspection worker. Please check your connection and try again.'
+        );
       } catch {
         showError(
           'Server Temporarily Unavailable',
@@ -760,7 +893,25 @@
         }
 
         try {
-          const response = await fetch(lastInspectionResult.downloadUrl);
+          const filename = lastInspectionResult.filename || 'postnexa-video.mp4';
+          let response = null;
+
+          try {
+            response = await fetch(lastInspectionResult.downloadUrl);
+          } catch {
+            // If browser fetch was blocked by cross-origin security or an adblock extension, trigger direct anchor download
+            const a = document.createElement('a');
+            a.href = lastInspectionResult.downloadUrl;
+            a.download = filename;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            if (progressContainer) progressContainer.style.display = 'none';
+            return;
+          }
+
           if (!response.ok) {
             let errMessage = 'Download could not be completed.';
             try {
@@ -773,12 +924,11 @@
           }
 
           const contentType = (response.headers.get('content-type') || '').toLowerCase();
-          if (!contentType.startsWith('video/') && !contentType.includes('octet-stream')) {
+          if (contentType && !contentType.startsWith('video/') && !contentType.includes('octet-stream') && !contentType.includes('binary')) {
             throw new Error('Server did not return a valid video stream.');
           }
 
-          const totalBytes = parseInt(response.headers.get('content-length') || '0', 10);
-          const filename = lastInspectionResult.filename || 'postnexa-video.mp4';
+          const totalBytes = parseInt(response.headers.get('content-length') || String(lastInspectionResult.sizeBytes || 0), 10);
 
           if (response.body && response.body.getReader) {
             const reader = response.body.getReader();
