@@ -35,6 +35,10 @@ export async function onRequestOptions(context) {
   });
 }
 
+export async function onRequestHead(context) {
+  return onRequestGet(context);
+}
+
 export async function onRequestGet(context) {
   const { request } = context;
 
