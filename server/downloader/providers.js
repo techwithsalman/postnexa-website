@@ -398,6 +398,39 @@ export const TikTokProvider = {
       }
     }
 
+    // Strategy C: High-reliability TikMate API fallback
+    if (!resolverData) {
+      try {
+        const tikmateRes = await fetchWithTimeout('https://api.tikmate.app/api/lookup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
+          },
+          body: `url=${encodeURIComponent(targetUrl)}`
+        }, 7000);
+
+        if (tikmateRes.ok) {
+          const tm = await tikmateRes.json();
+          if (tm?.success && tm?.token && tm?.id) {
+            const mediaDlUrl = `https://tikmate.app/download/${tm.token}/${tm.id}.mp4`;
+            resolverData = {
+              play: mediaDlUrl,
+              title: tm.desc || (videoId ? `TikTok Video #${videoId}` : 'TikTok Video'),
+              author: {
+                nickname: tm.author_name || 'TikTok Creator',
+                unique_id: tm.author_id || null
+              },
+              cover: tm.cover || tm.dynamic_cover || null,
+              size: null
+            };
+          }
+        }
+      } catch {
+        // Proceed to fallback
+      }
+    }
+
     // If resolver succeeded and extracted a downloadable media URL
     if (resolverData && (resolverData.play || resolverData.hdplay || resolverData.wmplay)) {
       let candidateUrl = resolverData.play || resolverData.hdplay || resolverData.wmplay;

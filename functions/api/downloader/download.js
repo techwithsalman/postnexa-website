@@ -77,7 +77,7 @@ export async function onRequestGet(context) {
 
   try {
     console.log(`[Downloader Stream] platform=${platform} url=${redactUrlForLog(mediaUrl)}`);
-    const isTiktokCdn = /(?:tiktokcdn|tiktok|byteoversea|ibytedtos|tikwm|bytedance)/i.test(mediaUrl);
+    const isTiktokCdn = /(?:tiktokcdn|tiktok|byteoversea|ibytedtos|tikwm|bytedance|tikmate|nowmvideo)/i.test(mediaUrl);
     const upstreamRes = await fetchWithTimeout(mediaUrl, {
       method: 'GET',
       headers: isTiktokCdn

@@ -571,6 +571,64 @@
           }
         }
       }
+
+      // Strategy 2: High-reliability TikMate API fallback
+      for (const urlToTry of candidateUrls) {
+        try {
+          const tmRes = await fetch('https://api.tikmate.app/api/lookup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            body: `url=${encodeURIComponent(urlToTry)}`
+          });
+          if (!tmRes.ok) continue;
+
+          const tm = await tmRes.json();
+          if (tm && tm.success && tm.token && tm.id) {
+            const mediaDlUrl = `https://tikmate.app/download/${tm.token}/${tm.id}.mp4`;
+            const videoIdMatch = urlToTry.match(/\/video\/(\d+)/);
+            const videoId = videoIdMatch ? videoIdMatch[1] : (tm.id || null);
+            const rawTitle = (tm.desc || '').trim();
+            const title = rawTitle || (serverFallbackData && serverFallbackData.title) || (videoId ? `TikTok Video #${videoId}` : 'TikTok Video');
+            const author = tm.author_name
+              ? (tm.author_name.startsWith('@') ? tm.author_name : `@${tm.author_name}`)
+              : (serverFallbackData?.authorName || 'TikTok Creator');
+            const filename = sanitizeFilenameClient(title, 'tiktok', 'mp4');
+
+            return {
+              ok: true,
+              platform: 'tiktok',
+              platformName: 'TikTok',
+              canonicalUrl: urlToTry,
+              title,
+              authorName: author,
+              authorUrl: tm.author_id ? `https://www.tiktok.com/@${tm.author_id}` : (serverFallbackData?.authorUrl || null),
+              duration: 'Short Video',
+              thumbnailUrl: tm.cover || tm.dynamic_cover || (serverFallbackData && serverFallbackData.thumbnailUrl) || null,
+              previewVideoUrl: mediaDlUrl,
+              embedUrl: videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : (serverFallbackData?.embedUrl || null),
+              format: 'MP4 (H.264 HD)',
+              sizeBytes: null,
+              sizeFormatted: 'HD MP4',
+              metadataAvailable: true,
+              previewAvailable: true,
+              downloadAvailable: true,
+              authorizationRequired: false,
+              isRestricted: false,
+              statusCode: 'READY',
+              statusLabel: 'Verified Playable MP4',
+              statusMessage: 'Verified TikTok MP4 video stream ready for download.',
+              downloadUrl: mediaDlUrl,
+              directDownloadUrl: mediaDlUrl,
+              filename
+            };
+          }
+        } catch {
+          // Continue to next candidate URL
+        }
+      }
+
       return null;
     }
 
