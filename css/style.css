@@ -4202,6 +4202,39 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+/* Capability Flags Pill Strip */
+.sc-dl-caps-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.sc-dl-cap-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #475569;
+}
+
+.sc-dl-cap-pill.is-ok {
+  background: #DEF7EC;
+  border-color: #BCF0DA;
+  color: #03543F;
+}
+
+.sc-dl-cap-pill.is-warn {
+  background: #FEF3C7;
+  border-color: #FDE68A;
+  color: #92400E;
+}
+
 /* Official Save Guide Callout */
 .sc-dl-res-guide-wrap {
   margin-top: 12px;

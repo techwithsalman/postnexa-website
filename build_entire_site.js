@@ -2828,43 +2828,6 @@ const page_downloader_main_html = `
                 <span id="dlDetectionText">Platform detected: TikTok</span>
               </div>
             </div>
-
-            <!-- Quick Verification Sample Links -->
-            <div class="sc-dl-samples-bar">
-              <span class="sc-dl-samples-label">Instant Demo:</span>
-              <button
-                type="button"
-                class="sc-dl-sample-btn sc-dl-sample-btn--primary"
-                data-sample-platform="tiktok"
-                data-sample-url="https://postnexa.world/assets/videos/postnexa-platform-demo.mp4?platform=tiktok"
-              >
-                ✓ Test Verified Owned MP4 Download
-              </button>
-              <button
-                type="button"
-                class="sc-dl-sample-btn"
-                data-sample-platform="youtube"
-                data-sample-url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              >
-                YouTube oEmbed Check
-              </button>
-              <button
-                type="button"
-                class="sc-dl-sample-btn"
-                data-sample-platform="tiktok"
-                data-sample-url="https://www.tiktok.com/@tiktok/video/7106594312292453675"
-              >
-                TikTok Link Check
-              </button>
-              <button
-                type="button"
-                class="sc-dl-sample-btn"
-                data-sample-platform="instagram"
-                data-sample-url="https://www.instagram.com/reel/C8abc123xyz/"
-              >
-                Instagram Reel Check
-              </button>
-            </div>
           </form>
 
           <!-- Cross-Tab Mismatch Warning Banner -->
@@ -2919,6 +2882,9 @@ const page_downloader_main_html = `
                 <p id="dlResStatusMessage" class="sc-dl-status-note">
                   Authorized owned media source verified. Direct MP4 download is ready.
                 </p>
+
+                <!-- Explicit Capability Badges -->
+                <div id="dlResCapabilities" class="sc-dl-caps-strip"></div>
 
                 <!-- Official Save Guide Callout for Non-Downloadable Content -->
                 <div id="dlResGuideWrap" class="sc-dl-res-guide-wrap" style="display: none;"></div>
@@ -3317,12 +3283,12 @@ const page_downloader_main_html = `
 
           <div class="sc-faq-item">
             <button type="button" class="sc-faq-trigger" aria-expanded="false">
-              <span>How can I test a real end-to-end MP4 video download on this page?</span>
+              <span>How do I download a supported video on this page?</span>
               <span class="sc-faq-icon">+</span>
             </button>
             <div class="sc-faq-content">
               <div class="sc-faq-content-inner">
-                <p>Click the <strong>"✓ Test Verified Owned MP4 Download"</strong> pill right below the URL input bar. Our Cloudflare Worker will verify the 1080p MP4 stream via HTTP byte-range headers, display the interactive video preview and exact file size (<code>18.12 MB</code>), and stream the full MP4 file to your device with real-time byte progress.</p>
+                <p>Simply paste the URL of a supported public video (such as a TikTok video or authorized owned media file) into the input box above and click <strong>Download Video</strong>. PostNexa automatically detects the platform, verifies media availability, displays the video preview and file size, and enables a direct MP4 download with live byte-stream progress.</p>
               </div>
             </div>
           </div>

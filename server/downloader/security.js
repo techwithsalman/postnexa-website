@@ -63,6 +63,8 @@ const ALLOWED_MEDIA_CDN_SUFFIXES = [
   'fbcdn.net',
   'cdninstagram.com',
   'instagram.com',
+  'facebook.com',
+  'akamaihd.net',
   'googlevideo.com',
   'ytimg.com',
   'wikimedia.org',

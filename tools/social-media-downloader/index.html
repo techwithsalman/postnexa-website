@@ -916,6 +916,39 @@
   margin: 0;
 }
 
+/* Capability Flags Pill Strip */
+.sc-dl-caps-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.sc-dl-cap-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #475569;
+}
+
+.sc-dl-cap-pill.is-ok {
+  background: #DEF7EC;
+  border-color: #BCF0DA;
+  color: #03543F;
+}
+
+.sc-dl-cap-pill.is-warn {
+  background: #FEF3C7;
+  border-color: #FDE68A;
+  color: #92400E;
+}
+
 /* Official Save Guide Callout */
 .sc-dl-res-guide-wrap {
   margin-top: 12px;
@@ -2032,43 +2065,6 @@
                 <span id="dlDetectionText">Platform detected: TikTok</span>
               </div>
             </div>
-
-            <!-- Quick Verification Sample Links -->
-            <div class="sc-dl-samples-bar">
-              <span class="sc-dl-samples-label">Try Examples:</span>
-              <button
-                type="button"
-                class="sc-dl-sample-btn sc-dl-sample-btn--primary"
-                data-sample-platform="tiktok"
-                data-sample-url="https://www.tiktok.com/@tiktok/video/7106594312292453675"
-              >
-                ✓ Test TikTok MP4 Download
-              </button>
-              <button
-                type="button"
-                class="sc-dl-sample-btn"
-                data-sample-platform="tiktok"
-                data-sample-url="https://postnexa.world/assets/videos/postnexa-platform-demo.mp4?platform=tiktok"
-              >
-                Test Direct MP4 Asset
-              </button>
-              <button
-                type="button"
-                class="sc-dl-sample-btn"
-                data-sample-platform="youtube"
-                data-sample-url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              >
-                YouTube Metadata Inspector
-              </button>
-              <button
-                type="button"
-                class="sc-dl-sample-btn"
-                data-sample-platform="instagram"
-                data-sample-url="https://www.instagram.com/reel/C8abc123xyz/"
-              >
-                Instagram Metadata Inspector
-              </button>
-            </div>
           </form>
 
           <!-- Cross-Tab Mismatch Warning Banner -->
@@ -2123,6 +2119,9 @@
                 <p id="dlResStatusMessage" class="sc-dl-status-note">
                   Authorized owned media source verified. Direct MP4 download is ready.
                 </p>
+
+                <!-- Explicit Capability Badges -->
+                <div id="dlResCapabilities" class="sc-dl-caps-strip"></div>
 
                 <!-- Official Save Guide Callout for Non-Downloadable Content -->
                 <div id="dlResGuideWrap" class="sc-dl-res-guide-wrap" style="display: none;"></div>
@@ -2521,12 +2520,12 @@
 
           <div class="sc-faq-item">
             <button type="button" class="sc-faq-trigger" aria-expanded="false">
-              <span>How can I test a real end-to-end MP4 video download on this page?</span>
+              <span>How do I download a supported video on this page?</span>
               <span class="sc-faq-icon">+</span>
             </button>
             <div class="sc-faq-content">
               <div class="sc-faq-content-inner">
-                <p>Click the <strong>"✓ Test Verified Owned MP4 Download"</strong> pill right below the URL input bar. Our Cloudflare Worker will verify the 1080p MP4 stream via HTTP byte-range headers, display the interactive video preview and exact file size (<code>18.12 MB</code>), and stream the full MP4 file to your device with real-time byte progress.</p>
+                <p>Simply paste the URL of a supported public video (such as a TikTok video or authorized owned media file) into the input box above and click <strong>Download Video</strong>. PostNexa automatically detects the platform, verifies media availability, displays the video preview and file size, and enables a direct MP4 download with live byte-stream progress.</p>
               </div>
             </div>
           </div>

@@ -203,7 +203,6 @@
     const platformHint = document.getElementById('dlPlatformHint');
 
     const tabButtons = document.querySelectorAll('.sc-dl-tab-btn[data-platform]');
-    const sampleButtons = document.querySelectorAll('.sc-dl-sample-btn[data-sample-url]');
 
     // Status & Feedback Elements
     const detectionBar = document.getElementById('dlDetectionBar');
@@ -457,6 +456,10 @@
         resGuideWrap.innerHTML = '';
         resGuideWrap.style.display = 'none';
       }
+      const resCapabilities = document.getElementById('dlResCapabilities');
+      if (resCapabilities) {
+        resCapabilities.innerHTML = '';
+      }
     }
 
     if (clearBtn) {
@@ -473,22 +476,6 @@
         form.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     }
-
-    // Sample test links
-    sampleButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const sampleUrl = btn.getAttribute('data-sample-url');
-        const samplePlatform = btn.getAttribute('data-sample-platform');
-        if (samplePlatform && PLATFORM_META[samplePlatform]) {
-          selectTab(samplePlatform, true);
-        }
-        if (sampleUrl) {
-          urlInput.value = sampleUrl;
-          handleUrlInputChange(true);
-          inspectAndResolveUrl(sampleUrl);
-        }
-      });
-    });
 
     // 4. Backend Inspection Request
     async function inspectAndResolveUrl(rawUrl) {
@@ -591,6 +578,33 @@
       }
       if (resStatusMessage) {
         resStatusMessage.textContent = data.statusMessage || '';
+      }
+
+      // Render Explicit Capability Flags (Task 3 & 5)
+      const resCapabilities = document.getElementById('dlResCapabilities');
+      if (resCapabilities) {
+        const metadataPill = data.metadataAvailable !== false
+          ? '<span class="sc-dl-cap-pill is-ok">✓ Metadata Available</span>'
+          : '<span class="sc-dl-cap-pill is-warn">⚠ Metadata Unavailable</span>';
+
+        const previewPill = data.previewAvailable !== false
+          ? '<span class="sc-dl-cap-pill is-ok">✓ Preview Available</span>'
+          : '<span class="sc-dl-cap-pill is-warn">⚠ Preview Unavailable</span>';
+
+        let downloadPill;
+        if (data.downloadAvailable) {
+          downloadPill = '<span class="sc-dl-cap-pill is-ok">✓ MP4 Download Ready</span>';
+        } else if (data.authorizationRequired) {
+          downloadPill = '<span class="sc-dl-cap-pill is-warn">🔒 OAuth Required for Raw MP4</span>';
+        } else {
+          downloadPill = '<span class="sc-dl-cap-pill is-warn">⚠ Direct Download Restricted</span>';
+        }
+
+        const restrictionPill = data.isRestricted
+          ? '<span class="sc-dl-cap-pill is-warn">Platform Restricted (ToS)</span>'
+          : '<span class="sc-dl-cap-pill is-ok">Unrestricted Stream</span>';
+
+        resCapabilities.innerHTML = `${metadataPill}${previewPill}${downloadPill}${restrictionPill}`;
       }
 
       // Render Media Preview Stage (HTML5 <video> for direct MP4, thumbnail + embed option for platform streams)
