@@ -167,13 +167,45 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .sc-section-padding {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .sc-header {
+    height: 64px;
+  }
+
+  /* Task 1: Increase mobile header logo size by ~25-30% (from 28px to 36px) */
+  .sc-header .sc-logo-img,
+  .sc-header .sc-logo-link img {
+    height: 36px !important;
+    width: auto !important;
+    max-width: 175px !important;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  .sc-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .sc-mobile-toggle,
+  .sc-hamburger-btn {
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
   }
 
   .sc-hero-section {
-    padding-top: 50px;
-    padding-bottom: 64px;
+    padding-top: 36px;
+    padding-bottom: 48px;
   }
 
   .sc-hero-title {
@@ -204,10 +236,61 @@
     border-radius: var(--border-radius-md);
   }
 
+  /* Prevent buttons with long labels from causing horizontal overflow on mobile */
+  .sc-btn {
+    white-space: normal !important;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Task 4: Fix 'Built by Tech With Salman' awkward narrow column wrapping */
+  .sc-hero-trust-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 20px !important;
+    padding: 0 8px;
+    max-width: 100%;
+  }
+
+  /* Task 2: Mobile Video Section */
+  /* Remove/hide the yellow "Platform Preview" button overlapping the promotional video on mobile */
   .sc-showcase-play-badge {
-    bottom: 16px;
-    padding: 10px 18px;
-    font-size: 13.5px;
+    display: none !important;
+  }
+
+  /* Preserve existing white 10px border across mobile */
+  .sc-hero-mockup-wrap,
+  .sc-inline-player-container {
+    border: 10px solid #FFFFFF !important;
+    border-radius: var(--border-radius-xl) !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  /* Ensure center play button is prominent, functional & touch-friendly */
+  .sc-inline-center-play {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sc-inline-center-play-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Remove unnecessary spacing around promotional video */
+  .sc-hero-showcase {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .sc-stats-grid {
@@ -247,14 +330,83 @@
     gap: 32px 16px;
   }
 
+  /* Task 3 & 4: Footer Logo, Spacing & Layout */
+  .sc-footer {
+    padding-top: 56px;
+    padding-bottom: 84px; /* Ensure floating back-to-top button never overlaps links */
+  }
+
   .sc-footer-bottom {
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 20px;
+  }
+
+  .sc-footer-socials {
+    margin-bottom: 0;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  /* Footer copyright container: stacks logo cleanly above copyright text */
+  .sc-footer-copyright-wrap,
+  .sc-footer-bottom > div:nth-child(2) {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  /* Task 3: Increase footer logo size by 30-40% on mobile (28px -> 38px) */
+  .sc-footer-logo-img,
+  .sc-footer .sc-logo-img,
+  .sc-footer-bottom .sc-logo-img {
+    height: 38px !important;
+    width: auto !important;
+    max-width: 175px !important;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  .sc-footer-copyright-wrap p,
+  .sc-footer-copyright-text,
+  .sc-footer-bottom > div:nth-child(2) p {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #8A99A8;
+    margin: 0;
+    text-align: center;
+    max-width: 100%;
   }
 
   .sc-footer-legal-links {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 14px 18px;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .sc-footer-legal-links a {
+    font-size: 13px;
+    color: #8A99A8;
+    padding: 4px 6px;
+  }
+
+  /* Floating back-to-top button: safe placement */
+  .sc-back-to-top {
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    width: 42px;
+    height: 42px;
   }
 
   .sc-appbadges-row {
@@ -463,6 +615,22 @@ html, body {
   box-sizing: border-box;
 }
 
+/* Hide closed mobile navigation drawer completely from render tree to eliminate phantom horizontal scroll */
+.sc-mobile-menu:not(.is-open),
+.sc-mobile-drawer:not(.is-open) {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  max-width: min(380px, 100vw) !important;
+}
+
+.sc-mobile-menu.is-open,
+.sc-mobile-drawer.is-open {
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(0) !important;
+  max-width: min(380px, 100vw) !important;
+}
+
 .sc-hero-title,
 .sc-inner-hero-title,
 .sc-section-title,
@@ -485,9 +653,22 @@ html, body {
     height: 64px;
   }
 
-  .sc-logo-img {
-    height: 28px;
-    max-width: 130px;
+  /* Task 1: Preserve 25-30% header logo boost */
+  .sc-header .sc-logo-img,
+  .sc-header .sc-logo-link img {
+    height: 36px !important;
+    max-width: 175px !important;
+    width: auto !important;
+    object-fit: contain;
+  }
+
+  /* Task 3: Preserve 30-40% footer logo boost */
+  .sc-footer-logo-img,
+  .sc-footer .sc-logo-img,
+  .sc-footer-bottom .sc-logo-img {
+    height: 38px !important;
+    max-width: 175px !important;
+    width: auto !important;
     object-fit: contain;
   }
 
@@ -499,27 +680,28 @@ html, body {
   }
 
   .sc-mobile-drawer {
-    max-width: 100vw;
+    max-width: min(380px, 100vw) !important;
     width: 100%;
     padding: 20px 16px;
   }
 
-  /* Homepage promotional video with white border */
-  .sc-inline-player-container {
-    border-width: 6px;
-    border-radius: 14px;
-    box-sizing: border-box;
-    max-width: 100%;
+  /* Task 2: Homepage promotional video: Preserve exact 10px white border */
+  .sc-inline-player-container,
+  .sc-hero-mockup-wrap {
+    border: 10px solid #FFFFFF !important;
+    border-radius: var(--border-radius-xl) !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
   }
 
   .sc-inline-center-play {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
   }
 
   .sc-inline-center-play svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
 
   .sc-hero-actions,
@@ -547,9 +729,21 @@ html, body {
     padding-right: 12px;
   }
 
-  .sc-logo-img {
-    height: 25px;
-    max-width: 110px;
+  /* Task 1: Proportional header logo on extra-small mobile */
+  .sc-header .sc-logo-img,
+  .sc-header .sc-logo-link img {
+    height: 33px !important;
+    max-width: 155px !important;
+    width: auto !important;
+  }
+
+  /* Task 3: Proportional footer logo on extra-small mobile */
+  .sc-footer-logo-img,
+  .sc-footer .sc-logo-img,
+  .sc-footer-bottom .sc-logo-img {
+    height: 36px !important;
+    max-width: 160px !important;
+    width: auto !important;
   }
 
   .sc-hero-title {
@@ -564,9 +758,11 @@ html, body {
     font-size: 28px;
   }
 
-  .sc-inline-player-container {
-    border-width: 4px;
-    border-radius: 12px;
+  /* Task 2: Preserve exact 10px white border even at 320px */
+  .sc-inline-player-container,
+  .sc-hero-mockup-wrap {
+    border: 10px solid #FFFFFF !important;
+    border-radius: var(--border-radius-lg) !important;
   }
 }
 
