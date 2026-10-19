@@ -340,7 +340,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
+    gap: 22px;
   }
 
   .sc-footer-socials {
@@ -349,7 +349,7 @@
     justify-content: center;
   }
 
-  /* Footer copyright container: stacks logo cleanly above copyright text */
+  /* Footer copyright container: stacks logo badge cleanly above copyright text */
   .sc-footer-copyright-wrap,
   .sc-footer-bottom > div:nth-child(2) {
     display: flex;
@@ -357,20 +357,45 @@
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    gap: 12px !important;
+    gap: 16px !important;
     width: 100% !important;
   }
 
-  /* Task 3: Increase footer logo size by 30-40% on mobile (28px -> 38px) */
+  /* Mobile footer logo badge: soft off-white/cream rounded rectangle shape */
+  .sc-footer-logo-link,
+  .sc-footer-copyright-wrap a.sc-logo-link,
+  .sc-footer-bottom > div:nth-child(2) a.sc-logo-link,
+  .sc-footer-bottom .sc-logo-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%) !important;
+    padding: 10px 22px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(235, 228, 216, 0.85) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+    margin: 0 auto !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    text-decoration: none !important;
+    max-width: 90% !important;
+  }
+
+  .sc-footer-logo-link:hover,
+  .sc-footer-bottom .sc-logo-link:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 2px 5px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Footer logo size: 42-45px height (set to 44px) perfectly centered */
   .sc-footer-logo-img,
   .sc-footer .sc-logo-img,
   .sc-footer-bottom .sc-logo-img {
-    height: 38px !important;
+    height: 44px !important;
     width: auto !important;
-    max-width: 175px !important;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
+    max-width: 180px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
     image-rendering: -webkit-optimize-contrast;
   }
 
@@ -662,12 +687,12 @@ html, body {
     object-fit: contain;
   }
 
-  /* Task 3: Preserve 30-40% footer logo boost */
+  /* Footer logo size: 42-45px height (44px) inside soft off-white/cream badge */
   .sc-footer-logo-img,
   .sc-footer .sc-logo-img,
   .sc-footer-bottom .sc-logo-img {
-    height: 38px !important;
-    max-width: 175px !important;
+    height: 44px !important;
+    max-width: 180px !important;
     width: auto !important;
     object-fit: contain;
   }
@@ -737,12 +762,20 @@ html, body {
     width: auto !important;
   }
 
-  /* Task 3: Proportional footer logo on extra-small mobile */
+  /* Footer logo badge & size on extra-small mobile (320px) */
+  .sc-footer-logo-link,
+  .sc-footer-copyright-wrap a.sc-logo-link,
+  .sc-footer-bottom > div:nth-child(2) a.sc-logo-link,
+  .sc-footer-bottom .sc-logo-link {
+    padding: 8px 18px !important;
+    border-radius: 12px !important;
+  }
+
   .sc-footer-logo-img,
   .sc-footer .sc-logo-img,
   .sc-footer-bottom .sc-logo-img {
-    height: 36px !important;
-    max-width: 160px !important;
+    height: 42px !important;
+    max-width: 165px !important;
     width: auto !important;
   }
 
