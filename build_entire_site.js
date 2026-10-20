@@ -478,6 +478,9 @@ function make_page(rel_path, depth, active, title, desc, canonical, main_html) {
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="${rel}assets/logos/postnexa-icon.png">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-393969405255147" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -3464,6 +3467,9 @@ ${dlScopedInlineCss}
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="${downloader_rel}assets/logos/postnexa-icon.png">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-393969405255147" crossorigin="anonymous"></script>
 </head>
 <body>
 
