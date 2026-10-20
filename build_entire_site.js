@@ -480,6 +480,7 @@ function make_page(rel_path, depth, active, title, desc, canonical, main_html) {
   <link rel="icon" type="image/png" href="${rel}assets/logos/postnexa-icon.png">
 
   <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-393969405255147">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-393969405255147" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -3469,6 +3470,7 @@ ${dlScopedInlineCss}
   <link rel="icon" type="image/png" href="${downloader_rel}assets/logos/postnexa-icon.png">
 
   <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-393969405255147">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-393969405255147" crossorigin="anonymous"></script>
 </head>
 <body>
