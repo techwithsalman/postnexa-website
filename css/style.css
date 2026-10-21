@@ -1321,16 +1321,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .sc-deepdive-img-card {
   border-radius: var(--border-radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--color-border);
-  background-color: #FFFFFF;
+  overflow: visible;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
   transition: transform var(--transition-slow);
 }
 
 .sc-deepdive-img-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-xl);
+}
+
+.sc-deepdive-img-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
 }
 
 /* --------------------------------------------------------------------------
