@@ -2842,6 +2842,57 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
+/* --------------------------------------------------------------------------
+   Prominent App Brand Badge for Legal & Compliance Documentation
+   -------------------------------------------------------------------------- */
+.sc-legal-app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding: 8px 18px 8px 10px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--border-radius-pill);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sc-legal-app-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.sc-legal-app-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.sc-legal-app-badge-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.sc-legal-app-badge-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+}
+
+.sc-legal-app-badge-desc {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}
+
 /* Legal Content Typography */
 .sc-legal-wrapper {
   max-width: 860px;

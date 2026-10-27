@@ -43,7 +43,14 @@ const PUBLIC_ROOT_FILES = [
   'robots.txt',
   'sitemap.xml',
   '_headers',
-  '_redirects'
+  '_redirects',
+  'favicon.ico',
+  'apple-touch-icon.png',
+  'apple-touch-icon-precomposed.png',
+  'favicon-32x32.png',
+  'favicon-16x16.png',
+  'site.webmanifest',
+  'manifest.json'
 ];
 
 function copyRecursive(src, dest) {

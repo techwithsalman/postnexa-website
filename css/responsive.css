@@ -588,6 +588,25 @@
    Inner Pages Specific Responsive Rules (<= 768px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+  .sc-legal-app-badge {
+    padding: 6px 14px 6px 8px;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .sc-legal-app-badge-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .sc-legal-app-badge-name {
+    font-size: 14px;
+  }
+
+  .sc-legal-app-badge-desc {
+    font-size: 11px;
+  }
+
   .sc-inner-hero {
     padding: 40px 0 36px 0;
   }
