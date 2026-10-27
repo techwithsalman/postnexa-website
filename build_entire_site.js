@@ -480,8 +480,14 @@ function make_page(rel_path, depth, active, title, desc, canonical, main_html) {
   <link rel="stylesheet" href="${rel}css/style.css">
   <link rel="stylesheet" href="${rel}css/responsive.css">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="${rel}assets/logos/postnexa-icon.png">
+  <!-- Favicons & App Icons -->
+  <link rel="icon" type="image/x-icon" href="${rel}favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="${rel}assets/logos/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="${rel}assets/logos/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="${rel}assets/logos/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="${rel}assets/logos/apple-touch-icon.png">
+  <link rel="manifest" href="${rel}site.webmanifest">
+  <meta name="theme-color" content="#F16A21">
 
   <!-- Google AdSense -->
   <meta name="google-adsense-account" content="ca-pub-393969405255147">
@@ -2500,6 +2506,13 @@ const privacy_html = `
         <span>Privacy Policy</span>
       </nav>
       <div class="sc-inner-hero-content">
+        <div class="sc-legal-app-badge">
+          <img src="../assets/logos/postnexa-icon.png" alt="PostNexa App Icon" class="sc-legal-app-badge-icon" width="44" height="44">
+          <div class="sc-legal-app-badge-text">
+            <span class="sc-legal-app-badge-name">PostNexa</span>
+            <span class="sc-legal-app-badge-desc">Official App &amp; Legal Policies</span>
+          </div>
+        </div>
         <h1 class="sc-inner-hero-title">Privacy Policy</h1>
         <p class="sc-inner-hero-desc">Last updated: March 2026 • PostNexa by Tech With Salman</p>
       </div>
@@ -2553,6 +2566,13 @@ const terms_html = `
         <span>Terms of Service</span>
       </nav>
       <div class="sc-inner-hero-content">
+        <div class="sc-legal-app-badge">
+          <img src="../assets/logos/postnexa-icon.png" alt="PostNexa App Icon" class="sc-legal-app-badge-icon" width="44" height="44">
+          <div class="sc-legal-app-badge-text">
+            <span class="sc-legal-app-badge-name">PostNexa</span>
+            <span class="sc-legal-app-badge-desc">Official App &amp; Legal Policies</span>
+          </div>
+        </div>
         <h1 class="sc-inner-hero-title">Terms of Service</h1>
         <p class="sc-inner-hero-desc">Last updated: March 2026 • PostNexa by Tech With Salman</p>
       </div>
@@ -3474,8 +3494,14 @@ ${downloader_structured_data}
 ${dlScopedInlineCss}
   </style>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="${downloader_rel}assets/logos/postnexa-icon.png">
+  <!-- Favicons & App Icons -->
+  <link rel="icon" type="image/x-icon" href="${downloader_rel}favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="${downloader_rel}assets/logos/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="${downloader_rel}assets/logos/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="${downloader_rel}assets/logos/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="${downloader_rel}assets/logos/apple-touch-icon.png">
+  <link rel="manifest" href="${downloader_rel}site.webmanifest">
+  <meta name="theme-color" content="#F16A21">
 
   <!-- Google AdSense -->
   <meta name="google-adsense-account" content="ca-pub-393969405255147">
