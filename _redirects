@@ -1,9 +1,7 @@
 # Cloudflare Pages & Netlify Routing Configuration
-# Static multi-page architecture: all 37 HTML routes and 404.html are served natively.
+# Static multi-page architecture: all HTML routes and 404.html are served natively.
 /home              /                                    301
 /index             /                                    301
-/tools             /tools/social-media-downloader/      301
-/tools/            /tools/social-media-downloader/      301
 /signin            https://app.postnexa.world/login     302
 /login             https://app.postnexa.world/login     302
 /signup            https://app.postnexa.world/signup    302
