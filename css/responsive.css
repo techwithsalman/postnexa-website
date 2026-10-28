@@ -1005,3 +1005,53 @@ html, body {
   }
 }
 
+
+
+/* ==========================================================================
+   Responsive Rules for PostNexa Free Utility Tools
+   ========================================================================== */
+@media (max-width: 860px) {
+  .sc-analysis-split {
+    grid-template-columns: 1fr;
+  }
+  .sc-platform-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+  .sc-tool-card {
+    padding: 26px 20px;
+    border-radius: 18px;
+  }
+  .sc-hashtag-tray {
+    padding: 18px 16px;
+  }
+  .sc-calendar-wrap {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .sc-specs-grid {
+    grid-template-columns: 1fr;
+  }
+  .sc-tool-chips {
+    gap: 6px;
+  }
+  .sc-platform-chip,
+  .sc-tone-chip,
+  .sc-length-chip {
+    padding: 7px 13px;
+    font-size: 12.5px;
+  }
+  .sc-calendar-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sc-caption-card-foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sc-tray-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

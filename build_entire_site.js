@@ -152,24 +152,26 @@ function header_html(rel, active = "") {
                   
                   <div class="sc-mega-col">
                     <h3 class="sc-mega-lead">Creator Tools</h3>
-                    <p class="sc-mega-desc">Free utility tools built by PostNexa to help creators and teams inspect, preview, and save their own social media videos.</p>
-                    <a href="${rel}tools/social-media-downloader/index.html" class="sc-card-link" style="margin-top: 16px;">Open Video Downloader ➔</a>
+                    <p class="sc-mega-desc">Free browser-based tools built by PostNexa to help creators and teams craft captions, generate hashtags, plan calendars, check image specs, and download videos.</p>
+                    <a href="${rel}tools/index.html" class="sc-card-link" style="margin-top: 16px;">Browse All Free Tools ➔</a>
                   </div>
 
                   <div class="sc-mega-col">
-                    <h4 class="sc-mega-col-title">Video Downloader</h4>
+                    <h4 class="sc-mega-col-title">Social Media Tools</h4>
                     <ul class="sc-mega-list">
-                      <li><a href="${rel}tools/social-media-downloader/index.html" class="sc-mega-link"><img src="${rel}assets/icons/publish.svg" class="sc-mega-link-icon" alt="">Social Media Video Downloader</a></li>
-                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=tiktok" class="sc-mega-link"><img src="${rel}assets/icons/tiktok.svg" class="sc-mega-link-icon" alt="">TikTok Downloader</a></li>
-                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=instagram" class="sc-mega-link"><img src="${rel}assets/icons/instagram.svg" class="sc-mega-link-icon" alt="">Instagram Downloader</a></li>
+                      <li><a href="${rel}tools/caption-generator/index.html" class="sc-mega-link"><img src="${rel}assets/icons/ai-bot.svg" class="sc-mega-link-icon" alt="">AI Caption Generator</a></li>
+                      <li><a href="${rel}tools/hashtag-generator/index.html" class="sc-mega-link"><img src="${rel}assets/icons/star.svg" class="sc-mega-link-icon" alt="">Viral Hashtag Generator</a></li>
+                      <li><a href="${rel}tools/content-calendar-generator/index.html" class="sc-mega-link"><img src="${rel}assets/icons/calendar.svg" class="sc-mega-link-icon" alt="">Content Calendar Tool</a></li>
+                      <li><a href="${rel}tools/image-size-checker/index.html" class="sc-mega-link"><img src="${rel}assets/icons/analytics.svg" class="sc-mega-link-icon" alt="">Image Size Checker</a></li>
                     </ul>
                   </div>
 
                   <div class="sc-mega-col">
-                    <h4 class="sc-mega-col-title">Supported Platforms</h4>
+                    <h4 class="sc-mega-col-title">Video Utilities</h4>
                     <ul class="sc-mega-list">
-                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=facebook" class="sc-mega-link"><img src="${rel}assets/icons/facebook.svg" class="sc-mega-link-icon" alt="">Facebook Downloader</a></li>
-                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=youtube" class="sc-mega-link"><img src="${rel}assets/icons/youtube.svg" class="sc-mega-link-icon" alt="">YouTube Downloader</a></li>
+                      <li><a href="${rel}tools/social-media-downloader/index.html" class="sc-mega-link"><img src="${rel}assets/icons/publish.svg" class="sc-mega-link-icon" alt="">Social Media Downloader</a></li>
+                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=tiktok" class="sc-mega-link"><img src="${rel}assets/icons/tiktok.svg" class="sc-mega-link-icon" alt="">TikTok Downloader</a></li>
+                      <li><a href="${rel}tools/social-media-downloader/index.html?platform=instagram" class="sc-mega-link"><img src="${rel}assets/icons/instagram.svg" class="sc-mega-link-icon" alt="">Instagram Downloader</a></li>
                     </ul>
                   </div>
 
@@ -288,11 +290,12 @@ function header_html(rel, active = "") {
           <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
         <div class="sc-mobile-submenu">
+          <a href="${rel}tools/index.html" class="sc-mobile-sublink" style="font-weight: 700; color: var(--color-primary);">All Free Tools Hub</a>
+          <a href="${rel}tools/caption-generator/index.html" class="sc-mobile-sublink">AI Caption Generator</a>
+          <a href="${rel}tools/hashtag-generator/index.html" class="sc-mobile-sublink">Viral Hashtag Generator</a>
+          <a href="${rel}tools/content-calendar-generator/index.html" class="sc-mobile-sublink">Content Calendar Tool</a>
+          <a href="${rel}tools/image-size-checker/index.html" class="sc-mobile-sublink">Image Size Checker</a>
           <a href="${rel}tools/social-media-downloader/index.html" class="sc-mobile-sublink">Social Media Video Downloader</a>
-          <a href="${rel}tools/social-media-downloader/index.html?platform=tiktok" class="sc-mobile-sublink">TikTok Downloader</a>
-          <a href="${rel}tools/social-media-downloader/index.html?platform=instagram" class="sc-mobile-sublink">Instagram Downloader</a>
-          <a href="${rel}tools/social-media-downloader/index.html?platform=facebook" class="sc-mobile-sublink">Facebook Downloader</a>
-          <a href="${rel}tools/social-media-downloader/index.html?platform=youtube" class="sc-mobile-sublink">YouTube Downloader</a>
         </div>
       </li>
       <li class="sc-mobile-item"><a href="${rel}integrations/index.html" class="sc-mobile-direct-link">Integrations</a></li>
@@ -365,7 +368,10 @@ function footer_html(rel) {
         <div>
           <h4 class="sc-footer-col-title">Resources</h4>
           <ul class="sc-footer-links">
-            <li><a href="${rel}tools/social-media-downloader/index.html" class="sc-footer-link">Social Media Video Downloader</a></li>
+            <li><a href="${rel}tools/index.html" class="sc-footer-link">Free Creator Tools</a></li>
+            <li><a href="${rel}tools/caption-generator/index.html" class="sc-footer-link">AI Caption Generator</a></li>
+            <li><a href="${rel}tools/hashtag-generator/index.html" class="sc-footer-link">Hashtag Generator</a></li>
+            <li><a href="${rel}tools/social-media-downloader/index.html" class="sc-footer-link">Video Downloader</a></li>
             <li><a href="${rel}blog/index.html" class="sc-footer-link">Social Media Blog</a></li>
             <li><a href="${rel}changelog/index.html" class="sc-footer-link">Changelog &amp; Releases</a></li>
             <li><a href="${rel}roadmap/index.html" class="sc-footer-link">Product Roadmap</a></li>
