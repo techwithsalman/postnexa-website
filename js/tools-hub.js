@@ -16,6 +16,22 @@
 
     let activeCategory = 'all';
 
+    // Synchronize tab count badges dynamically from actual cards in the DOM
+    tabButtons.forEach((btn) => {
+      const cat = btn.getAttribute('data-category');
+      const countEl = btn.querySelector('.th-tab-count');
+      if (countEl) {
+        if (cat === 'all') {
+          countEl.textContent = toolCards.length;
+        } else {
+          const matchCount = Array.from(toolCards).filter((c) =>
+            (c.getAttribute('data-category') || '').split(' ').includes(cat)
+          ).length;
+          countEl.textContent = matchCount;
+        }
+      }
+    });
+
     function filterTools() {
       const query = (searchInput?.value || '').toLowerCase().trim();
       let visibleCount = 0;
@@ -26,7 +42,7 @@
         const desc = (card.querySelector('.th-card-desc')?.textContent || '').toLowerCase();
         const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
 
-        const matchesCat = activeCategory === 'all' || cat === activeCategory;
+        const matchesCat = activeCategory === 'all' || cat.split(' ').includes(activeCategory);
         const matchesQuery = !query || title.includes(query) || desc.includes(query) || keywords.includes(query);
 
         if (matchesCat && matchesQuery) {
@@ -56,5 +72,9 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', initToolsHub);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initToolsHub);
+  } else {
+    initToolsHub();
+  }
 })();
