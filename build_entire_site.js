@@ -159,8 +159,8 @@ function make_page(rel_path, depth, active, title, desc, canonical, main_html) {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
   <!-- Google AdSense Verification -->
-  <meta name="google-adsense-account" content="ca-pub-393969405255147">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-393969405255147" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-3939699405255147">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3939699405255147" crossorigin="anonymous"></script>
   
   <!-- Primary SEO Meta Tags -->
   <title>${title} — PostNexa by Tech With Salman</title>
@@ -199,8 +199,8 @@ function make_page(rel_path, depth, active, title, desc, canonical, main_html) {
   <meta name="theme-color" content="#F16A21">
 
   <!-- Google AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-393969405255147">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-393969405255147" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-3939699405255147">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3939699405255147" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -3168,8 +3168,8 @@ const downloader_full_html = `<!DOCTYPE html>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
   <!-- Google AdSense Verification -->
-  <meta name="google-adsense-account" content="ca-pub-393969405255147">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-393969405255147" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-3939699405255147">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3939699405255147" crossorigin="anonymous"></script>
   
   <!-- Primary SEO Meta Tags -->
   <title>${downloader_title}</title>
@@ -3213,8 +3213,8 @@ ${dlScopedInlineCss}
   <meta name="theme-color" content="#F16A21">
 
   <!-- Google AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-393969405255147">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-393969405255147" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-3939699405255147">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3939699405255147" crossorigin="anonymous"></script>
 </head>
 <body>
 
