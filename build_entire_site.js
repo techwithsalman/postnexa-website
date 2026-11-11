@@ -158,6 +158,16 @@ function make_page(rel_path, depth, active, title, desc, canonical, main_html) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21MY13818"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z21MY13818');
+  </script>
+  
   <!-- Google AdSense Verification -->
   <meta name="google-adsense-account" content="ca-pub-3939699405255147">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3939699405255147" crossorigin="anonymous"></script>
@@ -3166,6 +3176,16 @@ const downloader_full_html = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21MY13818"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z21MY13818');
+  </script>
   
   <!-- Google AdSense Verification -->
   <meta name="google-adsense-account" content="ca-pub-3939699405255147">
