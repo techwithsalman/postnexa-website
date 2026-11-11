@@ -122,7 +122,7 @@
         timeDisplay.textContent = '0:00 / ' + formatTime(video.duration);
       }
       // Guarantee initial frame is decoded and painted without black screen
-      if (video.currentTime === 0) {
+      if (!video.hasAttribute('poster') && video.currentTime === 0) {
         try {
           video.currentTime = 0.001;
         } catch (e) {
