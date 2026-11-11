@@ -58,12 +58,12 @@ function footer_html(rel) {
         <div>
           <h4 class="sc-footer-col-title">Integrations</h4>
           <ul class="sc-footer-links">
-            <li><a href="${rel}integrations/index.html" class="sc-footer-link">Facebook Publishing</a></li>
-            <li><a href="${rel}integrations/index.html" class="sc-footer-link">Instagram Reels</a></li>
-            <li><a href="${rel}integrations/index.html" class="sc-footer-link">YouTube Video Uploads</a></li>
-            <li><a href="${rel}integrations/index.html" class="sc-footer-link">TikTok Scheduling</a></li>
-            <li><a href="${rel}integrations/index.html" class="sc-footer-link">LinkedIn Integration</a></li>
-            <li><a href="${rel}integrations/index.html" class="sc-footer-link">Integrations Directory</a></li>
+            <li><a href="${rel}integrations/" class="sc-footer-link">Facebook Publishing</a></li>
+            <li><a href="${rel}integrations/" class="sc-footer-link">Instagram Reels</a></li>
+            <li><a href="${rel}integrations/" class="sc-footer-link">YouTube Video Uploads</a></li>
+            <li><a href="${rel}integrations/" class="sc-footer-link">TikTok Scheduling</a></li>
+            <li><a href="${rel}integrations/" class="sc-footer-link">LinkedIn Integration</a></li>
+            <li><a href="${rel}integrations/" class="sc-footer-link">Integrations Directory</a></li>
           </ul>
         </div>
 
@@ -841,7 +841,7 @@ features_data.forEach(feat => {
           <ul class="sc-feat-bullet-list">
             ${feat.deep_dive_2.bullets.map(b => `<li class="sc-feat-bullet-item"><img src="${rel}assets/icons/check.svg" alt=""> <span>${b}</span></li>`).join("")}
           </ul>
-          <a href="${rel}integrations/index.html" class="sc-btn sc-btn-outline">View Supported Networks ➔</a>
+          <a href="${rel}integrations/" class="sc-btn sc-btn-outline">View Supported Networks ➔</a>
         </div>
         <div class="sc-feat-row-visual">
           <img src="${rel}assets/images/${feat.deep_dive_2.visual}" alt="${feat.deep_dive_2.title}">

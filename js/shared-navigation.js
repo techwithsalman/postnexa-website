@@ -129,7 +129,7 @@ function getHeaderHtml(rel = "", active = "") {
                         <h4>Connected Platforms</h4>
                         <p>Support for Facebook, Instagram, YouTube, TikTok, LinkedIn, and more.</p>
                       </div>
-                      <a href="${rel}integrations/index.html" class="sc-btn sc-btn-yellow sc-btn-pill">View Integrations ➔</a>
+                      <a href="${rel}integrations/" class="sc-btn sc-btn-yellow sc-btn-pill">View Integrations ➔</a>
                     </div>
                   </div>
 
@@ -206,7 +206,7 @@ function getHeaderHtml(rel = "", active = "") {
 
           <!-- Direct Links -->
           <li class="sc-nav-item">
-            <a href="${rel}integrations/index.html" class="sc-nav-head${active === 'integrations' ? ' is-active' : ''}">Integrations</a>
+            <a href="${rel}integrations/" class="sc-nav-head${active === 'integrations' ? ' is-active' : ''}">Integrations</a>
           </li>
           <li class="sc-nav-item">
             <a href="${rel}pricing/index.html" class="sc-nav-head${active === 'pricing' ? ' is-active' : ''}">Pricing</a>
@@ -331,7 +331,7 @@ function getDrawerHtml(rel = "", active = "") {
       </li>
 
       <li class="sc-mobile-item">
-        <a href="${rel}integrations/index.html" class="sc-mobile-direct-link">Integrations</a>
+        <a href="${rel}integrations/" class="sc-mobile-direct-link">Integrations</a>
       </li>
       <li class="sc-mobile-item">
         <a href="${rel}pricing/index.html" class="sc-mobile-direct-link">Pricing</a>

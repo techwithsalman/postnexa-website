@@ -66,18 +66,63 @@
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://postnexa.world/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Integrations",
-          "item": "https://postnexa.world/integrations/"
-        }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://postnexa.world/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Integrations",
+            "item": "https://postnexa.world/integrations/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does PostNexa ever see or store my social media account passwords?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. PostNexa connects to your social accounts exclusively through standard OAuth 2.0 protocols provided directly by Meta, Google, and ByteDance. When you connect an account, you log in on the official network's secure dialog. PostNexa receives only a scoped, encrypted access token and never accesses or stores your passwords."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does Instagram scheduling require a Business or Creator account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Meta's official Instagram Graph API restricts automated, direct third-party publishing to Instagram Professional (Business or Creator) accounts that are linked to an active Facebook Page. Personal Instagram accounts are not supported by Meta's developer API for auto-publishing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I disconnect a social profile or revoke access?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can disconnect any channel with a single click from your PostNexa workspace dashboard under Channel Settings. Additionally, you can revoke PostNexa's authorization at any time directly through the security settings of your Facebook, Google, or TikTok account."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are there daily publishing limits when scheduling via official APIs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Each platform enforces official rate limits to maintain content quality and protect against spam. For example, Meta limits direct automated API publishing to 25 posts per Instagram account within a rolling 24-hour period."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if an API connection token expires?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If you change your password on a connected social network or if a platform issues a security token refresh, the authorization token may expire. PostNexa alerts you immediately in the dashboard. Reconnecting takes one click through the standard OAuth dialog, and none of your scheduled queue or draft content is lost."
+            }
+          }
         ]
       }
     ]
@@ -211,7 +256,7 @@
                         <h4>Connected Platforms</h4>
                         <p>Support for Facebook, Instagram, YouTube, TikTok, LinkedIn, and more.</p>
                       </div>
-                      <a href="../integrations/index.html" class="sc-btn sc-btn-yellow sc-btn-pill">View Integrations ➔</a>
+                      <a href="../integrations/" class="sc-btn sc-btn-yellow sc-btn-pill">View Integrations ➔</a>
                     </div>
                   </div>
 
@@ -288,7 +333,7 @@
 
           <!-- Direct Links -->
           <li class="sc-nav-item">
-            <a href="../integrations/index.html" class="sc-nav-head is-active">Integrations</a>
+            <a href="../integrations/" class="sc-nav-head is-active">Integrations</a>
           </li>
           <li class="sc-nav-item">
             <a href="../pricing/index.html" class="sc-nav-head">Pricing</a>
@@ -412,7 +457,7 @@
       </li>
 
       <li class="sc-mobile-item">
-        <a href="../integrations/index.html" class="sc-mobile-direct-link">Integrations</a>
+        <a href="../integrations/" class="sc-mobile-direct-link">Integrations</a>
       </li>
       <li class="sc-mobile-item">
         <a href="../pricing/index.html" class="sc-mobile-direct-link">Pricing</a>
@@ -674,6 +719,186 @@
     </div>
   </section>
 
+
+  <!-- How Official API Publishing Works -->
+  <section style="padding: 64px 0; background: #FFFFFF; border-top: 1px solid var(--color-border);">
+    <div class="sc-container">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 48px;">
+        <span class="sc-badge-status sc-badge-live" style="margin-bottom: 12px; display: inline-block;">Secure OAuth Architecture</span>
+        <h2 style="font-size: clamp(24px, 3.2vw, 36px); font-weight: 800; color: var(--color-text-main); margin: 0 0 12px;">How Official API Publishing Works in PostNexa</h2>
+        <p style="font-size: 16px; color: var(--color-text-muted); line-height: 1.6; margin: 0;">PostNexa connects directly to official platform endpoints to ensure your accounts remain secure, authorized, and compliant with developer policies.</p>
+      </div>
+
+      <div class="sc-card-grid-3">
+        <div class="sc-feature-item-card" style="padding: 28px;">
+          <div class="sc-card-icon-wrap" style="background: #FFF7ED; color: var(--color-primary); margin-bottom: 18px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-weight: 900; font-size: 18px;">1</div>
+          <h3 class="sc-card-title" style="font-size: 19px; margin-bottom: 10px;">Scoped OAuth 2.0 Handshake</h3>
+          <p class="sc-card-text" style="font-size: 14.5px; line-height: 1.6; color: var(--color-text-muted); margin: 0;">You authorize PostNexa directly through official Meta, Google, or ByteDance login dialogs. PostNexa never sees, handles, or stores your social account passwords. Access is granted via revocable, encrypted access tokens strictly scoped to page and channel publishing.</p>
+        </div>
+
+        <div class="sc-feature-item-card" style="padding: 28px;">
+          <div class="sc-card-icon-wrap" style="background: #FFF7ED; color: var(--color-primary); margin-bottom: 18px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-weight: 900; font-size: 18px;">2</div>
+          <h3 class="sc-card-title" style="font-size: 19px; margin-bottom: 10px;">Pre-Flight Media Validation</h3>
+          <p class="sc-card-text" style="font-size: 14.5px; line-height: 1.6; color: var(--color-text-muted); margin: 0;">Before queuing, PostNexa validates file dimensions, codecs, and container sizes client-side: JPG, PNG, and WebP for image posts; MP4 and MOV (up to 1080p, 9:16 vertical) for Reels and TikTok. This prevents unexpected API rejection errors at publish time.</p>
+        </div>
+
+        <div class="sc-feature-item-card" style="padding: 28px;">
+          <div class="sc-card-icon-wrap" style="background: #FFF7ED; color: var(--color-primary); margin-bottom: 18px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-weight: 900; font-size: 18px;">3</div>
+          <h3 class="sc-card-title" style="font-size: 19px; margin-bottom: 10px;">Direct API Container Dispatch</h3>
+          <p class="sc-card-text" style="font-size: 14.5px; line-height: 1.6; color: var(--color-text-muted); margin: 0;">At your scheduled publishing time, PostNexa's automated scheduler creates media containers and initiates direct publish requests to platform API servers. Content posts automatically to your profile without requiring manual mobile push confirmations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications & Account Requirements -->
+  <section style="padding: 64px 0; background: var(--color-bg-light); border-top: 1px solid var(--color-border);">
+    <div class="sc-container">
+      <div style="max-width: 720px; margin: 0 auto 40px; text-align: center;">
+        <h2 style="font-size: clamp(24px, 3.2vw, 36px); font-weight: 800; color: var(--color-text-main); margin: 0 0 12px;">Verified Channel Capabilities &amp; Requirements</h2>
+        <p style="font-size: 16px; color: var(--color-text-muted); line-height: 1.6; margin: 0;">A transparent breakdown of supported publishing formats, verified account requirements, and platform developer constraints.</p>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14.5px;">
+            <thead>
+              <tr style="background: #F8FAFC; border-bottom: 1px solid var(--color-border);">
+                <th style="padding: 16px 20px; font-weight: 800; color: var(--color-text-main);">Platform</th>
+                <th style="padding: 16px 20px; font-weight: 800; color: var(--color-text-main);">Status</th>
+                <th style="padding: 16px 20px; font-weight: 800; color: var(--color-text-main);">Account Requirement</th>
+                <th style="padding: 16px 20px; font-weight: 800; color: var(--color-text-main);">Supported Formats</th>
+                <th style="padding: 16px 20px; font-weight: 800; color: var(--color-text-main);">API Protocol</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 18px 20px; font-weight: 700; color: var(--color-text-main);">Facebook Pages</td>
+                <td style="padding: 18px 20px;"><span class="sc-badge-status sc-badge-live">Live &amp; Verified</span></td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Facebook Page with Admin or Editor task permission</td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Single Photos (JPG, PNG), Videos (MP4, MOV up to 1GB), Link Posts, Text</td>
+                <td style="padding: 18px 20px; font-family: monospace; font-size: 13px; color: #475569;">Meta Graph API v19+</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 18px 20px; font-weight: 700; color: var(--color-text-main);">Instagram Professional</td>
+                <td style="padding: 18px 20px;"><span class="sc-badge-status sc-badge-live">Live &amp; Verified</span></td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Instagram Business or Creator account connected to a Facebook Page</td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Feed Photos (1:1, 4:5), Vertical Reels (9:16, up to 15 min), Multi-Image Carousels</td>
+                <td style="padding: 18px 20px; font-family: monospace; font-size: 13px; color: #475569;">Instagram Graph API</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 18px 20px; font-weight: 700; color: var(--color-text-main);">YouTube</td>
+                <td style="padding: 18px 20px;"><span class="sc-badge-status sc-badge-live">Live &amp; Verified</span></td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Verified YouTube Channel (Google Account)</td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Standard Landscape Videos (16:9 up to 4K), YouTube Shorts (9:16 vertical &le; 60s)</td>
+                <td style="padding: 18px 20px; font-family: monospace; font-size: 13px; color: #475569;">YouTube Data API v3</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 18px 20px; font-weight: 700; color: var(--color-text-main);">TikTok</td>
+                <td style="padding: 18px 20px;"><span class="sc-badge-status sc-badge-dev">Beta Testing</span></td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">TikTok Personal or Business Account</td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Vertical Video (9:16 aspect ratio, MP4/MOV) — Direct publishing and draft creator sync</td>
+                <td style="padding: 18px 20px; font-family: monospace; font-size: 13px; color: #475569;">TikTok Content Posting API</td>
+              </tr>
+              <tr>
+                <td style="padding: 18px 20px; font-weight: 700; color: var(--color-text-main);">LinkedIn, X &amp; Others</td>
+                <td style="padding: 18px 20px;"><span class="sc-badge-status sc-badge-soon">In Development</span></td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Active platform accounts (Rollouts in progress per roadmap)</td>
+                <td style="padding: 18px 20px; color: var(--color-text-muted);">Company Page updates, multi-image posts, and thread distribution</td>
+                <td style="padding: 18px 20px; font-family: monospace; font-size: 13px; color: #475569;">Official Partner Endpoints</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions -->
+  <section class="sc-faq-section" style="padding: 64px 0; background: #FFFFFF; border-top: 1px solid var(--color-border);">
+    <div class="sc-container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 40px;">
+        <span class="sc-badge-status sc-badge-live" style="margin-bottom: 12px; display: inline-block;">Integrations FAQ</span>
+        <h2 style="font-size: clamp(24px, 3.2vw, 36px); font-weight: 800; color: var(--color-text-main); margin: 0 0 12px;">Frequently Asked Questions</h2>
+        <p style="font-size: 16px; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Everything you need to know about connecting social accounts, API authorization, and automated publishing.</p>
+      </div>
+
+      <div class="sc-faq-accordion" style="max-width: 800px; margin: 0 auto;">
+        
+        <div class="sc-faq-item">
+          <button type="button" class="sc-faq-trigger" aria-expanded="false">
+            <span>Does PostNexa ever see or store my social media account passwords?</span>
+            <svg class="sc-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-answer">
+              <p>No. PostNexa connects to your social accounts exclusively through standard OAuth 2.0 protocols provided directly by Meta, Google, and ByteDance. When you connect an account, you log in on the official network's secure dialog. PostNexa receives only a scoped, encrypted access token and never accesses or stores your passwords.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-faq-item">
+          <button type="button" class="sc-faq-trigger" aria-expanded="false">
+            <span>Why does Instagram scheduling require a Business or Creator account?</span>
+            <svg class="sc-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-answer">
+              <p>Meta's official Instagram Graph API restricts automated, direct third-party publishing to Instagram Professional (Business or Creator) accounts that are linked to an active Facebook Page. Personal Instagram accounts are not supported by Meta's developer API for auto-publishing. Switching a personal account to a Creator or Business account is free inside the Instagram mobile app.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-faq-item">
+          <button type="button" class="sc-faq-trigger" aria-expanded="false">
+            <span>How do I disconnect a social profile or revoke access?</span>
+            <svg class="sc-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-answer">
+              <p>You can disconnect any channel with a single click from your PostNexa workspace dashboard under Channel Settings. Additionally, you can revoke PostNexa's authorization at any time directly through the "Apps and Websites" or "Security" settings of your Facebook, Google, or TikTok account.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-faq-item">
+          <button type="button" class="sc-faq-trigger" aria-expanded="false">
+            <span>Are there daily publishing limits when scheduling via official APIs?</span>
+            <svg class="sc-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-answer">
+              <p>Yes. Each platform enforces official rate limits to maintain content quality and protect against spam. For example, Meta limits direct automated API publishing to 25 posts per Instagram account within a rolling 24-hour period. PostNexa automatically monitors your publishing volume to ensure your account remains within official limits.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-faq-item">
+          <button type="button" class="sc-faq-trigger" aria-expanded="false">
+            <span>What happens if an API connection token expires?</span>
+            <svg class="sc-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="sc-faq-content">
+            <div class="sc-faq-answer">
+              <p>If you change your password on a connected social network or if a platform issues a security token refresh, the authorization token may expire. PostNexa alerts you immediately in the dashboard. Reconnecting takes one click through the standard OAuth dialog, and none of your scheduled queue or draft content is lost.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </main>
 
   <!-- =========================================================================
@@ -716,12 +941,12 @@
         <div>
           <h4 class="sc-footer-col-title">Integrations</h4>
           <ul class="sc-footer-links">
-            <li><a href="../integrations/index.html" class="sc-footer-link">Facebook Publishing</a></li>
-            <li><a href="../integrations/index.html" class="sc-footer-link">Instagram Reels</a></li>
-            <li><a href="../integrations/index.html" class="sc-footer-link">YouTube Video Uploads</a></li>
-            <li><a href="../integrations/index.html" class="sc-footer-link">TikTok Scheduling</a></li>
-            <li><a href="../integrations/index.html" class="sc-footer-link">LinkedIn Integration</a></li>
-            <li><a href="../integrations/index.html" class="sc-footer-link">Integrations Directory</a></li>
+            <li><a href="../integrations/" class="sc-footer-link">Facebook Publishing</a></li>
+            <li><a href="../integrations/" class="sc-footer-link">Instagram Reels</a></li>
+            <li><a href="../integrations/" class="sc-footer-link">YouTube Video Uploads</a></li>
+            <li><a href="../integrations/" class="sc-footer-link">TikTok Scheduling</a></li>
+            <li><a href="../integrations/" class="sc-footer-link">LinkedIn Integration</a></li>
+            <li><a href="../integrations/" class="sc-footer-link">Integrations Directory</a></li>
           </ul>
         </div>
 
