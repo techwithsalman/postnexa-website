@@ -46,59 +46,96 @@
   <!-- JSON-LD Structured Data: Breadcrumbs + BlogPosting -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://postnexa.world/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Blog",
-            "item": "https://postnexa.world/blog/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "How to Repurpose Content Across Instagram, TikTok, YouTube Shorts and Facebook",
-            "item": "https://postnexa.world/blog/repurpose-content-across-social-platforms/"
-          }
-        ]
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "How to Repurpose One Piece of Content for Instagram, TikTok, YouTube Shorts and Facebook",
-        "description": "Learn how to turn 1 core content piece into high-performing posts for Instagram, TikTok, YouTube Shorts, and Facebook Reels with our 2026 repurposing framework.",
-        "image": "https://postnexa.world/assets/images/blog/repurpose-content-across-social-platforms.webp",
-        "datePublished": "2026-11-13T08:00:00+00:00",
-        "dateModified": "2026-11-13T10:00:00+00:00",
-        "author": {
-          "@type": "Organization",
-          "name": "Tech With Salman",
-          "url": "https://techwithsalman.online/"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://postnexa.world/"
         },
-        "publisher": {
-          "@type": "Organization",
-          "name": "PostNexa",
-          "url": "https://postnexa.world/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://postnexa.world/assets/logos/postnexa-logo.png"
-          }
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://postnexa.world/blog/"
         },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://postnexa.world/blog/repurpose-content-across-social-platforms/"
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Repurpose Content Across Instagram, TikTok, YouTube Shorts and Facebook",
+          "item": "https://postnexa.world/blog/repurpose-content-across-social-platforms/"
         }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "How to Repurpose One Piece of Content for Instagram, TikTok, YouTube Shorts and Facebook",
+      "description": "Learn how to turn 1 core content piece into high-performing posts for Instagram, TikTok, YouTube Shorts, and Facebook Reels with our 2026 repurposing framework.",
+      "image": "https://postnexa.world/assets/images/blog/repurpose-content-across-social-platforms.webp",
+      "datePublished": "2026-11-13T08:00:00+00:00",
+      "dateModified": "2026-11-13T10:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tech With Salman",
+        "url": "https://techwithsalman.online/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PostNexa",
+        "url": "https://postnexa.world/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://postnexa.world/assets/logos/postnexa-logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://postnexa.world/blog/repurpose-content-across-social-platforms/"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will my followers get annoyed seeing similar content on multiple apps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cross-platform audience overlap is surprisingly low: industry studies show less than 18% of your followers on Instagram actively follow and see your content on TikTok. Repurposing with tailored native formatting ensures each audience receives content optimized for their specific platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the safest way to store master video footage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Store your raw recorded master files in an organized cloud archive before adding platform watermarks or captions. PostNexa allows you to upload clean video assets once and customize individual captions and scheduling parameters per network."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can small businesses repurpose effectively without hiring an editor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. By establishing a templated batching workflow and recording one comprehensive 10-minute long-form video every two weeks, solo founders can easily extract 3 to 5 short clips using simple trimming tools and schedule them across all channels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does repurposing trigger Google or social duplicate content penalties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Social media platforms do not penalize creators for publishing original videos across multiple channels, provided the video does not contain competitor watermarks (such as TikTok or Instagram logos). PostNexa publishes native video files directly through official APIs without third-party badges."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <!-- Google Fonts: Plus Jakarta Sans -->

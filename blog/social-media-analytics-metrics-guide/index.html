@@ -46,59 +46,96 @@
   <!-- JSON-LD Structured Data: Breadcrumbs + BlogPosting -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://postnexa.world/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Blog",
-            "item": "https://postnexa.world/blog/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Social Media Analytics: 12 Metrics Every Business Should Track in 2026",
-            "item": "https://postnexa.world/blog/social-media-analytics-metrics-guide/"
-          }
-        ]
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "Social Media Analytics: 12 Metrics Every Business Should Track in 2026",
-        "description": "Discover the 12 essential social media metrics every business must track in 2026. Master formulas, calculation methods, benchmarks, and monthly reporting workflows.",
-        "image": "https://postnexa.world/assets/images/blog/social-media-analytics-metrics-guide.webp",
-        "datePublished": "2026-11-13T08:00:00+00:00",
-        "dateModified": "2026-11-13T10:00:00+00:00",
-        "author": {
-          "@type": "Organization",
-          "name": "Tech With Salman",
-          "url": "https://techwithsalman.online/"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://postnexa.world/"
         },
-        "publisher": {
-          "@type": "Organization",
-          "name": "PostNexa",
-          "url": "https://postnexa.world/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://postnexa.world/assets/logos/postnexa-logo.png"
-          }
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://postnexa.world/blog/"
         },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://postnexa.world/blog/social-media-analytics-metrics-guide/"
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Social Media Analytics: 12 Metrics Every Business Should Track in 2026",
+          "item": "https://postnexa.world/blog/social-media-analytics-metrics-guide/"
         }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Social Media Analytics: 12 Metrics Every Business Should Track in 2026",
+      "description": "Discover the 12 essential social media metrics every business must track in 2026. Master formulas, calculation methods, benchmarks, and monthly reporting workflows.",
+      "image": "https://postnexa.world/assets/images/blog/social-media-analytics-metrics-guide.webp",
+      "datePublished": "2026-11-13T08:00:00+00:00",
+      "dateModified": "2026-11-13T10:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tech With Salman",
+        "url": "https://techwithsalman.online/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PostNexa",
+        "url": "https://postnexa.world/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://postnexa.world/assets/logos/postnexa-logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://postnexa.world/blog/social-media-analytics-metrics-guide/"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is considered a good engagement rate in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In 2026, a healthy average engagement rate by reach (ERR) spans 2.5% to 5.5% for mid-sized accounts (10K to 100K followers). For accounts under 10K followers, ERR frequently exceeds 7% to 10%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do my video views spike while website link clicks remain flat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Social algorithms reward content that keeps users inside their application ecosystems. If your video provides complete entertainment without giving viewers a compelling reason to visit an external site, views will skyrocket while click-through rates remain low."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are native platform analytics or third-party reporting tools more accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Native platform analytics provide accurate raw numbers through their first-party APIs. Unified platforms like PostNexa fetch this verified API data directly and aggregate it into unified dashboards, eliminating inconsistencies caused by divergent definitions across networks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do platform algorithm updates impact historical analytics comparisons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When platforms alter distribution mechanics, comparing current metrics directly to historical averages can produce false signals. Benchmark performance against 30-day and 90-day rolling averages to normalize algorithm fluctuations."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <!-- Google Fonts: Plus Jakarta Sans -->
