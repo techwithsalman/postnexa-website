@@ -1,0 +1,210 @@
+{
+  "$schema": "./publishing-queue.schema.json",
+  "version": "1.0.0",
+  "project": "PostNexa",
+  "website": "https://postnexa.world",
+  "repository": "https://github.com/techwithsalman/postnexa-website",
+  "publishingCadence": "3 articles per week",
+  "defaultAuthor": "Tech With Salman",
+  "defaultPublisher": "PostNexa",
+  "queue": [
+    {
+      "id": "post-001",
+      "slug": "image-size-checker-guide",
+      "title": "Image Size Checker: Complete Guide to Checking Image Dimensions Online",
+      "h1": "Image Size Checker: How to Check Image Dimensions & File Size Online in 2026",
+      "metaDescription": "Learn how to check image dimensions, pixel resolutions, and file sizes online. Master in-browser image size finder techniques for faster websites and social feeds.",
+      "targetQueries": [
+        "image size checker",
+        "image size finder",
+        "website image size checker",
+        "check image dimensions online"
+      ],
+      "gscOpportunityRank": 1,
+      "gscImpressionsBaseline": 59,
+      "thumbnail": "assets/images/blog/image-size-checker-guide.webp",
+      "thumbnailDimensions": "1200x675",
+      "draftPath": "drafts/image-size-checker-guide/index.html",
+      "publishPath": "blog/image-size-checker-guide/index.html",
+      "canonicalUrl": "https://postnexa.world/blog/image-size-checker-guide/",
+      "wordCount": 2556,
+      "primaryCTA": {
+        "text": "Check Image Dimensions Free",
+        "url": "/tools/image-size-checker/index.html"
+      },
+      "secondaryCTA": {
+        "text": "Explore All 23 Tools",
+        "url": "/tools/index.html"
+      },
+      "week": 1,
+      "scheduledDate": "Week 1, Day 1 (Monday)",
+      "targetDate": "2026-11-17",
+      "status": "published",
+      "publishedAt": "2026-11-14T01:13:39.921Z"
+    },
+    {
+      "id": "post-002",
+      "slug": "website-image-sizes-guide",
+      "title": "Website Image Sizes & Dimensions Guide: Best Practices for 2026",
+      "h1": "Website Image Sizes & Dimensions Guide: Best Practices for 2026",
+      "metaDescription": "Master website image sizes, responsive breakpoints, and Core Web Vitals optimization. Learn the exact pixel dimensions and formats for heroes, blogs, and ecommerce.",
+      "targetQueries": [
+        "website image size checker",
+        "best image size for website",
+        "website image dimensions guide",
+        "web image optimization"
+      ],
+      "gscOpportunityRank": 2,
+      "gscImpressionsBaseline": 13,
+      "thumbnail": "assets/images/blog/website-image-sizes-guide.webp",
+      "thumbnailDimensions": "1200x675",
+      "draftPath": "drafts/website-image-sizes-guide/index.html",
+      "publishPath": "blog/website-image-sizes-guide/index.html",
+      "canonicalUrl": "https://postnexa.world/blog/website-image-sizes-guide/",
+      "wordCount": 2236,
+      "primaryCTA": {
+        "text": "Convert Images to WebP",
+        "url": "/tools/images-to-webp/index.html"
+      },
+      "secondaryCTA": {
+        "text": "Resize Images Online",
+        "url": "/tools/image-resizer/index.html"
+      },
+      "week": 1,
+      "scheduledDate": "Week 1, Day 3 (Wednesday)",
+      "targetDate": "2026-11-19",
+      "status": "pending_approval"
+    },
+    {
+      "id": "post-003",
+      "slug": "linkedin-hashtag-generator-guide",
+      "title": "LinkedIn Hashtag Generator Guide: Best Practices & Algorithm Rules (2026)",
+      "h1": "How to Use LinkedIn Hashtags in 2026: Strategy, Best Practices & Generator Guide",
+      "metaDescription": "Master LinkedIn hashtags in 2026. Learn how the LinkedIn algorithm indexes hashtags, the 3-to-5 golden ratio, industry cheat sheets, and generator workflows.",
+      "targetQueries": [
+        "linkedin hashtag generator",
+        "best hashtags for linkedin",
+        "how many hashtags to use on linkedin 2026",
+        "linkedin algorithm hashtags"
+      ],
+      "gscOpportunityRank": 3,
+      "gscImpressionsBaseline": 20,
+      "thumbnail": "assets/images/blog/linkedin-hashtag-generator-guide.webp",
+      "thumbnailDimensions": "1200x675",
+      "draftPath": "drafts/linkedin-hashtag-generator-guide/index.html",
+      "publishPath": "blog/linkedin-hashtag-generator-guide/index.html",
+      "canonicalUrl": "https://postnexa.world/blog/linkedin-hashtag-generator-guide/",
+      "wordCount": 1884,
+      "primaryCTA": {
+        "text": "Try Free Hashtag Generator",
+        "url": "/tools/hashtag-generator/index.html"
+      },
+      "secondaryCTA": {
+        "text": "Explore Social Scheduling",
+        "url": "/features/social-media-scheduling/index.html"
+      },
+      "week": 1,
+      "scheduledDate": "Week 1, Day 5 (Friday)",
+      "targetDate": "2026-11-21",
+      "status": "published",
+      "publishedAt": "2026-11-14T01:13:39.927Z"
+    },
+    {
+      "id": "post-004",
+      "slug": "image-resizing-vs-compression",
+      "title": "Image Resizing vs Compression: What Is the Difference? (2026 Guide)",
+      "h1": "Image Resizing vs Compression: What Is the Difference & Which Should You Use?",
+      "metaDescription": "Learn the exact difference between resizing and compressing an image. Understand resampling algorithms, lossy vs lossless compression, and the right order of operations.",
+      "targetQueries": [
+        "image resizing vs compression",
+        "difference between resizing and compressing an image",
+        "resize image without losing quality"
+      ],
+      "gscOpportunityRank": 4,
+      "gscImpressionsBaseline": 41,
+      "thumbnail": "assets/images/blog/image-resizing-vs-compression.webp",
+      "thumbnailDimensions": "1200x675",
+      "draftPath": "drafts/image-resizing-vs-compression/index.html",
+      "publishPath": "blog/image-resizing-vs-compression/index.html",
+      "canonicalUrl": "https://postnexa.world/blog/image-resizing-vs-compression/",
+      "wordCount": 2188,
+      "primaryCTA": {
+        "text": "Resize Images Online",
+        "url": "/tools/image-resizer/index.html"
+      },
+      "secondaryCTA": {
+        "text": "Compress Images Free",
+        "url": "/tools/image-compressor/index.html"
+      },
+      "week": 2,
+      "scheduledDate": "Week 2, Day 1 (Monday)",
+      "targetDate": "2026-11-24",
+      "status": "pending_approval"
+    },
+    {
+      "id": "post-005",
+      "slug": "free-social-media-scheduling-tools-calendar",
+      "title": "Best Free Social Media Scheduling Tools with Visual Calendar View (2026)",
+      "h1": "Best Free Social Media Scheduling Tools with Visual Calendar View in 2026",
+      "metaDescription": "Compare the best free social media scheduling tools featuring visual calendar views. Discover queue depths, supported channels, and drag-and-drop workflows.",
+      "targetQueries": [
+        "free social media scheduling tools with calendar view",
+        "free social media scheduling tools",
+        "social media scheduling tools free"
+      ],
+      "gscOpportunityRank": 5,
+      "gscImpressionsBaseline": 32,
+      "thumbnail": "assets/images/blog/free-social-media-scheduling-tools-calendar.webp",
+      "thumbnailDimensions": "1200x675",
+      "draftPath": "drafts/free-social-media-scheduling-tools-calendar/index.html",
+      "publishPath": "blog/free-social-media-scheduling-tools-calendar/index.html",
+      "canonicalUrl": "https://postnexa.world/blog/free-social-media-scheduling-tools-calendar/",
+      "wordCount": 2066,
+      "primaryCTA": {
+        "text": "Start Free Today",
+        "url": "https://app.postnexa.world/signup"
+      },
+      "secondaryCTA": {
+        "text": "Tour Calendar Features",
+        "url": "/features/content-calendar/index.html"
+      },
+      "week": 2,
+      "scheduledDate": "Week 2, Day 3 (Wednesday)",
+      "targetDate": "2026-11-26",
+      "status": "published",
+      "publishedAt": "2026-11-14T01:13:39.933Z"
+    },
+    {
+      "id": "post-006",
+      "slug": "business-social-media-content-calendar",
+      "title": "How to Build a Social Media Content Calendar for Small Businesses (2026)",
+      "h1": "How to Build a Social Media Content Calendar for Small Businesses: 2026 Playbook",
+      "metaDescription": "Learn how to build a high-converting small business social media content calendar. Master the 4 core content pillars, the 5-hour weekly batching system, and templates.",
+      "targetQueries": [
+        "social media content calendar for small businesses",
+        "small business content calendar template",
+        "how to create a content calendar"
+      ],
+      "gscOpportunityRank": 6,
+      "gscImpressionsBaseline": 14,
+      "thumbnail": "assets/images/blog/business-social-media-content-calendar.webp",
+      "thumbnailDimensions": "1200x675",
+      "draftPath": "drafts/business-social-media-content-calendar/index.html",
+      "publishPath": "blog/business-social-media-content-calendar/index.html",
+      "canonicalUrl": "https://postnexa.world/blog/business-social-media-content-calendar/",
+      "wordCount": 2033,
+      "primaryCTA": {
+        "text": "Explore Small Business Solutions",
+        "url": "/solutions/small-businesses/index.html"
+      },
+      "secondaryCTA": {
+        "text": "Create Free Account",
+        "url": "https://app.postnexa.world/signup"
+      },
+      "week": 2,
+      "scheduledDate": "Week 2, Day 5 (Friday)",
+      "targetDate": "2026-11-28",
+      "status": "pending_approval"
+    }
+  ]
+}
