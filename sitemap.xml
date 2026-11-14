@@ -471,4 +471,23 @@
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
+
+  <url>
+    <loc>https://postnexa.world/blog/website-image-sizes-guide/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://postnexa.world/blog/image-resizing-vs-compression/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://postnexa.world/blog/business-social-media-content-calendar/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
 </urlset>

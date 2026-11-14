@@ -73,7 +73,9 @@
       "week": 1,
       "scheduledDate": "Week 1, Day 3 (Wednesday)",
       "targetDate": "2026-11-19",
-      "status": "pending_approval"
+      "status": "published",
+      "publishedAt": "2026-11-14T01:23:28.837Z",
+      "targetDir": "blog/website-image-sizes-guide"
     },
     {
       "id": "post-003",
@@ -139,7 +141,9 @@
       "week": 2,
       "scheduledDate": "Week 2, Day 1 (Monday)",
       "targetDate": "2026-11-24",
-      "status": "pending_approval"
+      "status": "published",
+      "publishedAt": "2026-11-14T01:23:28.837Z",
+      "targetDir": "blog/image-resizing-vs-compression"
     },
     {
       "id": "post-005",
@@ -204,7 +208,9 @@
       "week": 2,
       "scheduledDate": "Week 2, Day 5 (Friday)",
       "targetDate": "2026-11-28",
-      "status": "pending_approval"
+      "status": "published",
+      "publishedAt": "2026-11-14T01:23:28.837Z",
+      "targetDir": "blog/business-social-media-content-calendar"
     }
   ]
 }
