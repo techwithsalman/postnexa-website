@@ -487,17 +487,33 @@
       </ul>
 
       <h2>3. Third-Party Platform Data Compliance</h2>
-      <p>PostNexa adheres strictly to the developer policies of our integrated platforms:</p>
+      <p>PostNexa adheres strictly to the developer policies and data protection guidelines of all integrated third-party platforms:</p>
       <ul>
         <li><strong>Meta Platforms (Facebook &amp; Instagram):</strong> We request only approved permissions (e.g., <code>pages_manage_posts</code>, <code>instagram_basic</code>, <code>instagram_content_publish</code>). We do not share, sell, or monetize user data.</li>
-        <li><strong>Google &amp; YouTube:</strong> Use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including Limited Use requirements.</li>
+        <li><strong>Google &amp; YouTube API Services:</strong> PostNexa's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</li>
       </ul>
 
-      <h2>4. Data Retention and Deletion</h2>
+      <h2>4. YouTube API Services &amp; Google User Data Disclosures</h2>
+      <p>PostNexa utilizes official YouTube API Services to allow users to connect their YouTube channels, view channel metadata, and publish video content and Shorts directly from the platform. In compliance with the YouTube Developer Policies and Google API Services User Data Policy, we disclose the following:</p>
+      <ul>
+        <li><strong>YouTube Terms &amp; Google Privacy:</strong> By connecting and publishing to YouTube through PostNexa, you agree to be bound by the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+        <li><strong>Google OAuth Scopes Requested:</strong> PostNexa requests only the minimum necessary scopes required to provide YouTube publishing and channel selection functionality:
+          <ul>
+            <li><code>https://www.googleapis.com/auth/youtube.upload</code>: Used solely to upload and publish videos and Shorts that you explicitly create, schedule, or publish to your connected YouTube channel.</li>
+            <li><code>https://www.googleapis.com/auth/youtube.readonly</code>: Used solely to read your channel identifier, channel title, channel avatar, and verify upload processing status within your PostNexa workspace dashboard.</li>
+          </ul>
+        </li>
+        <li><strong>Data Accessed and Stored:</strong> When you connect a YouTube channel, PostNexa accesses and stores your YouTube channel identifier, channel name, channel profile picture URL, and securely encrypted OAuth access and refresh tokens. PostNexa does NOT access, store, or monitor your private Google emails, Google Drive files, personal contacts, viewing history, or search history.</li>
+        <li><strong>Data Retention &amp; Cache Policy:</strong> Stored OAuth refresh tokens are maintained in encrypted format strictly for as long as your YouTube channel remains connected to PostNexa. Cached YouTube channel metadata is refreshed periodically and is not stored or cached longer than thirty (30) days without an active API refresh.</li>
+        <li><strong>Data Deletion &amp; Permission Revocation:</strong> You can disconnect your YouTube channel at any time via <strong>Settings &gt; Connected Accounts</strong> in your PostNexa dashboard, which immediately and permanently deletes all stored OAuth tokens, channel credentials, and queued posts for that channel. You can also revoke PostNexa's access to your Google account at any time via the <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Security Settings (Permissions)</a> page.</li>
+        <li><strong>No AI/ML Model Training:</strong> PostNexa does NOT use, transfer, or disclose any Google user data, YouTube API data, channel metadata, or video content to train, develop, fine-tune, or improve any generalized Artificial Intelligence (AI) or Machine Learning (ML) models. AI capabilities within PostNexa (such as AI Video Caption Generation and AI Content Studio) operate solely on user-provided draft prompt inputs during an active session and do not train external or internal generalized models on YouTube data.</li>
+      </ul>
+
+      <h2>5. General Data Retention and Deletion</h2>
       <p>You may disconnect social accounts or permanently delete your account at any time. Upon account deletion, all stored tokens and queued posts are permanently purged from our databases. See our <a href="../data-deletion/index.html">Data Deletion Instructions</a> for full details.</p>
 
-      <h2>5. Contact Information</h2>
-      <p>For privacy inquiries, contact: <a href="mailto:postnexa.online@gmail.com" style="color: var(--color-primary); font-weight: 700;">postnexa.online@gmail.com</a></p>
+      <h2>6. Contact Information</h2>
+      <p>For privacy inquiries, contact: <!--email_off--><a href="mailto:postnexa.online@gmail.com" style="color: var(--color-primary); font-weight: 700;">postnexa.online@gmail.com</a><!--/email_off--></p>
     </div>
   </section>
 

@@ -33,6 +33,7 @@ const PUBLIC_DIRS = [
   'roadmap',
   'solutions',
   'terms',
+  'terms-of-service',
   'tools'
 ];
 
